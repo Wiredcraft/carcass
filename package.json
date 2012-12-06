@@ -1,0 +1,35 @@
+{
+  "author": {
+    "name": "devo.ps",
+    "email": "info@devo.ps",
+    "url": "https://github.com/devo-ps"
+  },
+  "name": "carcass",
+  "description": "An Express.js framework with a bunch of tools and assumptions.",
+  "version": "0.0.1",
+  "contributors": [],
+  "keywords": [
+    "carcass",
+    "express",
+    "framework"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/devo-ps/carcass.git"
+  },
+  "url": "",
+  "dependencies": {
+    "debug": "~0.7.0",
+    "express": "~3.0.4",
+    "methods": "~0.0.1",
+    "underscore": "~1.4.3"
+  },
+  "devDependencies": {
+    "mocha": "1.x",
+    "request": "2.x",
+    "should": "1.x"
+  },
+  "scripts": {
+    "test": "./node_modules/.bin/mocha ./test/*.mocha.js"
+  }
+}
