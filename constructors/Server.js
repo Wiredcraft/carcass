@@ -32,6 +32,7 @@ Server.prototype.close = function() {
 // .
 Server.prototype.mount = function(name, route) {
     var self = this;
+    // TODO: not only applications, but any namespace.
     if (!carcass.applications || !carcass.applications[name]) {
         return self;
     }

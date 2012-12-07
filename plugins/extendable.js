@@ -1,7 +1,7 @@
 var util = require('util');
 var _ = require('underscore');
 
-// .
+// Make it extendable.
 module.exports = function(args) {
     return function(obj) {
         obj.extend = function(protoProps) {

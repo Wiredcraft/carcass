@@ -1,5 +1,4 @@
 var carcass = require('carcass');
-var util = require('util');
 var should = require('should');
 
 require('./fixture');
