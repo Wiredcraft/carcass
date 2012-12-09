@@ -16,7 +16,7 @@ _.each(exports.constructors, function(obj) {
     if (!obj.prototype) return;
     exports.mixable(obj);
     exports.mixable(obj.prototype);
-    obj.mixin('plugins', 'extendable');
+    obj.plugin('plugins', 'extendable');
 });
 
 // Register servers.
