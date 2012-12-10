@@ -5,7 +5,6 @@ var _ = require('underscore');
 module.exports = function(args) {
     return function(obj) {
         if (!_.isFunction(obj)) return;
-        // TODO: better to use descriptor?
-        _.extend(obj.prototype, Object.create(EventEmitter.prototype));
+        obj.prototype.mixin(EventEmitter.prototype);
     };
 };
