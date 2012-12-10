@@ -25,5 +25,7 @@ module.exports = function(args) {
 
             return child;
         };
+        
+        return obj;
     };
 };

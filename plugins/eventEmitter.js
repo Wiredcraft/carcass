@@ -6,5 +6,6 @@ module.exports = function(args) {
     return function(obj) {
         if (!_.isFunction(obj)) return;
         obj.prototype.mixin(EventEmitter.prototype);
+        return obj;
     };
 };

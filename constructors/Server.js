@@ -9,9 +9,10 @@ module.exports = Server;
 // Servers in Carcass are also applications by themselves.
 // Servers in Carcass can start and stop, and mount some applications.
 function Server(attributes, options) {
-    this.app = express();
-    this.mounted = {};
     debug('initializing %s.', this.constructor.title);
+    this.app = express();
+    this.plugin('plugins', 'configurable');
+    this.mounted = {};
     this.initialize.apply(this, arguments);
 };
 
@@ -30,34 +31,35 @@ Server.prototype.close = function() {
 };
 
 // .
-Server.prototype.mount = function(name, route) {
+Server.prototype.mount = function(title, route) {
     var self = this;
     // TODO: not only applications, but any namespace.
-    if (!carcass.applications || !carcass.applications[name]) {
+    if (!carcass.applications || !carcass.applications[title]) {
         return self;
     }
     // Don't mount a same application to a same route multiple times.
     route || (route = '/');
     self.mounted[route] || (self.mounted[route] = {});
-    if (self.mounted[route][name]) {
+    if (self.mounted[route][title]) {
         return self;
     }
-    var app = new carcass.applications[name]();
+    var app = new carcass.applications[title]();
     // Handle dependencies.
-    _.each(app.dependencies || null, function(name, route) {
-        self.mount(name, route);
-    });
+    _.each(app.dependencies || null, self.mount);
     debug('mounting %s to [%s].', app.constructor.title, route);
     self.app.use(route, app);
-    self.mounted[route][name] = true;
+    self.mounted[route][title] = true;
     return self;
 };
 
 // .
-Server.prototype.mountAll = function() {
+Server.prototype.mountAll = function(namespace, route) {
     var self = this;
-    _.each(carcass.applications || null, function(Res, name) {
-        self.mount(name);
+    namespace || (namespace = 'applications');
+    route || (route = '/');
+    debug('mounting all from %s to [%s].', namespace, route);
+    _.each(carcass[namespace] || null, function(Res, title) {
+        self.mount(title);
     });
     return this;
 };

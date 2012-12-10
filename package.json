@@ -19,6 +19,7 @@
   },
   "url": "",
   "dependencies": {
+    "configurable": "~0.0.1",
     "debug": "~0.7.0",
     "express": "~3.0.4",
     "methods": "~0.0.1",

@@ -6,8 +6,8 @@ module.exports = Application;
 
 // Application is just an Express application.
 function Application(attributes, options) {
-    _.extend(this, express());
     debug('initializing %s.', this.constructor.title);
+    _.extend(this, express());
     this.initialize.apply(this, arguments);
 };
 
