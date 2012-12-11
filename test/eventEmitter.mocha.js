@@ -1,14 +1,12 @@
 var carcass = require('carcass');
 var util = require('util');
-var should = require('should');
 var EventEmitter = require('events').EventEmitter;
-var _ = require('underscore');
 
 require('./fixture');
 
 describe('Event Emitter', function() {
 
-    describe('The example from nodejs.org.', function() {
+    describe('The example from nodejs.org', function() {
         it('should just work.', function(done) {
             var lorem = false;
             var MyStream = function() {
@@ -29,14 +27,11 @@ describe('Event Emitter', function() {
         });
     });
 
-    describe('The mixin I built.', function() {
+    describe('With the mixin method I built', function() {
         it('should also work.', function(done) {
             var lorem = false;
-            var MyStream = function() {
-                EventEmitter.call(this);
-            };
-            carcass.mixable(MyStream);
-            MyStream.plugin('plugins', 'eventEmitter');
+            var MyStream = carcass.mixable(function() {});
+            MyStream.prototype.mixin(EventEmitter.prototype);
             MyStream.prototype.write = function(data) {
                 this.emit('data', data);
             };

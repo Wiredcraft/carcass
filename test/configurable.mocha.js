@@ -4,7 +4,7 @@ var should = require('should');
 require('./fixture');
 
 describe('Configurable', function() {
-    describe('A same set of tests from configurable.js.', function() {
+    describe('A same set of tests from configurable.js', function() {
         var obj = null;
 
         beforeEach(function() {
