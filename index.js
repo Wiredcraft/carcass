@@ -15,7 +15,6 @@ exports.register(__dirname, 'constructors');
 _.each(exports.constructors, function(obj) {
     if (!obj.prototype) return;
     exports.mixable(obj);
-    exports.mixable(obj.prototype);
     obj.plugin('plugins', 'extendable');
 });
 

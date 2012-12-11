@@ -13,17 +13,16 @@ describe('Carcass', function() {
 
     describe('Mixin', function() {
         it('should be able to merge objects.', function(done) {
-            var obj = {};
-            carcass.mixable(obj);
+            var obj = carcass.mixable({});
             var value = false;
-            var mixin = {
+            var mixinObj = {
                 lorem: function() {
                     this.should.equal(obj);
                     value = true;
                     return 'lorem';
                 }
             };
-            obj.mixin(mixin);
+            obj.mixin(mixinObj);
             obj.should.have.property('lorem');
             obj.lorem().should.equal('lorem');
             value.should.equal(true);
