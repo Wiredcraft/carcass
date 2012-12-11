@@ -11,7 +11,7 @@ module.exports = Server;
 function Server(attributes, options) {
     debug('initializing %s.', this.constructor.title);
     this.app = express();
-    this.plugin('plugins', 'configurable');
+    carcass.plugins.configurable(this);
     this.mounted = {};
     this.initialize.apply(this, arguments);
 };

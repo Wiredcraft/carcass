@@ -9,7 +9,7 @@ describe('Configurable', function() {
 
         beforeEach(function() {
             obj = carcass.mixable({});
-            obj.plugin('plugins', 'configurable');
+            carcass.plugins.configurable(obj);
         });
 
         describe('.set(obj)', function() {
