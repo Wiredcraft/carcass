@@ -20,3 +20,6 @@ _.each(exports.constructors, function(obj) {
 
 // Register servers.
 exports.register(__dirname, 'servers');
+
+// Register applications.
+exports.register(__dirname, 'applications');

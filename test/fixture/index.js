@@ -7,11 +7,12 @@ carcass.register(__dirname, 'models');
 carcass.register(__dirname, 'applications');
 
 // .
-var server = new carcass.servers.Http();
+var server = exports.server = new carcass.servers.Http();
 
-// Mount all registered applications and start the server.
+// Mount some applications and start the server.
 exports.start = function(callback) {
-    server.mountAll();
+    server.mount('Restify');
+    server.mount('Lorem');
     return server.start(callback);
 };
 

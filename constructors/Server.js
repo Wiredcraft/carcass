@@ -55,12 +55,5 @@ Server.prototype.mount = function(title, route) {
 
 // .
 Server.prototype.mountAll = function(namespace, route) {
-    var self = this;
-    namespace || (namespace = 'applications');
-    route || (route = '/');
-    debug('mounting all from %s to [%s].', namespace, route);
-    _.each(carcass[namespace] || null, function(Res, title) {
-        self.mount(title);
-    });
-    return this;
+    throw new Error('Not implemented yet.');
 };
