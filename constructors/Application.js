@@ -1,13 +1,13 @@
-var express = require('express');
-var _ = require('underscore');
 var debug = require('debug')('carcass:Application');
+
+var express = require('express');
 
 module.exports = Application;
 
 // Application is just an Express application.
 function Application(attributes, options) {
     debug('initializing %s.', this.constructor.title);
-    _.extend(this, express());
+    this.mixin(express());
     this.initialize.apply(this, arguments);
 };
 

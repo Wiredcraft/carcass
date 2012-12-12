@@ -1,7 +1,8 @@
+var debug = require('debug')('carcass:Server');
+
 var carcass = require('carcass');
 var express = require('express');
 var _ = require('underscore');
-var debug = require('debug')('carcass:Server');
 
 module.exports = Server;
 

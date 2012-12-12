@@ -1,5 +1,5 @@
+var carcass = require('carcass');
 var util = require('util');
-var _ = require('underscore');
 
 // Make it extendable.
 module.exports = function(obj) {
@@ -8,19 +8,22 @@ module.exports = function(obj) {
         var child = function() {
             parent.apply(this, arguments);
         };
+        
+        // .
+        carcass.mixable(child);
 
         // .
-        _.extend(child, parent);
+        child.mixin(parent);
+
+        // .
+        child.title && delete child.title;
 
         // Inherit.
         util.inherits(child, this);
 
         // Add prototype properties (instance properties) to the subclass, if
         // supplied.
-        if (protoProps) _.extend(child.prototype, protoProps);
-
-        // TODO: better to delete before extending?
-        child.title && delete child.title;
+        if (protoProps) child.prototype.mixin(protoProps);
 
         return child;
     };
