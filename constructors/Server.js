@@ -46,7 +46,7 @@ Server.prototype.mount = function(title, route) {
     }
     var app = new carcass.applications[title]();
     // Handle dependencies.
-    _.each(app.dependencies || null, self.mount);
+    _.each(app.dependencies || null, self.mount, self);
     debug('mounting %s to [%s].', app.constructor.title, route);
     self.app.use(route, app);
     self.mounted[route][title] = true;
