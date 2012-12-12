@@ -11,8 +11,8 @@ var server = exports.server = new carcass.servers.Http();
 
 // Mount some applications and start the server.
 exports.start = function(callback) {
-    server.mount('Restify');
-    server.mount('Lorem');
+    server.mount('applications/Restify');
+    server.mount('Lorem', '/lorem');
     return server.start(callback);
 };
 

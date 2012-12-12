@@ -12,6 +12,7 @@ describe('Lorem, a simple application', function() {
         fixture.close(done);
     });
 
+    // FIXME: this is a wrong route.
     describe('Get /dolor', function() {
         it('should return the text', function(done) {
             request.get({

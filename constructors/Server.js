@@ -13,7 +13,6 @@ function Server(attributes, options) {
     debug('initializing %s.', this.constructor.title);
     this.app = express();
     carcass.plugins.configurable(this);
-    this.mounted = {};
     this.initialize.apply(this, arguments);
 };
 
@@ -32,24 +31,23 @@ Server.prototype.close = function() {
 };
 
 // .
-Server.prototype.mount = function(title, route) {
+Server.prototype.mount = function(plugin, route) {
     var self = this;
-    // TODO: not only applications, but any namespace.
-    if (!carcass.applications || !carcass.applications[title]) {
-        return self;
-    }
-    // Don't mount a same application to a same route multiple times.
     route || (route = '/');
-    self.mounted[route] || (self.mounted[route] = {});
-    if (self.mounted[route][title]) {
+    // Support 'namespace/title', and default namespace to applications.
+    var namespace = 'applications';
+    var parts = plugin.split('/');
+    if (parts.length > 1) {
+        namespace = parts[0];
+        plugin = parts[1];
+    }
+    if (!carcass[namespace] || !carcass[namespace][plugin]) {
+        debug('not found: %s/%s.', namespace, plugin);
         return self;
     }
-    var app = new carcass.applications[title]();
-    // Handle dependencies.
-    _.each(app.dependencies || null, self.mount, self);
-    debug('mounting %s to [%s].', app.constructor.title, route);
+    debug('mounting %s/%s to "%s".', namespace, plugin, route);
+    var app = new carcass[namespace][plugin]();
     self.app.use(route, app);
-    self.mounted[route][title] = true;
     return self;
 };
 
