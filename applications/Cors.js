@@ -5,7 +5,9 @@ var Application = carcass.constructors.Application.extend();
 // Cross-origin resource sharing.
 // @see http://en.wikipedia.org/wiki/Cross-origin_resource_sharing
 Application.prototype.initialize = function() {
-    this.all('*', function(req, res, next) {
+    var self = this;
+    // this.all('*', function(req, res, next) {
+    this.use(function(req, res, next) {
         // Origin in headers is required.
         if (!req.get('Origin')) return next();
 
@@ -48,11 +50,22 @@ Application.prototype.initialize = function() {
             'X-Requested-With'
         ].join(', '));
 
-        // FIXME
-        // TODO: auto populate like Express 2 does.
-        if ('OPTIONS' == req.method) return res.send(200, 'GET');
-
         next();
+    });
+
+    // TODO: auto populate like Express 2 does.
+    this.options('*', function(req, res, next) {
+        return res.send(200, [
+            'HEAD',
+            'GET',
+            'POST',
+            'PUT',
+            'DELETE',
+            'TRACE',
+            'OPTIONS',
+            'CONNECT',
+            'PATCH'
+        ].join(','));
     });
 };
 
