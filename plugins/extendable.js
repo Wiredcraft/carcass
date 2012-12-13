@@ -8,7 +8,7 @@ module.exports = function(obj) {
         var child = function() {
             parent.apply(this, arguments);
         };
-        
+
         // .
         carcass.mixable(child);
 

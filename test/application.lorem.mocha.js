@@ -12,11 +12,23 @@ describe('Lorem, a simple application', function() {
         fixture.close(done);
     });
 
-    // FIXME: this is a wrong route.
     describe('Get /dolor', function() {
-        it('should return the text', function(done) {
+        it('should return 404', function(done) {
             request.get({
                 uri: 'http://127.0.0.1:3000/dolor'
+            }, function(err, res, body) {
+                should.not.exist(err);
+                res.should.be.a('object');
+                res.should.have.property('statusCode', 404);
+                setTimeout(done, 1);
+            });
+        });
+    });
+
+    describe('Get /lorem/dolor', function() {
+        it('should return the text', function(done) {
+            request.get({
+                uri: 'http://127.0.0.1:3000/lorem/dolor'
             }, function(err, res, body) {
                 should.not.exist(err);
                 res.should.be.a('object');
