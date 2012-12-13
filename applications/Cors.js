@@ -5,12 +5,15 @@ var Application = carcass.constructors.Application.extend();
 // Cross-origin resource sharing.
 // @see http://en.wikipedia.org/wiki/Cross-origin_resource_sharing
 Application.prototype.initialize = function() {
-    this.use(function(req, res, next) {
+    this.all('*', function(req, res, next) {
+        // Origin in headers is required.
+        if (!req.get('Origin')) return next();
+
         // TODO: API client registry?
         res.header('Access-Control-Allow-Origin', '*');
 
         // @see http://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol
-        // TODO: auto populate like Express does.
+        // TODO: auto populate like Express 2 does.
         // TODO: 405 handler?
         // TODO: default handlers?
         res.header('Access-Control-Allow-Methods', [
@@ -44,6 +47,10 @@ Application.prototype.initialize = function() {
             'User-Agent',
             'X-Requested-With'
         ].join(', '));
+
+        // FIXME
+        // TODO: auto populate like Express 2 does.
+        if ('OPTIONS' == req.method) return res.send(200, 'GET');
 
         next();
     });
