@@ -1,15 +1,18 @@
 var should = require('should');
 var request = require('request');
 
-var fixture = require('./fixture');
+var server = require('./fixture').server;
 
 describe('Lorem, a simple application', function() {
     before(function(done) {
-        fixture.start(done);
+        server.mount('Cors');
+        server.mount('Restify');
+        server.mount('Lorem', '/lorem');
+        server.start(done);
     });
 
     after(function(done) {
-        fixture.close(done);
+        server.close(done);
     });
 
     describe('Get /dolor', function() {
