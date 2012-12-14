@@ -31,24 +31,31 @@ Server.prototype.close = function() {
 };
 
 // .
-Server.prototype.mount = function(plugin, route) {
-    var self = this;
+// TODO: can be either a title or an initialized application or something else.
+Server.prototype.mount = function(title, route) {
+    var plugin = this.getPlugin(title);
+    if (!plugin) return this;
     route || (route = '/');
-    // Support 'namespace/title', and default namespace to applications.
+    debug('mounting %s to "%s".', title, route);
+    var app = new plugin();
+    this.app.use(route, app);
+    return this;
+};
+
+// Get a plugin by the title.
+// Support 'namespace/title', and default namespace to applications.
+Server.prototype.getPlugin = function(title) {
     var namespace = 'applications';
-    var parts = plugin.split('/');
+    var parts = title.split('/');
     if (parts.length > 1) {
         namespace = parts[0];
-        plugin = parts[1];
+        title = parts[1];
     }
-    if (!carcass[namespace] || !carcass[namespace][plugin]) {
-        debug('not found: %s/%s.', namespace, plugin);
-        return self;
+    if (!carcass[namespace] || !carcass[namespace][title]) {
+        debug('not found: %s/%s.', namespace, title);
+        return;
     }
-    debug('mounting %s/%s to "%s".', namespace, plugin, route);
-    var app = new carcass[namespace][plugin]();
-    self.app.use(route, app);
-    return self;
+    return carcass[namespace][title];
 };
 
 // .
