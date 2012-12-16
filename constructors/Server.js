@@ -9,7 +9,7 @@ module.exports = Server;
 // Server is something can create a server and listen on some connections.
 // Servers in Carcass are also applications by themselves.
 // Servers in Carcass can start and stop, and mount some applications.
-function Server(attributes, options) {
+function Server(options) {
     debug('initializing %s.', this.constructor.title);
     this.app = express();
     carcass.plugins.configurable(this);
@@ -32,12 +32,18 @@ Server.prototype.close = function() {
 
 // .
 // TODO: can be either a title or an initialized application or something else.
-Server.prototype.mount = function(title, route) {
+Server.prototype.mount = function(title, route, options) {
     var plugin = this.getPlugin(title);
     if (!plugin) return this;
-    route || (route = '/');
-    debug('mounting %s to "%s".', title, route);
-    var app = new plugin();
+    if (!route) {
+        route = '/';
+        options = {};
+    } else if (_.isObject(route)) {
+        options = route;
+        route = '/';
+    }
+    debug('mounting %s to "%s".', plugin.title || title, route);
+    var app = new plugin(options);
     this.app.use(route, app);
     return this;
 };

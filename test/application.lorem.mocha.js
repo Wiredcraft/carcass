@@ -7,7 +7,9 @@ describe('Lorem, a simple application', function() {
     before(function(done) {
         server.mount('Cors');
         server.mount('Restify');
-        server.mount('Lorem', '/lorem');
+        server.mount('Lorem', '/lorem', {
+            lorem: 'ipsum'
+        });
         server.start(done);
     });
 
@@ -37,6 +39,23 @@ describe('Lorem, a simple application', function() {
                 res.should.be.a('object');
                 res.should.have.property('statusCode', 200);
                 res.should.have.property('body', 'Lorem ipsum dolor sit amet');
+                setTimeout(done, 1);
+            });
+        });
+    });
+
+    describe('Get /lorem/options', function() {
+        it('should return the options', function(done) {
+            request.get({
+                uri: 'http://127.0.0.1:3000/lorem/options',
+                json: true
+            }, function(err, res, body) {
+                should.not.exist(err);
+                res.should.be.a('object');
+                res.should.have.property('statusCode', 200);
+                body.should.eql({
+                    lorem: 'ipsum'
+                });
                 setTimeout(done, 1);
             });
         });

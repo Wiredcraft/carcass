@@ -5,7 +5,7 @@ var express = require('express');
 module.exports = Application;
 
 // Application is just an Express application.
-function Application(attributes, options) {
+function Application(options) {
     debug('initializing %s.', this.constructor.title);
     this.mixin(express());
     this.initialize.apply(this, arguments);
