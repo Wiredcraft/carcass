@@ -8,7 +8,6 @@ describe('Model', function() {
         var Model = carcass.constructors.Model;
         Model.should.have.property('title', 'constructors/Model');
         Model.should.have.property('mixin');
-        Model.should.have.property('mixable');
         Model.should.have.property('extend');
         done();
     });
@@ -20,7 +19,6 @@ describe('Model', function() {
             Lorem.should.have.property('super_', Model);
             Lorem.should.have.property('title', 'models/Lorem');
             Lorem.should.have.property('mixin');
-            Lorem.should.have.property('mixable');
             Lorem.should.have.property('extend');
             done();
         });

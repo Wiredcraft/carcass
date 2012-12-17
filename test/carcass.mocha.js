@@ -13,7 +13,7 @@ describe('Carcass', function() {
 
     describe('Mixin', function() {
         it('should be able to merge objects.', function(done) {
-            var obj = carcass.mixable({});
+            var obj = carcass.mixable();
             var value = false;
             var mixinObj = {
                 lorem: function() {
@@ -29,4 +29,6 @@ describe('Carcass', function() {
             done();
         });
     });
+
+    // TODO: more.
 });
