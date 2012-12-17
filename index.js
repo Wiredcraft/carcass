@@ -8,6 +8,9 @@ require('./lib/carcass')(exports);
 // Register plugins.
 exports.register(__dirname, 'plugins');
 
+// Register utils.
+exports.register(__dirname, 'utils');
+
 // Register constructors.
 exports.register(__dirname, 'constructors');
 
