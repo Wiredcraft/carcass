@@ -8,8 +8,7 @@ describe('Configurable', function() {
         var obj = null;
 
         beforeEach(function() {
-            obj = carcass.mixable({});
-            carcass.plugins.configurable(obj);
+            obj = carcass.plugins.configurable(carcass.mixable());
         });
 
         describe('.set(obj)', function() {
