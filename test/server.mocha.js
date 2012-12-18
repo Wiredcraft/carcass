@@ -14,9 +14,8 @@ describe('Server', function() {
     });
 
     it('should be able to load a plugin.', function(done) {
-        var Lorem = carcass.applications.Lorem;
-        server.getPlugin('Lorem').should.equal(Lorem);
-        server.getPlugin('applications/Lorem').should.equal(Lorem);
+        var lorem = carcass.applications.lorem;
+        server.getPlugin('applications/lorem').should.equal(lorem);
         done();
     });
 

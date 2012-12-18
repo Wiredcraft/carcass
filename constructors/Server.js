@@ -42,9 +42,8 @@ Server.prototype.mount = function(title, route, options) {
         options = route;
         route = '/';
     }
-    debug('mounting %s to "%s".', plugin.title || title, route);
-    var app = new plugin(options);
-    this.app.use(route, app);
+    debug('mounting %s to "%s".', plugin.title, route);
+    this.app.use(route, plugin(plugin.title, options));
     return this;
 };
 

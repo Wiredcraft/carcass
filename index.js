@@ -14,6 +14,9 @@ exports.register(__dirname, 'utils');
 // Register constructors.
 exports.register(__dirname, 'constructors');
 
+// Register factories.
+exports.register(__dirname, 'factories');
+
 // .
 _.each(exports.constructors, function(obj) {
     if (!obj.prototype) return;

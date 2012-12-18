@@ -1,3 +1,4 @@
+var carcass = require('carcass');
 var should = require('should');
 var request = require('request');
 
@@ -5,9 +6,9 @@ var server = require('./fixture').server;
 
 describe('Lorem, a simple application', function() {
     before(function(done) {
-        server.mount('Cors');
-        server.mount('Restify');
-        server.mount('Lorem', '/lorem', {
+        server.mount('applications/cors');
+        server.mount('applications/restify');
+        server.mount('applications/lorem', '/lorem', {
             lorem: 'ipsum'
         });
         server.start(done);
