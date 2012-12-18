@@ -79,4 +79,27 @@ describe('Configurable', function() {
             });
         });
     });
+
+    // TODO.
+    describe('File config', function() {
+        var eson = require('eson')();
+        // .
+        describe('Json config', function() {
+            it('should ...', function() {
+                var config = eson.parse('{"lorem":"ipsum"}');
+                config.should.be.a('object');
+                config.should.have.property('lorem', 'ipsum');
+            });
+        });
+        // .
+        describe('File config', function() {
+            it('should ...', function() {
+                var filepath = require('path').resolve(__dirname,
+                    './fixture/configs', 'lorem.json');
+                var config = eson.read(filepath);
+                config.should.be.a('object');
+                config.should.have.property('lorem', 'ipsum');
+            });
+        });
+    });
 });
