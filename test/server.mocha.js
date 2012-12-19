@@ -6,7 +6,7 @@ var server = require('./fixture').server;
 describe('Server', function() {
     it('should be an object with some methods.', function(done) {
         server.should.be.a('object');
-        server.should.have.property('getPlugin');
+        server.should.have.property('getApplication');
         server.should.have.property('mount');
         server.should.have.property('start');
         server.should.have.property('close');
@@ -15,7 +15,7 @@ describe('Server', function() {
 
     it('should be able to load a plugin.', function(done) {
         var lorem = carcass.applications.lorem;
-        server.getPlugin('applications/lorem').should.equal(lorem);
+        server.getApplication('applications/lorem').should.equal(lorem);
         done();
     });
 

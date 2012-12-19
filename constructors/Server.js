@@ -33,7 +33,7 @@ Server.prototype.close = function() {
 // .
 // TODO: can be either a title or an initialized application or something else.
 Server.prototype.mount = function(title, route, options) {
-    var plugin = this.getPlugin(title);
+    var plugin = this.getApplication(title);
     if (!plugin) return this;
     if (!route) {
         route = '/';
@@ -47,9 +47,9 @@ Server.prototype.mount = function(title, route, options) {
     return this;
 };
 
-// Get a plugin by the title.
+// Get an application by the title.
 // Support 'namespace/title', and default namespace to applications.
-Server.prototype.getPlugin = function(title) {
+Server.prototype.getApplication = function(title) {
     var namespace = 'applications';
     var parts = title.split('/');
     if (parts.length > 1) {
