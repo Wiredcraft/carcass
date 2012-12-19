@@ -3,10 +3,10 @@ var should = require('should');
 
 require('./fixture');
 
-describe('Applications', function() {
-    // TODO
+// TODO
+describe('Factories / Express', function() {
     it('should be an object.', function(done) {
-        carcass.should.have.property('applications');
+        carcass.factories.should.have.property('Express');
         done();
     });
 });
