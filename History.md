@@ -1,4 +1,19 @@
 
+0.1.0 / 2012-12-19 
+==================
+
+  * Improved configurable: ability to load config files.
+  * Completely rebuilt constructors/Application and it's now factories/Express.
+  * Removed the old constructors/Application.
+  * Improved: default options for configurable.
+  * Improved core: default obj and target; removed target.mixable.
+  * Added a simple util - carcass.utils.machineName() - to generate "machine names".
+  * mount() can pass options to plugins now.
+  * Added namespace to plugin title.
+  * Added a getApplication() method to Server.
+  * Improved debug info for mixin().
+  * Reorganizing tests.
+
 0.0.3 / 2012-12-13 
 ==================
 
