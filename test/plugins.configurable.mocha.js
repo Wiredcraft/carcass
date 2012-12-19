@@ -8,7 +8,7 @@ describe('Configurable', function() {
         var obj = null;
 
         beforeEach(function() {
-            obj = carcass.plugins.configurable(carcass.mixable());
+            obj = carcass.plugins.configurable();
         });
 
         describe('.set(obj)', function() {
@@ -80,25 +80,38 @@ describe('Configurable', function() {
         });
     });
 
-    // TODO.
     describe('File config', function() {
-        var eson = require('eson')();
-        // .
-        describe('Json config', function() {
-            it('should ...', function() {
-                var config = eson.parse('{"lorem":"ipsum"}');
-                config.should.be.a('object');
-                config.should.have.property('lorem', 'ipsum');
+        var obj = null;
+        var filepath = require('path').resolve(__dirname, './fixture/configs',
+            'lorem.json');
+
+        beforeEach(function() {
+            obj = carcass.plugins.configurable();
+        });
+
+        describe('Load a config file', function() {
+            it('should load the settings.', function() {
+                should.not.exist(obj.get('lorem'));
+                should.not.exist(obj.get('dolor'));
+                obj.load(filepath);
+                obj.get('lorem').should.equal('ipsum');
+                obj.get('dolor').should.equal(true);
             });
         });
-        // .
-        describe('File config', function() {
-            it('should ...', function() {
+
+        describe('Load a config file', function() {
+            it('should override the settings.', function() {
                 var filepath = require('path').resolve(__dirname,
                     './fixture/configs', 'lorem.json');
-                var config = eson.read(filepath);
-                config.should.be.a('object');
-                config.should.have.property('lorem', 'ipsum');
+                should.not.exist(obj.get('lorem'));
+                should.not.exist(obj.get('dolor'));
+                obj.set('lorem', 'lorem');
+                obj.get('lorem').should.equal('lorem');
+                obj.set('dolor', false);
+                obj.get('dolor').should.equal(false);
+                obj.load(filepath);
+                obj.get('lorem').should.equal('ipsum');
+                obj.get('dolor').should.equal(true);
             });
         });
     });
