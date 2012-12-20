@@ -22,7 +22,7 @@
     "configurable": "~0.0.1",
     "debug": "~0.7.0",
     "eson": "~0.4.1",
-    "express": "~3.0.4",
+    "express": "~3.0.5",
     "methods": "~0.0.1",
     "underscore": "~1.4.3"
   },
