@@ -43,7 +43,7 @@ Server.prototype.mount = function(title, route, options) {
         route = '/';
     }
     debug('mounting %s to "%s".', plugin.title, route);
-    this.app.use(route, plugin(plugin.title, options));
+    this.app.use(route, plugin(options));
     return this;
 };
 
