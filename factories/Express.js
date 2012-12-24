@@ -15,6 +15,13 @@ module.exports = function(args) {
 
     args = args || {};
 
+    // Also support only an initialize function as the argument.
+    if (typeof args === 'function') {
+        args = {
+            initialize: args
+        };
+    }
+
     // The concrete factory.
     var builder = function(options) {
         // Merge .
