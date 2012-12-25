@@ -10,31 +10,31 @@ describe('Carcass', function() {
         carcass.should.have.property('mixable');
         done();
     });
-    
+
     // TODO
     it('should have some utils.', function(done) {
         carcass.should.have.property('utils');
         done();
     });
-    
+
     // TODO
     it('should have some plugins.', function(done) {
         carcass.should.have.property('plugins');
         done();
     });
-    
+
     // TODO
     it('should have some constructors.', function(done) {
         carcass.should.have.property('constructors');
         done();
     });
-    
+
     // TODO
     it('should have some factories.', function(done) {
         carcass.should.have.property('factories');
         done();
     });
-    
+
     // TODO
     it('should have some applications.', function(done) {
         carcass.should.have.property('applications');
