@@ -61,5 +61,14 @@ describe('Carcass', function() {
         });
     });
 
+    describe('Register', function() {
+        it('should be able to register new files.', function(done) {
+            carcass.register('', 'applications');
+            carcass.applications.should.have.property('ipsum');
+            carcass.applications.should.have.property('lorem');
+            done();
+        });
+    });
+
     // TODO: more.
 });
