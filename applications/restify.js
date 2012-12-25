@@ -5,9 +5,11 @@ var express = require('express');
 
 module.exports = carcass.factories.Express({
     title: 'Restify',
-    initialize: function(app, options) {
-        debug('initializing');
-        app.use(express.bodyParser());
-        app.use(express.cookieParser());
-    }
+    initialize: initialize
 });
+
+function initialize(app, options) {
+    debug('initializing');
+    app.use(express.bodyParser());
+    app.use(express.cookieParser());
+};
