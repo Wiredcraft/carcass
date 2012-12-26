@@ -46,7 +46,8 @@ describe('Restify express app', function() {
                 res.should.have.property('statusCode', 200);
                 res.should.have.property('body');
                 body.should.have.property('field', 'val');
-                body.should.have.property('filename', path.basename(__filename));
+                body.should.have
+                    .property('filename', path.basename(__filename));
                 setTimeout(done, 1);
             });
 
@@ -71,12 +72,14 @@ describe('Restify express app', function() {
             });
         });
 
-        it ('should be able to parse custom cookie data', function(done) {
+        it('should be able to parse custom cookie data', function(done) {
             var randomVal = parseInt(Math.random() * 10000).toString();
             request.get({
                 uri: 'http://127.0.0.1:3000/restify/random-cookie',
                 json: true,
-                headers: { cookie: 'key='+randomVal }
+                headers: {
+                    cookie: 'key=' + randomVal
+                }
             }, function(err, res, body) {
                 should.not.exist(err);
                 res.should.be.a('object');
