@@ -1,4 +1,13 @@
 
+0.1.1 / 2012-12-26 
+==================
+
+  * Improved tests.
+  * Optimized applications: cache functions.
+  * Improved express factory: also support only an initialize function as the argument.
+  * Changed applications syntax to have arguments more than only an initialize function.
+  * Update Express.
+
 0.1.0 / 2012-12-19 
 ==================
 
