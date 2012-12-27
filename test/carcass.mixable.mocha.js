@@ -42,7 +42,7 @@ describe('Mixable', function() {
         done();
     });
 
-    it('should only allow Function and Object merge.', function(done) {
+    it('should only allow Function and Object to merge and to be merged.', function(done) {
         var num = 1, str = 'string', bool = true;
         var obj = carcass.mixable();
         [num, str, bool].forEach(function (elem) {
