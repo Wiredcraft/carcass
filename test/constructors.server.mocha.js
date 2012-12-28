@@ -2,6 +2,7 @@ var carcass = require('carcass');
 var should = require('should');
 
 // TODO
+/*
 describe('Constructors / Server', function() {
 
     it('should be a constructor.', function(done) {
@@ -31,3 +32,4 @@ describe('Constructors / Server', function() {
         });
     });
 });
+*/

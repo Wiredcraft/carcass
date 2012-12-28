@@ -1,15 +1,13 @@
-var debug = require('debug')('carcass:Server');
+var debug = require('debug')('carcass:Factory:Server');
 
-var carcass = require('carcass');
 var express = require('express');
 var _ = require('underscore');
-
-//module.exports = Server;
+var carcass = require('carcass');
 
 // Server is something can create a server and listen on some connections.
 // Servers in Carcass are also applications by themselves.
 // Servers in Carcass can start and stop, and mount some applications.
-function Server(options) {
+function BaseServer(options) {
     debug('initializing %s.', this.constructor.title);
     this.app = express();
     carcass.plugins.configurable(this);
@@ -18,21 +16,21 @@ function Server(options) {
 
 // Initialize is an empty function by default. Override it with your own
 // initialization logic.
-Server.prototype.initialize = function() {};
+BaseServer.prototype.initialize = function() {};
 
 // .
-Server.prototype.start = function() {
+BaseServer.prototype.start = function() {
     throw new Error('No default start method.');
 };
 
 // .
-Server.prototype.close = function() {
+BaseServer.prototype.close = function() {
     throw new Error('No default close method.');
 };
 
 // .
 // TODO: can be either a title or an initialized application or something else.
-Server.prototype.mount = function(title, route, options) {
+BaseServer.prototype.mount = function(title, route, options) {
     var plugin = this.getApplication(title);
     if (!plugin) return this;
     if (!route) {
@@ -49,7 +47,7 @@ Server.prototype.mount = function(title, route, options) {
 
 // Get an application by the title.
 // Support 'namespace/title', and default namespace to applications.
-Server.prototype.getApplication = function(title) {
+BaseServer.prototype.getApplication = function(title) {
     var namespace = 'applications';
     var parts = title.split('/');
     if (parts.length > 1) {
@@ -64,6 +62,37 @@ Server.prototype.getApplication = function(title) {
 };
 
 // .
-Server.prototype.mountAll = function(namespace, route) {
+BaseServer.prototype.mountAll = function(namespace, route) {
     throw new Error('Not implemented yet.');
+};
+
+
+module.exports = function(args) {
+    debug('building');
+
+    args = args || {};
+
+    // Also support only an initialize function as the argument.
+    if (typeof args === 'function') {
+        args = {
+            initialize: args
+        };
+    }
+
+    // The concrete factory.
+    var builder = function(options) {
+        // Merge .
+        options = _.extend(_.omit(args, 'initialize'), options);
+
+        var server = new BaseServer();
+
+        // Invoke .
+        if (args.initialize) {
+            args.initialize(server, options);
+        }
+
+        return server;
+    };
+
+    return builder;
 };
