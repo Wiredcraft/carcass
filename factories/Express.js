@@ -23,14 +23,14 @@ module.exports = function(args) {
     }
 
     // The concrete factory.
-    var builder = function(options) {
-        // Merge .
+    function builder(options) {
+        // Merge options from builder and factory.
         options = _.extend(_.omit(args, 'initialize'), options);
 
         // Express app.
         var app = express();
 
-        // Invoke .
+        // Invoke initialize function.
         if (args.initialize) {
             args.initialize(app, options);
         }
