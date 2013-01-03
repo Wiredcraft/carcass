@@ -26,7 +26,10 @@ module.exports = function(args) {
     // TODO: expose this somewhere?
     var Model = createModel(args.title || _.uniqueId('model_'));
 
-    // TODO: args.schema or args.attrs
+    // Add attributes to the constructor.
+    _.each(args.attributes || args.attrs || null, function(attr, key) {
+        Model.attr(key, attr);
+    });
 
     // The concrete factory.
     function builder(attrs, options) {
