@@ -34,7 +34,9 @@ module.exports = function(args) {
     // The concrete factory.
     function builder(attrs, options) {
         attrs = attrs || {};
-        options = options || {};
+
+        // Merge options from builder and factory.
+        options = _.extend(_.omit(args, 'initialize'), options);
 
         var model = new Model(attrs);
 
