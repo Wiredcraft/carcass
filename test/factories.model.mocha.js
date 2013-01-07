@@ -89,8 +89,8 @@ describe('Factories / Model:', function() {
 
     describe('A builder with an initialize function', function() {
         var builder = carcass.factories.Model({
-            initialize: function(Model, options) {
-                Model.initialized = true;
+            initialize: function(model, options) {
+                model.initialized = true;
             }
         });
         var model = builder();
@@ -100,7 +100,7 @@ describe('Factories / Model:', function() {
         });
 
         it('should initialize the model.', function() {
-            model.model.should.have.property('initialized', true);
+            model.should.have.property('initialized', true);
         });
     });
 
@@ -113,28 +113,27 @@ describe('Factories / Model:', function() {
         });
 
         it('should not initialize the model.', function() {
-            model.model.should.not.have.property('initialized');
+            model.should.not.have.property('initialized');
         });
     });
 
-    describe('A builder with a bootstrap function', function() {
-        var builder = carcass.factories.Model({
-            bootstrap: function(model, options) {
-                model.bootstrapped = true;
-            }
-        });
+    describe('A builder with some modifications.', function() {
+        var builder = carcass.factories.Model();
+        builder.Model.lorem = 'ipsum';
+        builder.Model.prototype.lorem = 'dolor';
         var model = builder();
 
         it('should return a model.', function() {
             model.should.be.a('object');
         });
 
-        it('should bootstrap the model.', function() {
-            model.should.have.property('bootstrapped', true);
+        it('should have the properties.', function() {
+            model.model.should.have.property('lorem', 'ipsum');
+            model.should.have.property('lorem', 'dolor');
         });
     });
 
-    describe('A builder without a bootstrap function', function() {
+    describe('A builder without the modifications', function() {
         var builder = carcass.factories.Model();
         var model = builder();
 
@@ -142,25 +141,9 @@ describe('Factories / Model:', function() {
             model.should.be.a('object');
         });
 
-        it('should not bootstrap the model.', function() {
-            model.should.not.have.property('bootstrapped');
-        });
-    });
-
-    describe('A model with a bootstrap function', function() {
-        var builder = carcass.factories.Model();
-        var model = builder({}, {
-            bootstrap: function(model, options) {
-                model.bootstrapped = true;
-            }
-        });
-
-        it('should return a model.', function() {
-            model.should.be.a('object');
-        });
-
-        it('should bootstrap the model.', function() {
-            model.should.have.property('bootstrapped', true);
+        it('should not have the properties.', function() {
+            model.model.should.not.have.property('lorem');
+            model.should.not.have.property('lorem');
         });
     });
 

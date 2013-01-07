@@ -23,7 +23,7 @@ module.exports = function(args) {
         };
     }
 
-    // TODO: expose this somewhere?
+    // .
     var Model = createModel(args.title || _.uniqueId('model_'));
 
     // Add attributes to the constructor.
@@ -31,27 +31,26 @@ module.exports = function(args) {
         Model.attr(key, attr);
     });
 
-    // Invoke the initialize function.
-    if (args.initialize) {
-        args.initialize(Model, args);
-    }
+    // Mixin.
+    Model.mixin(_.omit(args, 'initialize', 'attributes', 'attrs'));
 
     // The concrete factory.
     function builder(attrs, options) {
         attrs = attrs || {};
-
-        // Merge options from builder and factory.
-        options = _.extend(_.omit(args, 'initialize'), options);
+        options = options || {};
 
         var model = new Model(attrs);
 
-        // Invoke the bootstrap function.
-        if (options.bootstrap) {
-            options.bootstrap(model, options);
+        // Invoke the initialize function.
+        if (args.initialize) {
+            args.initialize(model, options);
         }
 
         return model;
     };
+
+    // .
+    builder.Model = Model;
 
     return builder;
 };
