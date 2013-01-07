@@ -31,6 +31,11 @@ module.exports = function(args) {
         Model.attr(key, attr);
     });
 
+    // Invoke the initialize function.
+    if (args.initialize) {
+        args.initialize(Model, args);
+    }
+
     // The concrete factory.
     function builder(attrs, options) {
         attrs = attrs || {};
@@ -40,9 +45,9 @@ module.exports = function(args) {
 
         var model = new Model(attrs);
 
-        // Invoke the initialize function.
-        if (args.initialize) {
-            args.initialize(model, options);
+        // Invoke the bootstrap function.
+        if (options.bootstrap) {
+            options.bootstrap(model, options);
         }
 
         return model;

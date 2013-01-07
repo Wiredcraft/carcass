@@ -89,8 +89,8 @@ describe('Factories / Model:', function() {
 
     describe('A builder with an initialize function', function() {
         var builder = carcass.factories.Model({
-            initialize: function(model, options) {
-                model.initialized = true;
+            initialize: function(Model, options) {
+                Model.initialized = true;
             }
         });
         var model = builder();
@@ -100,7 +100,7 @@ describe('Factories / Model:', function() {
         });
 
         it('should initialize the model.', function() {
-            model.should.have.property('initialized', true);
+            model.model.should.have.property('initialized', true);
         });
     });
 
@@ -113,7 +113,54 @@ describe('Factories / Model:', function() {
         });
 
         it('should not initialize the model.', function() {
-            model.should.not.have.property('initialized');
+            model.model.should.not.have.property('initialized');
+        });
+    });
+
+    describe('A builder with a bootstrap function', function() {
+        var builder = carcass.factories.Model({
+            bootstrap: function(model, options) {
+                model.bootstrapped = true;
+            }
+        });
+        var model = builder();
+
+        it('should return a model.', function() {
+            model.should.be.a('object');
+        });
+
+        it('should bootstrap the model.', function() {
+            model.should.have.property('bootstrapped', true);
+        });
+    });
+
+    describe('A builder without a bootstrap function', function() {
+        var builder = carcass.factories.Model();
+        var model = builder();
+
+        it('should return a model.', function() {
+            model.should.be.a('object');
+        });
+
+        it('should not bootstrap the model.', function() {
+            model.should.not.have.property('bootstrapped');
+        });
+    });
+
+    describe('A model with a bootstrap function', function() {
+        var builder = carcass.factories.Model();
+        var model = builder({}, {
+            bootstrap: function(model, options) {
+                model.bootstrapped = true;
+            }
+        });
+
+        it('should return a model.', function() {
+            model.should.be.a('object');
+        });
+
+        it('should bootstrap the model.', function() {
+            model.should.have.property('bootstrapped', true);
         });
     });
 
