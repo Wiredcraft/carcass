@@ -49,7 +49,7 @@ module.exports = function(args) {
         return model;
     };
 
-    // .
+    // Expose constructor.
     builder.Model = Model;
 
     return builder;

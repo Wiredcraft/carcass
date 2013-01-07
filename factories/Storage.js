@@ -25,8 +25,9 @@ module.exports = function(args) {
     }
 
     // .
+    var instances = null;
     if (args.cache) {
-        cache[args.cache] = cache[args.cache] || {};
+        instances = cache[args.cache] = cache[args.cache] || {};
     }
 
     // The concrete factory.
@@ -35,20 +36,21 @@ module.exports = function(args) {
         options = _.extend(_.omit(args, 'initialize'), options);
 
         // .
-        var instance = carcass.mixable({});
+        instance = carcass.mixable({
+            title: options.title || 'Storage'
+        });
+
+        // .
+        if (instances && options.id) {
+            if (instances[options.id]) {
+                return instances[options.id];
+            }
+            instances[options.id] = instance;
+        }
 
         // .
         EventEmitter.call(instance);
         instance.mixin(EventEmitter.prototype);
-
-        // .
-        if (options.cache && cache[options.cache] && options.id) {
-            if (cache[options.cache][options.id]) {
-                return cache[options.cache][options.id];
-            } else {
-                cache[options.cache][options.id] = instance;
-            }
-        }
 
         // TODO: requires CRUD methods.
         // TODO: map variants of method names?
