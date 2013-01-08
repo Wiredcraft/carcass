@@ -87,40 +87,10 @@ describe('Factories / Model:', function() {
         });
     });
 
-    describe('A builder with an initialize function', function() {
-        var builder = carcass.factories.Model({
-            initialize: function(model, options) {
-                model.initialized = true;
-            }
-        });
-        var model = builder();
-
-        it('should return a model.', function() {
-            model.should.be.a('object');
-        });
-
-        it('should initialize the model.', function() {
-            model.should.have.property('initialized', true);
-        });
-    });
-
-    describe('A builder without an initialize function', function() {
-        var builder = carcass.factories.Model();
-        var model = builder();
-
-        it('should return a model.', function() {
-            model.should.be.a('object');
-        });
-
-        it('should not initialize the model.', function() {
-            model.should.not.have.property('initialized');
-        });
-    });
-
     describe('A builder with some modifications.', function() {
         var builder = carcass.factories.Model();
-        builder.Model.lorem = 'ipsum';
-        builder.Model.prototype.lorem = 'dolor';
+        builder.lorem = 'ipsum';
+        builder.prototype.lorem = 'dolor';
         var model = builder();
 
         it('should return a model.', function() {
@@ -143,6 +113,36 @@ describe('Factories / Model:', function() {
 
         it('should not have the properties.', function() {
             model.model.should.not.have.property('lorem');
+            model.should.not.have.property('lorem');
+        });
+    });
+
+    describe('A builder with a plugin.', function() {
+        var builder = carcass.factories.Model();
+        var plugin = function(Model) {
+            Model.prototype.lorem = 'ipsum';
+        };
+        builder.use(plugin);
+        var model = builder();
+
+        it('should return a model.', function() {
+            model.should.be.a('object');
+        });
+
+        it('should have the properties.', function() {
+            model.should.have.property('lorem', 'ipsum');
+        });
+    });
+
+    describe('A builder without the modifications', function() {
+        var builder = carcass.factories.Model();
+        var model = builder();
+
+        it('should return a model.', function() {
+            model.should.be.a('object');
+        });
+
+        it('should not have the properties.', function() {
             model.should.not.have.property('lorem');
         });
     });

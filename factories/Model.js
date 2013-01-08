@@ -10,18 +10,11 @@ var createModel = require('../lib/model');
 // ---
 // Abstract factory; returns a concrete factory.
 
-// .
+// Actually returns the class which is also a builder.
 module.exports = function(args) {
     debug('building');
 
     args = args || {};
-
-    // Also support only an initialize function as the argument.
-    if (typeof args === 'function') {
-        args = {
-            initialize: args
-        };
-    }
 
     // .
     var Model = createModel(args.title || _.uniqueId('model_'));
@@ -32,25 +25,9 @@ module.exports = function(args) {
     });
 
     // Mixin.
-    Model.mixin(_.omit(args, 'initialize', 'attributes', 'attrs'));
+    Model.mixin(_.omit(args, 'prototype', 'attributes', 'attrs'));
 
-    // The concrete factory.
-    function builder(attrs, options) {
-        attrs = attrs || {};
-        options = options || {};
+    // TODO: a way to mixin prototype?
 
-        var model = new Model(attrs);
-
-        // Invoke the initialize function.
-        if (args.initialize) {
-            args.initialize(model, options);
-        }
-
-        return model;
-    };
-
-    // Expose constructor.
-    builder.Model = Model;
-
-    return builder;
+    return Model;
 };
