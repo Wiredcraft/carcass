@@ -22,9 +22,9 @@ function initialize(instance, options) {
         debug('saving');
         callback = callback || noop;
         var id = data._id || data.id || _.uniqueId();
-        store[id] = data;
-        data._id = id;
-        callback(null, data);
+        var doc = store[id] = _.clone(data);
+        doc._id = id;
+        callback(null, doc);
     };
 
     // Read.
