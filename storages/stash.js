@@ -37,14 +37,15 @@ function initialize(instance, options) {
     instance.put = function(data, callback) {
         debug('saving');
         callback = callback || noop;
-        var self = this;
-        var id = data._id || data.id || 'stash';
-        machineName(id, function(err, _id) {
-            if (err) return callback(err);
-            data._id = _id;
-            self.stash.set(_id, data, function(err) {
+        instance.getId(data, function(id) {
+            id = id || 'stash';
+            machineName(id, function(err, _id) {
                 if (err) return callback(err);
-                self.get(_id, callback);
+                data._id = _id;
+                instance.stash.set(_id, data, function(err) {
+                    if (err) return callback(err);
+                    instance.get(_id, callback);
+                });
             });
         });
     };
@@ -54,14 +55,15 @@ function initialize(instance, options) {
     instance.get = function(data, callback) {
         debug('reading');
         callback = callback || noop;
-        var self = this;
-        var id = data._id || data.id || data || 'stash';
-        machineName(id, function(err, _id) {
-            if (err) return callback(err);
-            var _data = self.stash.get(_id);
-            if (!_data) return callback(new Error('not found'));
-            _data._id = _id;
-            callback(null, _data);
+        instance.getId(data, function(id) {
+            id = id || 'stash';
+            machineName(id, function(err, _id) {
+                if (err) return callback(err);
+                var _data = instance.stash.get(_id);
+                if (!_data) return callback(new Error('not found'));
+                _data._id = _id;
+                callback(null, _data);
+            });
         });
     };
 
@@ -70,10 +72,9 @@ function initialize(instance, options) {
     instance.del = function(data, callback) {
         debug('deleting');
         callback = callback || noop;
-        var self = this;
-        self.get(data, function(err, _data) {
+        instance.get(data, function(err, _data) {
             if (err) return callback(err);
-            self.stash.rm(_data._id, callback);
+            instance.stash.rm(_data._id, callback);
         });
     };
 

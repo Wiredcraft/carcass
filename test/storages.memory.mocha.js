@@ -29,7 +29,9 @@ describe('Storages / Memory:', function() {
         });
 
         it('should save without an id.', function(done) {
-            storage.put({}, function(err, data) {
+            storage.put({
+                attr: 'ipsum'
+            }, function(err, data) {
                 should.not.exist(err);
                 data.should.be.a('object');
                 data.should.not.have.property('id');
