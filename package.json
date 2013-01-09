@@ -27,9 +27,11 @@
     "underscore": "~1.4.3"
   },
   "devDependencies": {
+    "mkdirp": "~0.3.4",
     "mocha": "1.x",
     "request": "2.x",
-    "should": "1.x"
+    "should": "1.x",
+    "stash": "~0.0.3"
   },
   "scripts": {
     "test": "./node_modules/.bin/mocha ./test/*.mocha.js"
