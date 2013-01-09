@@ -45,6 +45,7 @@ module.exports = function(args) {
             if (instances[options.id]) {
                 return instances[options.id];
             }
+            instance.id = options.id;
             instances[options.id] = instance;
         }
 

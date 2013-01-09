@@ -17,7 +17,7 @@ function initialize(instance, options) {
     var store = instance.store = {};
 
     // Create or Update.
-    // Requires data.
+    // Requires data; an object.
     instance.put = function(data, callback) {
         debug('saving');
         callback = callback || noop;
@@ -28,33 +28,23 @@ function initialize(instance, options) {
     };
 
     // Read.
-    // Requires data.
+    // Requires data; either an object with an id or just an id.
     instance.get = function(data, callback) {
         debug('reading');
         callback = callback || noop;
-        // Data can be an object or just an id.
         var id = data._id || data.id || data;
-        if (id && store[id]) {
-            callback(null, store[id]);
-        } else {
-            // TODO
-            callback(new Error('not found'));
-        }
+        if (!id || !store[id]) return callback(new Error('not found'));
+        callback(null, store[id]);
     };
 
     // Delete.
-    // Requires data.
+    // Requires data; either an object with an id or just an id.
     instance.del = function(data, callback) {
         debug('deleting');
         callback = callback || noop;
-        // Data can be an object or just an id.
         var id = data._id || data.id || data;
-        if (id && store[id]) {
-            delete store[id];
-            callback();
-        } else {
-            // TODO
-            callback(new Error('not found'));
-        }
+        if (!id || !store[id]) return callback(new Error('not found'));
+        delete store[id];
+        callback();
     };
 };
