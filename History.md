@@ -1,4 +1,17 @@
 
+0.2.0 / 2013-01-09 
+==================
+
+  * Added 2 factory: "Model" and "Storage".
+  * Added 2 storage: "memory" and "stash".
+  * Removed the old model constructor.
+  * Added a simple test with an implemented model.
+  * Updated Express to 3.0.6.
+  * Improved comments for Express factory.
+  * Improved event emitter use case.
+  * Reorganized mixable tests.
+  * Improved mixin(): only merge enumerable properties for now, and removed "black lists".
+
 0.1.1 / 2012-12-26 
 ==================
 
