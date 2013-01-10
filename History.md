@@ -1,4 +1,9 @@
 
+0.2.1 / 2013-01-10 
+==================
+
+  * Improved storages: memory doesn't need "_id"; stash uses "_id" as the filename; display error with "noop()".
+
 0.2.0 / 2013-01-09 
 ==================
 
