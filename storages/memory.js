@@ -5,6 +5,12 @@ var _ = require('underscore');
 
 var noop = function() {};
 
+// Memory
+// ---
+// Notes:
+// * `_id` is only generated when `id` is not present.
+// * `_id` is never saved with the doc.
+
 module.exports = carcass.factories.Storage({
     title: 'Memory',
     cache: 'memory',
@@ -22,9 +28,9 @@ function initialize(instance, options) {
         callback = callback || noop;
         instance.getId(data, function(id) {
             id = id || _.uniqueId();
-            var doc = store[id] = _.clone(data);
-            doc._id = id;
-            callback(null, doc);
+            store[id] = _.clone(data);
+            if (!data.id) data._id = id;
+            callback(null, data);
         });
     };
 
@@ -34,7 +40,9 @@ function initialize(instance, options) {
         callback = callback || noop;
         instance.getId(data, function(id) {
             if (!id || !store[id]) return callback(new Error('not found'));
-            callback(null, store[id]);
+            var doc = _.clone(store[id]);
+            if (!doc.id) doc._id = id;
+            callback(null, doc);
         });
     };
 

@@ -259,6 +259,9 @@ describe('Storages / Stash:', function() {
         });
 
         // TODO
+        describe('CRUD with a given _id', function() {});
+
+        // TODO
         describe('CRUD without an id', function() {});
 
         describe('Uninstall', function() {

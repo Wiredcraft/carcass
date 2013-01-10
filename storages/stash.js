@@ -1,10 +1,13 @@
 var debug = require('debug')('carcass:Storage:Stash');
 
 var carcass = require('carcass');
+var _ = require('underscore');
 var fs = require('fs');
 var mkdirp = require('mkdirp');
 
-var noop = function() {};
+var noop = function(err) {
+    if (err) debug(err);
+};
 var machineName = carcass.utils.machineName;
 
 // Stash
@@ -12,6 +15,10 @@ var machineName = carcass.utils.machineName;
 // Requires:
 // * stash (npm install stash)
 // * mkdirp (npm install mkdirp)
+// Notes:
+// * `_id` is used to represent the filename.
+// * `_id` is generated if not given.
+// * `_id` is never saved with the doc.
 
 // .
 module.exports = carcass.factories.Storage({
@@ -41,8 +48,9 @@ function initialize(instance, options) {
             id = id || 'stash';
             machineName(id, function(err, _id) {
                 if (err) return callback(err);
-                data._id = _id;
-                instance.stash.set(_id, data, function(err) {
+                var doc = _.clone(data);
+                if (doc._id) delete doc._id;
+                instance.stash.set(_id, doc, function(err) {
                     if (err) return callback(err);
                     instance.get(_id, callback);
                 });
@@ -59,10 +67,10 @@ function initialize(instance, options) {
             id = id || 'stash';
             machineName(id, function(err, _id) {
                 if (err) return callback(err);
-                var _data = instance.stash.get(_id);
-                if (!_data) return callback(new Error('not found'));
-                _data._id = _id;
-                callback(null, _data);
+                var doc = instance.stash.get(_id);
+                if (!doc) return callback(new Error('not found'));
+                doc._id = _id;
+                callback(null, doc);
             });
         });
     };
@@ -72,19 +80,19 @@ function initialize(instance, options) {
     instance.del = function(data, callback) {
         debug('deleting');
         callback = callback || noop;
-        instance.get(data, function(err, _data) {
+        instance.get(data, function(err, doc) {
             if (err) return callback(err);
-            instance.stash.rm(_data._id, callback);
+            instance.stash.rm(doc._id, callback);
         });
     };
 
     // Install.
     instance.install = function(callback) {
-        mkdirp(stashPath, callback);
+        mkdirp(stashPath, callback || noop);
     };
 
     // Uninstall.
     instance.uninstall = function(callback) {
-        fs.rmdir(stashPath, callback);
+        fs.rmdir(stashPath, callback || noop);
     };
 };

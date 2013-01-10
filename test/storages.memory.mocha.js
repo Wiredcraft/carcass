@@ -22,7 +22,7 @@ describe('Storages / Memory:', function() {
                 should.not.exist(err);
                 data.should.be.a('object');
                 data.should.have.property('id', 'lorem');
-                data.should.have.property('_id', 'lorem');
+                data.should.not.have.property('_id');
                 data.should.have.property('attr', 'ipsum');
                 done();
             });
@@ -47,7 +47,7 @@ describe('Storages / Memory:', function() {
                 should.not.exist(err);
                 data.should.be.a('object');
                 data.should.have.property('id', 'lorem');
-                data.should.have.property('_id', 'lorem');
+                data.should.not.have.property('_id');
                 data.should.have.property('attr', 'ipsum');
                 done();
             });
@@ -60,7 +60,7 @@ describe('Storages / Memory:', function() {
                 should.not.exist(err);
                 data.should.be.a('object');
                 data.should.have.property('id', 'lorem');
-                data.should.have.property('_id', 'lorem');
+                data.should.not.have.property('_id');
                 data.should.have.property('attr', 'ipsum');
                 done();
             });
@@ -71,7 +71,7 @@ describe('Storages / Memory:', function() {
                 should.not.exist(err);
                 data.should.be.a('object');
                 data.should.have.property('id', 'lorem');
-                data.should.have.property('_id', 'lorem');
+                data.should.not.have.property('_id');
                 data.should.have.property('attr', 'ipsum');
                 done();
             });
@@ -121,7 +121,7 @@ describe('Storages / Memory:', function() {
                 should.not.exist(err);
                 data.should.be.a('object');
                 data.should.have.property('id', 'lorem');
-                data.should.have.property('_id', 'lorem');
+                data.should.not.have.property('_id');
                 data.should.have.property('attr', 'dolor');
                 done();
             });
@@ -134,7 +134,7 @@ describe('Storages / Memory:', function() {
                 should.not.exist(err);
                 data.should.be.a('object');
                 data.should.have.property('id', 'lorem');
-                data.should.have.property('_id', 'lorem');
+                data.should.not.have.property('_id');
                 data.should.have.property('attr', 'dolor');
                 done();
             });
@@ -248,7 +248,7 @@ describe('Storages / Memory:', function() {
                 should.not.exist(err);
                 data.should.be.a('object');
                 data.should.have.property('id', 'lorem');
-                data.should.have.property('_id', 'lorem');
+                data.should.not.have.property('_id');
                 data.should.have.property('attr', 'ipsum');
                 done();
             });
@@ -261,7 +261,7 @@ describe('Storages / Memory:', function() {
                 should.not.exist(err);
                 data.should.be.a('object');
                 data.should.have.property('id', 'lorem');
-                data.should.have.property('_id', 'lorem');
+                data.should.not.have.property('_id');
                 data.should.have.property('attr', 'ipsum');
                 done();
             });
@@ -276,7 +276,7 @@ describe('Storages / Memory:', function() {
                 should.not.exist(err);
                 data.should.be.a('object');
                 data.should.have.property('id', 'lorem');
-                data.should.have.property('_id', 'lorem');
+                data.should.not.have.property('_id');
                 data.should.have.property('attr', 'ipsum');
                 done();
             });
