@@ -24,12 +24,6 @@ module.exports = function(args) {
         };
     }
 
-    // .
-    var instances = null;
-    if (args.cache) {
-        instances = cache[args.cache] = cache[args.cache] || {};
-    }
-
     // The concrete factory.
     function builder(options) {
         // Merge options from builder and factory.
@@ -41,11 +35,13 @@ module.exports = function(args) {
         };
 
         // .
-        if (instances && options.id) {
-            if (instances[options.id]) {
-                return instances[options.id];
+        if (args.cache) {
+            cache[args.cache] = cache[args.cache] || {};
+            var cacheId = options.id || 'global';
+            if (cache[args.cache][cacheId]) {
+                return cache[args.cache][cacheId];
             }
-            instances[options.id] = instance;
+            cache[args.cache][cacheId] = instance;
         }
 
         // Mixin.

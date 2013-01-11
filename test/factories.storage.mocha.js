@@ -94,7 +94,7 @@ describe('Factories / Storage:', function() {
             another.should.equal(storage);
         });
 
-        it('should not cache a storage without an id.', function() {
+        it('should also cache a storage without an id.', function() {
             var storage = builder({
                 attr: 'dolor'
             });
@@ -103,7 +103,7 @@ describe('Factories / Storage:', function() {
             });
             storage.should.be.a('object');
             another.should.be.a('object');
-            another.should.not.equal(storage);
+            another.should.equal(storage);
         });
     });
 
