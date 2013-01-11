@@ -1,0 +1,8 @@
+{
+  "name": "example-cors",
+  "version": "0.0.0",
+  "dependencies": {
+      "carcass": "*",
+      "carcass-auth": "*"
+  }
+}
