@@ -3,7 +3,6 @@ var debug = require('debug')('carcass:Storage:Stash');
 var carcass = require('carcass');
 var _ = require('underscore');
 var fs = require('fs');
-var mkdirp = require('mkdirp');
 
 var noop = function(err) {
     if (err) debug(err);
@@ -12,15 +11,17 @@ var machineName = carcass.utils.machineName;
 
 // Stash
 // ---
+// @see https://github.com/developmentseed/stash
+
 // Requires:
 // * stash (npm install stash)
 // * mkdirp (npm install mkdirp)
+
 // Notes:
 // * `_id` is used to represent the filename.
 // * `_id` is generated if not given.
 // * `_id` is never saved with the doc.
 
-// .
 module.exports = carcass.factories.Storage({
     title: 'Stash',
     cache: 'stash',
@@ -88,7 +89,7 @@ function initialize(instance, options) {
 
     // Install.
     instance.install = function(callback) {
-        mkdirp(stashPath, callback || noop);
+        require('mkdirp')(stashPath, callback || noop);
     };
 
     // Uninstall.
