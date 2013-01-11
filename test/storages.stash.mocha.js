@@ -5,6 +5,7 @@ var path = require('path');
 var stashRoot = path.resolve(require.resolve('carcass'), '../test/fixture',
     'stash');
 var stashPath = path.resolve(stashRoot, 'lorems');
+var stashIpsums = path.resolve(stashRoot, 'ipsums');
 
 describe('Storages / Stash:', function() {
     it('should be a function.', function() {
@@ -142,7 +143,7 @@ describe('Storages / Stash:', function() {
             it('should not allow a different instance to read.',
                 function(done) {
                     carcass.storages.stash({
-                        id: 'ipsum'
+                        id: stashIpsums
                     }).get({
                         id: 'lorem'
                     }, function(err, data) {
@@ -278,6 +279,15 @@ describe('Storages / Stash:', function() {
 
             it('should be able to uninstall lorems', function(done) {
                 storage.uninstall(function(err) {
+                    should.not.exist(err);
+                    setTimeout(done, 1);
+                });
+            });
+
+            it('should be able to uninstall ipsums', function(done) {
+                carcass.storages.stash({
+                    id: stashIpsums
+                }).uninstall(function(err) {
                     should.not.exist(err);
                     setTimeout(done, 1);
                 });

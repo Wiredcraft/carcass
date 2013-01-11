@@ -28,11 +28,11 @@ module.exports = carcass.factories.Storage({
 });
 
 function initialize(instance, options) {
-    debug('initializing');
-
     // Requires id, which is used as the file path.
     // TODO: if (!instance.id) {}
     var stashPath = instance.id;
+
+    debug('initializing %s', stashPath);
 
     // A reference.
     instance.__defineGetter__('stash', function() {
