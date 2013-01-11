@@ -33,21 +33,24 @@ module.exports = function(args) {
     // The concrete factory.
     function builder(options) {
         // Merge options from builder and factory.
-        options = _.extend(_.omit(args, 'initialize'), options);
+        options = _.extend(_.omit(args, 'initialize', 'id'), options);
 
         // .
-        instance = carcass.mixable({
-            title: options.title || 'Storage'
-        });
+        var instance = {
+            title: 'Storage'
+        };
 
         // .
         if (instances && options.id) {
             if (instances[options.id]) {
                 return instances[options.id];
             }
-            instance.id = options.id;
             instances[options.id] = instance;
         }
+
+        // Mixin.
+        carcass.mixable(instance);
+        instance.mixin(_.omit(options, 'prototype'));
 
         // .
         EventEmitter.call(instance);
