@@ -19,11 +19,12 @@ function initialize(app, options) {
 
         // TODO: API client registry?
         // Access-Control-Allow-Origin must be explicit or Allow-Credentials
-        // would fail. 
+        // would fail.
         res.header('Access-Control-Allow-Origin', req.get('Origin'));
-        
-        // @see https://developer.mozilla.org/en-US/docs/HTTP/Access_control_CORS
-        res.header('Access-Control-Allow-Credentials', 'true')
+
+        // @see
+        // https://developer.mozilla.org/en-US/docs/HTTP/Access_control_CORS
+        res.header('Access-Control-Allow-Credentials', 'true');
 
         // @see http://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol
         // TODO: auto populate like Express 2 does.
