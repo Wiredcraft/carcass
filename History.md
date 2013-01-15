@@ -1,4 +1,13 @@
 
+0.2.2 / 2013-01-15 
+==================
+
+  * Improved storage: given a cache key, also cache without an id.
+  * Improved stash: only require mkdirp when needed.
+  * Improved stash debug output. Fixed stash test: do a cleanup.
+  * Fixed storage: do not merge id; mixin options.
+  * Added cors example and credential support to applications/cors.
+
 0.2.1 / 2013-01-10 
 ==================
 
