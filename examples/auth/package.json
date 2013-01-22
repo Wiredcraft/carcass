@@ -1,0 +1,21 @@
+{
+  "name": "carcass-example-auth",
+  "version": "0.0.0",
+  "dependencies": {
+    "carcass": "*",
+    "carcass-auth": "*",
+    "debug": "*",
+    "express": "*",
+    "passport": "*",
+    "passport-local": "*",
+    "underscore": "*"
+  },
+  "devDependencies": {
+    "mocha": "1.x",
+    "request": "2.x",
+    "should": "1.x"
+  },
+  "scripts": {
+    "test": "./node_modules/.bin/mocha ./test/*.mocha.js"
+  }
+}
