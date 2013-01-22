@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "dependencies": {
       "carcass": "*",
-      "carcass-auth": "*"
+      "carcass-auth": "*",
+      "passport-local": "*"
   }
 }
