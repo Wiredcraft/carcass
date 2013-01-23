@@ -8,7 +8,9 @@
     "express": "*",
     "passport": "*",
     "passport-local": "*",
-    "underscore": "*"
+    "underscore": "*",
+    "mkdirp": "*",
+    "stash": "*"
   },
   "devDependencies": {
     "mocha": "1.x",
