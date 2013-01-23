@@ -14,7 +14,7 @@ require('carcass-auth');
 carcass.register(__dirname, 'models');
 
 // Register applications.
-carcass.register(__dirname, 'applications');
+// carcass.register(__dirname, 'applications');
 
 // Configuration?
 // ---
