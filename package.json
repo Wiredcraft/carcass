@@ -22,9 +22,9 @@
     "configurable": "~0.0.1",
     "debug": "~0.7.0",
     "eson": "~0.4.1",
-    "express": "~3.0.6",
+    "express": "~3.1.0",
     "methods": "~0.0.1",
-    "underscore": "~1.4.3"
+    "underscore": "~1.4.4"
   },
   "devDependencies": {
     "mkdirp": "~0.3.4",
