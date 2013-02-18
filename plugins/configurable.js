@@ -5,7 +5,7 @@ var _ = require('underscore');
 
 // Make it configurable.
 module.exports = function(obj) {
-    obj || (obj = {});
+    obj = obj || {};
 
     carcass.mixable(obj);
     configurable(obj);
