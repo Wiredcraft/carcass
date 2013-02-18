@@ -1,4 +1,14 @@
 
+0.3.0 (Promise) / 2013-02-18 
+==================
+
+  * Core: added deferred to carcass core; also exposed a promise with carcass itself as the resolve value.
+  * Core: moved mixable() to plugins.
+  * Core: moved register() to a lib.
+  * Added Deferred 0.6.1.
+  * Upgraded: Express 3.1.0; Underscore 1.4.4.
+  * Adding a few examples; not ready.
+
 0.2.2 / 2013-01-15 
 ==================
 
@@ -13,7 +23,7 @@
 
   * Improved storages: memory doesn't need "_id"; stash uses "_id" as the filename; display error with "noop()".
 
-0.2.0 / 2013-01-09 
+0.2.0 (Model) / 2013-01-09 
 ==================
 
   * Added 2 factory: "Model" and "Storage".
