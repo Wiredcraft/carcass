@@ -3,6 +3,8 @@ var util = require('util');
 
 // Make it extendable.
 module.exports = function(obj) {
+    obj = obj || {};
+
     obj.extend = function(protoProps) {
         var parent = this;
         var child = function() {
