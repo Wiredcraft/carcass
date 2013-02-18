@@ -1,5 +1,3 @@
-var path = require('path');
-var fs = require('fs');
 var _ = require('underscore');
 
 // I am Carcass.
