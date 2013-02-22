@@ -12,6 +12,9 @@ exports.mixable = exports.plugins.mixable;
 // Register utils.
 exports.register(__dirname, 'utils');
 
+// Shortcuts.
+exports.httpError = exports.utils.httpError;
+
 // Register constructors.
 exports.register(__dirname, 'constructors');
 
