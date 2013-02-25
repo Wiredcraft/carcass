@@ -9,7 +9,7 @@ var codes = http.STATUS_CODES;
 // ---
 // Concrete factory; returns an instance.
 
-// .
+// TODO: examples.
 module.exports = function(status, message) {
     // If the first argument is not a valid status code, it is used as the
     // message, and the second argument is omitted.

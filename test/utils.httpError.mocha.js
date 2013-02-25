@@ -44,4 +44,9 @@ describe('Http error', function() {
         var err = carcass.httpError(_err);
         err.toString().should.equal('HTTP Error: 403 Requires login');
     });
+
+    it('can use an error with a status.', function() {
+        var err = carcass.httpError(403, new Error('Requires login'));
+        err.toString().should.equal('HTTP Error: 403 Requires login');
+    });
 });
