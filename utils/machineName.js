@@ -1,6 +1,6 @@
 var _ = require('underscore');
 
-// .
+// TODO: rebuild with promise.
 module.exports = function(source, options, callback) {
     if (_.isFunction(options)) {
         callback = options;
