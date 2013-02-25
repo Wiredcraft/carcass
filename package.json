@@ -11,13 +11,14 @@
   "keywords": [
     "carcass",
     "express",
-    "framework"
+    "promise",
+    "deferred"
   ],
   "repository": {
     "type": "git",
     "url": "https://github.com/devo-ps/carcass.git"
   },
-  "url": "",
+  "url": "https://github.com/devo-ps/carcass",
   "dependencies": {
     "configurable": "~0.0.1",
     "debug": "~0.7.0",
