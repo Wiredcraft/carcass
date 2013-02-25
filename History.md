@@ -1,4 +1,10 @@
 
+0.3.1 / 2013-02-25 
+==================
+
+  * Updated package keywords and url.
+  * Added carcass.httpError().
+
 0.3.0 (Promise) / 2013-02-18 
 ==================
 
