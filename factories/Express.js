@@ -1,6 +1,7 @@
 var debug = require('debug')('carcass:Factory:Express');
 
-var express = require('express');
+var carcass = require('carcass');
+var express = carcass.express;
 var _ = require('underscore');
 
 // Express
