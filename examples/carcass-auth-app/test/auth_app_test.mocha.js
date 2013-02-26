@@ -1,10 +1,7 @@
-
 var superagent = require('superagent');
 var should = require('should');
 
 describe('Test auth application', function() {
-
-
 	it('get /', function(done) {
 		superagent
 		.get('http://localhost:3000/')
@@ -23,16 +20,6 @@ describe('Test auth application', function() {
 			done();
 		})
 	});
-
-	// it.skip('user should be identified', function(done){
-	//    superagent
-	//    .get('http://localhost:3000/whoami')
-	//    .end(function(err, res) {
-	//    	console.log(res.body);
-	//    	res.body.username.should.equal('Alex');
-	//    	done();
-	//    })
-	// });
 
 	it('login user /login', function(done) {
 		superagent

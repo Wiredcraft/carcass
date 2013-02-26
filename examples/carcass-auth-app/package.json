@@ -4,14 +4,14 @@
   "dependencies": {
     "carcass": "*",
     "carcass-auth": "*",
-      "carcass-memoray" : "*",
+    "carcass-memoray" : "*",
     "debug": "*",
     "express": "*",
     "passport": "*",
     "passport-local": "*",
     "underscore": "*",
     "pwd" : "*",
-      "array.js" : "*"
+    "array.js" : "*"
   },
   "devDependencies": {
     "mocha": "1.x",
