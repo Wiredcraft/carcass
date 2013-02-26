@@ -6,9 +6,12 @@
     "carcass-auth": "*",
     "debug": "*",
     "express": "*",
-    "passport": "*",
-    "passport-local": "*",
-    "underscore": "*"
+    // "jade": "*",
+    // "passport": "*",
+    // "passport-local": "*",
+    // "connect-flash": "*",
+    "underscore": "*",
+    "password-hash": "*" 
   },
   "devDependencies": {
     "mocha": "1.x",
