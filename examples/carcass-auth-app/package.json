@@ -10,9 +10,9 @@
     "passport": "*",
     "passport-local": "*",
     "underscore": "*",
-    "pwd" : "*",
+    "pwd-base64" : "*",
     "array.js" : "*"
-  },
+    },
   "devDependencies": {
     "mocha": "1.x",
     "request": "2.x",
