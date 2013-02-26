@@ -1,7 +1,8 @@
 var debug = require('debug')('carcass:Example:Model:User');
 
-var carcass = require('carcass');
-var path = require('path');
+var carcass = require('carcass')
+  , path = require('path')
+  , passwordHash = require('password-hash');
 
 // Stash storage.
 var storage = carcass.storages.stash({
@@ -15,6 +16,12 @@ var builder = carcass.factories.Model({
     },
     storage: storage
 });
+
+// builder.prototype.hashPassword = function(users) {
+//   for(var i=0; i< users.length; i++) {
+//     users[i].password = passwordHash.generate(users[i].password);
+//   }
+// }
 
 builder.use(carcass.plugins.modelSync);
 
