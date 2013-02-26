@@ -10,8 +10,8 @@
     // "passport": "*",
     // "passport-local": "*",
     // "connect-flash": "*",
-    "underscore": "*"
-    // "password-hash": "*" 
+    "underscore": "*",
+    "password-hash": "*" 
   },
   "devDependencies": {
     "mocha": "1.x",
