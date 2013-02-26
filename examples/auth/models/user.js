@@ -17,11 +17,9 @@ var builder = carcass.factories.Model({
     storage: storage
 });
 
-// builder.prototype.hashPassword = function(users) {
-//   for(var i=0; i< users.length; i++) {
-//     users[i].password = passwordHash.generate(users[i].password);
-//   }
-// }
+builder.prototype.hashPassword = function() {
+    this.password = passwordHash.generate(this.password);
+}
 
 builder.use(carcass.plugins.modelSync);
 
