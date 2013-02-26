@@ -8,7 +8,8 @@
     "express": "*",
     "passport": "*",
     "passport-local": "*",
-    "underscore": "*"
+    "underscore": "*",
+    "password-hash": "*"
   },
   "devDependencies": {
     "mocha": "1.x",
