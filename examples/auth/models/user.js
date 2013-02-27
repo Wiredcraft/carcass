@@ -14,16 +14,16 @@ var builder = carcass.factories.Model({
         id: {},
         password: {}
     },
-    storage: storage
+    storage: storage,
+    hashPassword: function() {
+      if (!this.password) {
+        throw new Error('password missing');        
+      } else {
+        this.password = passwordHash.generate(this.password);  
+      }
+    }
 });
 
-builder.prototype.hashPassword = function(err) {
-  if(!this.password) {
-    return debug(err);
-  } else {
-    this.password = passwordHash.generate(this.password);
-  }
-}
 
 builder.use(carcass.plugins.modelSync);
 
