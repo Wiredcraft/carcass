@@ -4,11 +4,15 @@
   "dependencies": {
     "carcass": "*",
     "carcass-auth": "*",
+    "carcass-memoray" : "*",
     "debug": "*",
     "express": "*",
     "passport": "*",
     "passport-local": "*",
-    "underscore": "*"
+    "underscore": "*",
+    "password-hash": "*",
+    "stash": "*",
+    "mkdirp": "*"
   },
   "devDependencies": {
     "mocha": "1.x",
