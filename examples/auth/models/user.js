@@ -1,4 +1,4 @@
-var debug = require('debug')('carcass:Example:Model:User');
+// var debug = require('debug')('carcass:Example:Model:User');
 
 var carcass = require('carcass');
 var path = require('path');
@@ -14,14 +14,30 @@ var builder = carcass.factories.Model({
         id: {},
         password: {}
     },
+
     storage: storage,
-    hashPassword: function() {
-      if (!this.password) {
-        throw new Error('password missing');        
+
+    hashPassword: function(user, done) {
+      if (!user.attrs.password) {
+        return done({ message: 'Password Missing' });
       } else {
-        this.password = passwordHash.generate(this.password);  
+        user.attrs.password = passwordHash.generate(user.attrs.password);
+        done({ message: 'Password Hashed'});
       }
-    }
+    },
+
+    verifyPassword: function(id, password, done) {
+      // debug('Looking for user %s %s', username, password);
+      this.storage.get({id : id}, function(err, user) {
+        if (!user) {
+          return done(null, false, { message: 'Incorrect username.' });
+        }
+        if (!passwordHash.verify(password, user.password)) {
+          return done(null, false, { message: 'Incorrect password.' });
+        }
+        return done(null, user);
+      });
+    }    
 });
 
 
