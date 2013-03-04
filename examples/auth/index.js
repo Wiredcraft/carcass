@@ -2,6 +2,7 @@ var carcass = require('carcass');
 require('carcass-auth');
 // require('carcass-memoray');
 var LocalStrategy = require('passport-local').Strategy;
+var passwordHash = require('password-hash');
 
 // Register applications.
 carcass.register(__dirname, 'applications');
@@ -20,7 +21,7 @@ var user = new User({
 User.hashPassword(user, function(data) {
     console.log(data.message);
     user.save(function() {
-        console.log('save success and the hashed password is ' + user.attrs.password);
+        console.log(user.attrs.password);
     });
 });
 
@@ -42,8 +43,14 @@ passport.use('local', new LocalStrategy({
     passwordField:     'password',
     passReqToCallback: false
 }, function(username, password, done) {
-    User.verifyPassword(username, password, function(err, user) {
+    User.storage.get({id : username}, function(err, user) {
       if (err) return done(err, null);
+      if (!user) {
+        return done(null, false, { message: 'Incorrect username.' });
+      }
+      if (!User.verifyPassword(password, user.password)) {
+        return done(null, false, { message: 'Incorrect password.' });
+      }
       return done(null, user);
     });
 }));

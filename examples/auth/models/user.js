@@ -26,17 +26,9 @@ var builder = carcass.factories.Model({
       }
     },
 
-    verifyPassword: function(id, password, done) {
+    verifyPassword: function(password, hashedPassword) {
       // debug('Looking for user %s %s', username, password);
-      this.storage.get({id : id}, function(err, user) {
-        if (!user) {
-          return done(null, false, { message: 'Incorrect username.' });
-        }
-        if (!passwordHash.verify(password, user.password)) {
-          return done(null, false, { message: 'Incorrect password.' });
-        }
-        return done(null, user);
-      });
+        return passwordHash.verify(password, hashedPassword);
     }    
 });
 
