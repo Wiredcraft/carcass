@@ -4,7 +4,6 @@
   "dependencies": {
     "carcass": "*",
     "carcass-auth": "*",
-    "carcass-memoray" : "*",
     "debug": "*",
     "express": "*",
     "passport": "*",

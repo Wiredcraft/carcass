@@ -1,8 +1,6 @@
 var carcass = require('carcass');
 require('carcass-auth');
-// require('carcass-memoray');
 var LocalStrategy = require('passport-local').Strategy;
-var passwordHash = require('password-hash');
 
 // Register applications.
 carcass.register(__dirname, 'applications');

@@ -5,9 +5,7 @@ var path = require('path');
 var passwordHash = require('password-hash');
 
 // Stash storage.
-var storage = carcass.storages.stash({
-    id: path.resolve(__dirname, '../stash')
-});
+var storage = carcass.storages.memory();
 
 var builder = carcass.factories.Model({
     attributes: {
