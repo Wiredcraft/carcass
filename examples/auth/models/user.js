@@ -16,16 +16,16 @@ var builder = carcass.factories.Model({
     storage: storage,
 
     hashPassword: function(user, done) {
-      if (!user.attrs.password) {
-        return done({ message: 'Password Missing' });
-      } else {
-        user.attrs.password = passwordHash.generate(user.attrs.password);
-        done({ message: 'Password Hashed'});
-      }
+        if (!user.attrs.password) {
+            return done({ message: 'Password Missing' });
+        } else {
+            user.attrs.password = passwordHash.generate(user.attrs.password);
+            done({ message: 'Password Hashed'});
+        }
     },
 
     verifyPassword: function(password, hashedPassword) {
-      // debug('Looking for user %s %s', username, password);
+        // debug('Looking for user %s %s', username, password);
         return passwordHash.verify(password, hashedPassword);
     }    
 });

@@ -25,7 +25,7 @@ function initialize(app, options) {
     
     app.get('/', function(req, res) {
         res.json({
-            'page': 'user model test'
+            'msg': 'welcome'
         });
     });
 
