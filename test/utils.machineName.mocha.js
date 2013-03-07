@@ -1,4 +1,4 @@
-var carcass = require('../../carcass');
+var carcass = require('carcass');
 var should = require('should');
 
 require('./fixture');
@@ -79,7 +79,7 @@ describe('Machine name', function() {
     describe('Source is a Number', function(){
         it('should return an error.', function(done){
             machineName(21, function(err, name){
-                should.exist(err);
+                err.message.should.equal('source must a string');
                 done();
             });
         });
@@ -98,7 +98,7 @@ describe('Machine name', function() {
             machineName('Lorem', {
                 separator: {}
             }, function(err, name) {
-                should.exist(err);
+                err.message.should.equal('separator must a character such like _%&');
                 done();
             });
         });

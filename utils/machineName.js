@@ -7,13 +7,13 @@ module.exports = function(source, options, callback) {
     }
     if (typeof source !== 'string') {
         // TODO
-        callback(new Error());
+        callback(new Error('source must a string'));
         return;
     }
     var separator = options.separator || '_';
     if (typeof separator !== 'string' || separator.length > 1) {
         // TODO
-        callback(new Error());
+        callback(new Error('separator must a character such like _%&'));
         return;
     }
     callback(null, source.toLowerCase().replace(
