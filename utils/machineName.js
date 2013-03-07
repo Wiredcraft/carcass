@@ -1,18 +1,17 @@
-var _ = require('underscore');
 
 // TODO: rebuild with promise.
 module.exports = function(source, options, callback) {
-    if (_.isFunction(options)) {
+    if (typeof options === 'function') {
         callback = options;
         options = {};
     }
-    if (!_.isString(source)) {
+    if (typeof source !== 'string') {
         // TODO
         callback(new Error());
         return;
     }
     var separator = options.separator || '_';
-    if (!_.isString(separator) || separator.length > 1) {
+    if (typeof separator !== 'string' || separator.length > 1) {
         // TODO
         callback(new Error());
         return;

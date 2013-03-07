@@ -1,4 +1,4 @@
-var carcass = require('carcass');
+var carcass = require('../../carcass');
 var should = require('should');
 
 require('./fixture');
@@ -76,6 +76,15 @@ describe('Machine name', function() {
     });
     // Errors
     // ------
+    describe('Source is a Number', function(){
+        it('should return an error.', function(done){
+            machineName(21, function(err, name){
+                should.exist(err);
+                done();
+            });
+        });
+    });
+
     describe('Source is not a string', function() {
         it('should return an error.', function(done) {
             machineName({}, function(err, name) {
