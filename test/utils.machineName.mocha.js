@@ -79,7 +79,8 @@ describe('Machine name', function() {
     describe('Source is a Number', function(){
         it('should return an error.', function(done){
             machineName(21, function(err, name){
-                err.message.should.equal('source must a string');
+                should.exist(err);
+                err.message.should.equal('Cannot convert a non-string to a machine name');
                 done();
             });
         });
@@ -98,7 +99,8 @@ describe('Machine name', function() {
             machineName('Lorem', {
                 separator: {}
             }, function(err, name) {
-                err.message.should.equal('separator must a character such like _%&');
+                should.exist(err);
+                err.message.should.equal('Separator must be a single character, like "_"');
                 done();
             });
         });

@@ -7,13 +7,13 @@ module.exports = function(source, options, callback) {
     }
     if (typeof source !== 'string') {
         // TODO
-        callback(new Error('source must a string'));
+        callback(new Error('Cannot convert a non-string to a machine name'));
         return;
     }
     var separator = options.separator || '_';
     if (typeof separator !== 'string' || separator.length > 1) {
         // TODO
-        callback(new Error('separator must a character such like _%&'));
+        callback(new Error('Separator must be a single character, like "_"'));
         return;
     }
     callback(null, source.toLowerCase().replace(
