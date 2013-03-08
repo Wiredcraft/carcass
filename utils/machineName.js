@@ -1,4 +1,4 @@
-var deferred = require('deferred');
+var deferred = require('carcass').deferred;
 // TODO: rebuild with promise.
 module.exports = function(source, options, callback) {
     if (!options) {
