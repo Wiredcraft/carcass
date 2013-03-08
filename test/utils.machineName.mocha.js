@@ -1,4 +1,4 @@
-var carcass = require('../../carcass');
+var carcass = require('carcass');
 var should = require('should');
 
 require('./fixture');
