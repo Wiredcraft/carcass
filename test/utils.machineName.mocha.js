@@ -18,11 +18,8 @@ describe('Machine name', function() {
             machineName('Lorem').end(function(result){
                 result.should.equal('lorem');
                 done();
-            }, function(err){
-                should.not.exist(err);
-                done(err);
-            });
-          });
+            }, done);
+        });
     });
     // Space.
     describe('Lorem ipsum', function() {
@@ -30,10 +27,7 @@ describe('Machine name', function() {
             machineName('Lorem ipsum').end(function(result){
                 result.should.equal('lorem_ipsum');
                 done();
-            }, function(err){
-                should.not.exist(err);
-                done(err);
-            });
+            }, done);
         });
     });
     // Multiple spaces.
@@ -42,10 +36,7 @@ describe('Machine name', function() {
             machineName('Lorem  ipsum').end(function(result){
                 result.should.equal('lorem_ipsum');
                 done();
-            }, function(err){
-                should.not.exist(err);
-                done(err);
-            });
+            }, done);
         });
     });
     // Numbers.
@@ -54,10 +45,7 @@ describe('Machine name', function() {
             machineName('Lorem 2').end(function(result){
                 result.should.equal('lorem_2');
                 done();
-            }, function(err){
-                should.not.exist(err);
-                done(err);
-            });
+            }, done);
         });
     });
     // Some special characters (on my keyboard).
@@ -66,10 +54,7 @@ describe('Machine name', function() {
             machineName('Lorem~!@#$%^&*ipsum').end(function(result){
                 result.should.equal('lorem_ipsum');
                 done();
-            }, function(err){
-                should.not.exist(err);
-                done(err);
-            });
+            }, done);
         });
     });
     // A different separator.
@@ -80,21 +65,14 @@ describe('Machine name', function() {
             }).end(function(result){
                 result.should.equal('lorem+ipsum');
                 done();
-            }, function(err){
-                should.not.exist(err);
-                done(err);
-            });
+            }, done);
         });
     });
     // Errors
     // ------
     describe('Source is a Number', function(){
         it('should return an error.', function(done){
-            // console.log(machineName(21).then());
-            machineName(21).end(function(result){
-                should.not.exist(result);
-                done();
-            }, function(err){
+            machineName(21).end(done, function(err){
                 err.message.should.equal('Cannot convert a non-string to a machine name');
                 done();
             });
@@ -103,10 +81,7 @@ describe('Machine name', function() {
 
     describe('Source is not a string', function() {
         it('should return an error.', function(done) {
-            machineName({}).end(function(result){
-                should.not.exist(result);
-                done();
-            }, function(err){
+            machineName({}).end(done, function(err){
                 should.exist(err.message);
                 done();
             });
@@ -116,10 +91,7 @@ describe('Machine name', function() {
         it('should return an error.', function(done) {
             machineName('Lorem', {
                 separator: {}
-            }).end(function(result){
-                should.not.exist(result);
-                done();
-            }, function(err){
+            }).end(done, function(err){
                 err.message.should.equal('Separator must be a single character, like "_"');
                 done();
             });
@@ -129,10 +101,7 @@ describe('Machine name', function() {
         it('should return an error.', function(done) {
             machineName('Lorem', {
                 separator: {}
-            }).end(function(result){
-                should.not.exist(result);
-                done();
-            }, function(err){
+            }).end(done, function(err){
                 should.exist(err.message);
                 done();
             });

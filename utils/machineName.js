@@ -1,9 +1,8 @@
 var deferred = require('carcass').deferred;
+
 // TODO: rebuild with promise.
-module.exports = function(source, options, callback) {
-    if (!options) {
-        options = {};
-    }
+module.exports = function(source, options) {
+    options = options || {};
     var def = deferred();
     var separator = options.separator || '_';
     if (typeof source !== 'string') {
