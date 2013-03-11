@@ -6,7 +6,7 @@
   },
   "name": "carcass",
   "description": "An Express.js framework with a bunch of tools and assumptions.",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "contributors": [],
   "keywords": [
     "carcass",
