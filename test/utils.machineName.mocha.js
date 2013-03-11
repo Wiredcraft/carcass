@@ -6,7 +6,7 @@ require('./fixture');
 var machineName;
 
 describe('Machine name', function() {
-    // TODO
+    // property
     it('should be a function.', function(done) {
         carcass.utils.should.have.property('machineName');
         machineName = carcass.utils.machineName;
@@ -72,7 +72,10 @@ describe('Machine name', function() {
     // ------
     describe('Source is a Number', function(){
         it('should return an error.', function(done){
-            machineName(21).end(done, function(err){
+            machineName(21).end(function(result){
+                should.not.exist(result);
+                done();
+            }, function(err){
                 err.message.should.equal('Cannot convert a non-string to a machine name');
                 done();
             });
@@ -81,7 +84,10 @@ describe('Machine name', function() {
 
     describe('Source is not a string', function() {
         it('should return an error.', function(done) {
-            machineName({}).end(done, function(err){
+            machineName({}).end(function(result){
+                should.not.exist(result);
+                done();
+            }, function(err){
                 should.exist(err.message);
                 done();
             });
@@ -91,7 +97,10 @@ describe('Machine name', function() {
         it('should return an error.', function(done) {
             machineName('Lorem', {
                 separator: {}
-            }).end(done, function(err){
+            }).end(function(result){
+                should.not.exist(result);
+                done();
+            }, function(err){
                 err.message.should.equal('Separator must be a single character, like "_"');
                 done();
             });
@@ -101,7 +110,10 @@ describe('Machine name', function() {
         it('should return an error.', function(done) {
             machineName('Lorem', {
                 separator: {}
-            }).end(done, function(err){
+            }).end(function(result){
+                should.not.exist(result);
+                done();
+            }, function(err){
                 should.exist(err.message);
                 done();
             });
