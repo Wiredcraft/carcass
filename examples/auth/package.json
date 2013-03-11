@@ -8,12 +8,14 @@
     "express": "*",
     "passport": "*",
     "passport-local": "*",
-    "underscore": "*"
+    "underscore": "*",
+    "password-hash": "*"
   },
   "devDependencies": {
     "mocha": "1.x",
     "request": "2.x",
-    "should": "1.x"
+    "should": "1.x",
+    "superagent": "*"
   },
   "scripts": {
     "test": "./node_modules/.bin/mocha ./test/*.mocha.js"

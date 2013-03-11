@@ -1,4 +1,4 @@
-var debug = require('debug')('carcass:Example:CORS:Application:Login');
+var debug = require('debug')('carcass:Example:AUTH:Application:Login');
 
 var carcass = require('carcass');
 
@@ -13,13 +13,6 @@ function initialize(app, options) {
     options = options || {};
     var passport = options.passport || carcass.instances.passport;
     
-    var builder = carcass.models.model;
-    
-    var model = builder({
-        id: 'id',
-        name: 'name'
-    });
-    
     // All paths require a session.
     app.use(function(req, res, next) {
         // Just a demo.
@@ -32,7 +25,7 @@ function initialize(app, options) {
     
     app.get('/', function(req, res) {
         res.json({
-            'page': 'index'
+            'msg': 'welcome'
         });
     });
 
@@ -40,23 +33,10 @@ function initialize(app, options) {
         'local'
     ]), function(req, res, next) {
         res.json({
-            'login': 'ok'
+            'login': 'success'
         });
     });
 
-    app.post('/model', authMiddleware, function(req, res) {
-        model.set({
-            'id':   req.body.id,
-            'name': req.body.name
-        }).save(function(error) {
-            error ? res.json({ error: error}) : res.json(model);
-        });
-    });
-    
-    app.get('/model', authMiddleware, function(req, res) {
-       res.json(model); 
-    });
-    
     app.get('/logout', authMiddleware, function(req, res) {
         req.logout();
         res.json({
