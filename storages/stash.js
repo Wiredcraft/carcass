@@ -47,15 +47,14 @@ function initialize(instance, options) {
         callback = callback || noop;
         instance.getId(data, function(id) {
             id = id || 'stash';
-            machineName(id, function(err, _id) {
-                if (err) return callback(err);
+            machineName(id).then(function(_id) {
                 var doc = _.clone(data);
                 if (doc._id) delete doc._id;
                 instance.stash.set(_id, doc, function(err) {
                     if (err) return callback(err);
                     instance.get(_id, callback);
                 });
-            });
+            }, callback);
         });
     };
 
@@ -66,13 +65,12 @@ function initialize(instance, options) {
         callback = callback || noop;
         instance.getId(data, function(id) {
             id = id || 'stash';
-            machineName(id, function(err, _id) {
-                if (err) return callback(err);
+            machineName(id).then(function(_id) {
                 var doc = instance.stash.get(_id);
                 if (!doc) return callback(new Error('not found'));
                 doc._id = _id;
                 callback(null, doc);
-            });
+            }, callback);
         });
     };
 

@@ -2,15 +2,15 @@ var deferred = require('carcass').deferred;
 
 module.exports = function(source, options) {
     options = options || {};
-    var def = deferred();
+    var result;
     var separator = options.separator || '_';
     if (typeof source !== 'string') {
-        def.resolve(new Error('Cannot convert a non-string to a machine name'));
+        result = new Error('Cannot convert a non-string to a machine name');
     } else if (typeof separator !== 'string' || separator.length > 1) {
-        def.resolve(new Error('Separator must be a single character, like "_"'));
-    } else{
-        def.resolve(source.toLowerCase().replace(
-            new RegExp('[^a-z0-9\\' + separator + ']+', 'g'), separator));
+        result = new Error('Separator must be a single character, like "_"');
+    } else {
+        result = source.toLowerCase().replace(
+            new RegExp('[^a-z0-9\\' + separator + ']+', 'g'), separator);
     }
-    return def.promise;
+    return deferred(result);
 };
