@@ -1,22 +1,16 @@
-var _ = require('underscore');
+var deferred = require('carcass').deferred;
 
-// TODO: rebuild with promise.
-module.exports = function(source, options, callback) {
-    if (_.isFunction(options)) {
-        callback = options;
-        options = {};
-    }
-    if (!_.isString(source)) {
-        // TODO
-        callback(new Error());
-        return;
-    }
+module.exports = function(source, options) {
+    options = options || {};
+    var def = deferred();
     var separator = options.separator || '_';
-    if (!_.isString(separator) || separator.length > 1) {
-        // TODO
-        callback(new Error());
-        return;
+    if (typeof source !== 'string') {
+        def.resolve(new Error('Cannot convert a non-string to a machine name'));
+    } else if (typeof separator !== 'string' || separator.length > 1) {
+        def.resolve(new Error('Separator must be a single character, like "_"'));
+    } else{
+        def.resolve(source.toLowerCase().replace(
+            new RegExp('[^a-z0-9\\' + separator + ']+', 'g'), separator));
     }
-    callback(null, source.toLowerCase().replace(
-        new RegExp('[^a-z0-9\\' + separator + ']+', 'g'), separator));
+    return def.promise;
 };

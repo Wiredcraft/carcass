@@ -6,7 +6,7 @@ require('./fixture');
 var machineName;
 
 describe('Machine name', function() {
-    // TODO
+    // property
     it('should be a function.', function(done) {
         carcass.utils.should.have.property('machineName');
         machineName = carcass.utils.machineName;
@@ -15,71 +15,80 @@ describe('Machine name', function() {
     // Lower case.
     describe('Lorem', function() {
         it('should become lorem.', function(done) {
-            machineName('Lorem', function(err, name) {
-                should.not.exist(err);
-                name.should.equal('lorem');
+            machineName('Lorem').end(function(result){
+                result.should.equal('lorem');
                 done();
-            });
+            }, done);
         });
     });
     // Space.
     describe('Lorem ipsum', function() {
         it('should become lorem_ipsum.', function(done) {
-            machineName('Lorem ipsum', function(err, name) {
-                should.not.exist(err);
-                name.should.equal('lorem_ipsum');
+            machineName('Lorem ipsum').end(function(result){
+                result.should.equal('lorem_ipsum');
                 done();
-            });
+            }, done);
         });
     });
     // Multiple spaces.
     describe('Lorem  ipsum', function() {
         it('should become lorem_ipsum.', function(done) {
-            machineName('Lorem  ipsum', function(err, name) {
-                should.not.exist(err);
-                name.should.equal('lorem_ipsum');
+            machineName('Lorem  ipsum').end(function(result){
+                result.should.equal('lorem_ipsum');
                 done();
-            });
+            }, done);
         });
     });
     // Numbers.
     describe('Lorem 2', function() {
         it('should become lorem_2.', function(done) {
-            machineName('Lorem 2', function(err, name) {
-                should.not.exist(err);
-                name.should.equal('lorem_2');
+            machineName('Lorem 2').end(function(result){
+                result.should.equal('lorem_2');
                 done();
-            });
+            }, done);
         });
     });
     // Some special characters (on my keyboard).
     describe('Lorem~!@#$%^&*ipsum', function() {
         it('should become lorem_ipsum.', function(done) {
-            machineName('Lorem~!@#$%^&*ipsum', function(err, name) {
-                should.not.exist(err);
-                name.should.equal('lorem_ipsum');
+            machineName('Lorem~!@#$%^&*ipsum').end(function(result){
+                result.should.equal('lorem_ipsum');
                 done();
-            });
+            }, done);
         });
     });
     // A different separator.
     describe('Lorem ipsum with - as the separator', function() {
         it('should become lorem-ipsum.', function(done) {
             machineName('Lorem ipsum', {
-                separator: '-'
-            }, function(err, name) {
-                should.not.exist(err);
-                name.should.equal('lorem-ipsum');
+                separator: '+'
+            }).end(function(result){
+                result.should.equal('lorem+ipsum');
                 done();
-            });
+            }, done);
         });
     });
     // Errors
     // ------
+    describe('Source is a Number', function(){
+        it('should return an error.', function(done){
+            machineName(21).end(function(result){
+                should.not.exist(result);
+                done();
+            }, function(err){
+                err.message.should.equal('Cannot convert a non-string to a machine name');
+                done();
+            });
+        });
+    });
+
     describe('Source is not a string', function() {
         it('should return an error.', function(done) {
-            machineName({}, function(err, name) {
-                should.exist(err);
+            machineName({}).end(function(result){
+                should.not.exist(result);
+                done();
+            }, function(err){
+                should.exist(err.message);
                 done();
             });
         });
@@ -88,8 +97,11 @@ describe('Machine name', function() {
         it('should return an error.', function(done) {
             machineName('Lorem', {
                 separator: {}
-            }, function(err, name) {
-                should.exist(err);
+            }).end(function(result){
+                should.not.exist(result);
+                done();
+            }, function(err){
+                err.message.should.equal('Separator must be a single character, like "_"');
                 done();
             });
         });
@@ -97,9 +109,12 @@ describe('Machine name', function() {
     describe('Separator is longer than 1 character', function() {
         it('should return an error.', function(done) {
             machineName('Lorem', {
-                separator: '--'
-            }, function(err, name) {
-                should.exist(err);
+                separator: {}
+            }).end(function(result){
+                should.not.exist(result);
+                done();
+            }, function(err){
+                should.exist(err.message);
                 done();
             });
         });
