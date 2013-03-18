@@ -13,8 +13,8 @@ var deferred = carcass.deferred;
 // TODO: comments.
 
 module.exports = function() {
-    function promiseFlow(result) {
-        return promiseFlow.handle(result);
+    function promiseFlow(value) {
+        return promiseFlow.handle(value);
     }
 
     promiseFlow.use = use;
@@ -35,19 +35,17 @@ function use(layer) {
     return this;
 };
 
-function handle(result) {
+function handle(value) {
     var def = deferred();
 
-    // TODO
-    result = result || true;
-
     try {
-        var promise = deferred(result);
+        // TODO: what should be the default value?
+        var promise = deferred(value || true);
         // TODO: ways to break out.
         this.stack.forEach(function(layer) {
             promise = promise.then(layer);
         });
-        promise.then(def.resolve, def.resolve);
+        def.resolve(promise);
     } catch (e) {
         def.resolve(e);
     }
