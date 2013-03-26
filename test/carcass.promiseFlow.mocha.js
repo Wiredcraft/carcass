@@ -5,18 +5,18 @@ var should = require('should');
 
 // TODO: reorganize.
 
-describe('Factories / PromiseFlow:', function() {
+describe('Carcass / promiseFlow:', function() {
     it('should be a function.', function() {
-        carcass.factories.should.have.property('PromiseFlow');
-        carcass.factories.PromiseFlow.should.be.a('function');
+        carcass.should.have.property('promiseFlow');
+        carcass.promiseFlow.should.be.a('function');
     });
 
     it('should return a function.', function() {
-        carcass.factories.PromiseFlow().should.be.a('function');
+        carcass.promiseFlow().should.be.a('function');
     });
 
     describe('An instance', function() {
-        var lorem = carcass.factories.PromiseFlow();
+        var lorem = carcass.promiseFlow();
 
         it('can use a function.', function() {
             lorem.use(function(first) {
@@ -57,7 +57,7 @@ describe('Factories / PromiseFlow:', function() {
         });
 
         it('can use another promise flow.', function() {
-            lorem.use(carcass.factories.PromiseFlow(function(first) {
+            lorem.use(carcass.promiseFlow(function(first) {
                 debug('first+', first);
                 var def = carcass.deferred();
                 setTimeout(function() {
