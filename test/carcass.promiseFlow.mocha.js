@@ -5,7 +5,7 @@ var should = require('should');
 
 // TODO: reorganize.
 
-describe('Carcass / promiseFlow:', function() {
+describe.skip('Carcass / promiseFlow:', function() {
     it('should be a function.', function() {
         carcass.should.have.property('promiseFlow');
         carcass.promiseFlow.should.be.a('function');
@@ -16,7 +16,7 @@ describe('Carcass / promiseFlow:', function() {
     });
 
     describe('An instance', function() {
-        var lorem = carcass.promiseFlow();
+        // var lorem = carcass.promiseFlow();
 
         it('can use a function.', function() {
             lorem.use(function(first) {
