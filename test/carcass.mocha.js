@@ -12,38 +12,33 @@ describe('Carcass', function() {
     });
 
     // TODO
-    it('should have some utils.', function(done) {
+    it('should have some utils.', function() {
         carcass.should.have.property('utils');
-        done();
     });
 
     // TODO
-    it('should have some plugins.', function(done) {
+    it('should have some plugins.', function() {
         carcass.should.have.property('plugins');
-        done();
     });
 
     // TODO
-    it('should have some constructors.', function(done) {
+    it('should have some constructors.', function() {
         carcass.should.have.property('constructors');
-        done();
     });
 
     // TODO
-    it('should have some factories.', function(done) {
+    it('should have some factories.', function() {
         carcass.should.have.property('factories');
-        done();
     });
 
     // TODO
-    it('should have some applications.', function(done) {
+    it('should have some applications.', function() {
         carcass.should.have.property('applications');
-        done();
     });
 
     // .
     describe('Mixin', function() {
-        it('should be able to merge objects.', function(done) {
+        it('should be able to merge objects.', function() {
             var obj = carcass.mixable();
             var value = false;
             var mixinObj = {
@@ -57,16 +52,14 @@ describe('Carcass', function() {
             obj.should.have.property('lorem');
             obj.lorem().should.equal('lorem');
             value.should.equal(true);
-            done();
         });
     });
 
     describe('Register', function() {
-        it('should be able to register new files.', function(done) {
+        it('should be able to register new files.', function() {
             carcass.register('', 'applications');
             carcass.applications.should.have.property('ipsum');
             carcass.applications.should.have.property('lorem');
-            done();
         });
     });
 
