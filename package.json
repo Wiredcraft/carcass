@@ -5,11 +5,12 @@
     "url": "https://github.com/devo-ps"
   },
   "name": "carcass",
-  "description": "An Express.js framework with a bunch of tools and assumptions.",
+  "description": "A toolbox for Node.js, includes Express.js, Deferred, and a lot more.",
   "version": "0.4.0",
   "contributors": [],
   "keywords": [
     "carcass",
+    "toolbox",
     "express",
     "promise",
     "deferred"
