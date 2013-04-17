@@ -3,7 +3,7 @@ var debug = require('debug')('carcass:test');
 var carcass = require('carcass');
 var should = require('should');
 
-describe('Carcass / proto / mixin', function() {
+describe('Carcass / proto / mixin:', function() {
     describe('With an object', function() {
         var obj = {
             lorem: 'ipsum',

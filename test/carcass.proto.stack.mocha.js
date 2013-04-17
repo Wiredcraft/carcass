@@ -3,7 +3,7 @@ var debug = require('debug')('carcass:test');
 var carcass = require('carcass');
 var should = require('should');
 
-describe('Carcass / proto / stack', function() {
+describe('Carcass / proto / stack:', function() {
     var obj = carcass.mixable();
     obj.mixin(carcass.proto.stack);
 
