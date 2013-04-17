@@ -21,10 +21,11 @@
   "url": "https://github.com/devo-ps/carcass",
   "dependencies": {
     "configurable": "~0.0.1",
-    "debug": "~0.7.0",
-    "deferred": "~0.6.1",
+    "debug": "~0.7.2",
+    "deferred": "~0.6.3",
+    "es5-ext": "~0.9.2",
     "eson": "~0.4.1",
-    "express": "~3.1.0",
+    "express": "~3.1.2",
     "methods": "~0.0.1",
     "underscore": "~1.4.4"
   },
