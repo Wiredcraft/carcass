@@ -6,7 +6,7 @@ var isObject = require('es5-ext/lib/Object/is-object');
 /**
  * Add a mixin() function to a target object.
  * 
- * @param {object | null}
+ * @param {object}
  * @return {object}
  */
 module.exports = function mixable(obj) {

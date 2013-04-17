@@ -1,4 +1,14 @@
 
+0.4.0 (Proto) / 2013-04-17 
+==================
+
+  * Rebuilt mixable() with proto/mixin.
+  * Added proto/stack.
+  * Added proto/mixin.
+  * Building things into lib/proto.
+  * Building promise flow - not ready.
+  * Rebuilt utils.machineName() with promise.
+
 0.3.2 / 2013-03-11 
 ==================
 
