@@ -6,9 +6,6 @@ require('./lib/carcass')(exports);
 // Register plugins.
 exports.register(__dirname, 'plugins');
 
-// Backward compatibility.
-exports.mixable = exports.plugins.mixable;
-
 // Register utils.
 exports.register(__dirname, 'utils');
 

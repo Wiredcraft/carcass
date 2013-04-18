@@ -10,6 +10,7 @@ module.exports = function(obj) {
     carcass.mixable(obj);
     configurable(obj);
 
+    // TODO: remove from here, once we have a config manager.
     // File config.
     obj.eson = eson;
     obj.parser = eson();
