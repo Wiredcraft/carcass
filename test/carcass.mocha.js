@@ -11,6 +11,11 @@ describe('Carcass', function() {
         carcass.should.have.property('register');
     });
 
+    it('should have proto.', function() {
+        carcass.should.have.property('proto');
+        carcass.proto.should.be.a('object');
+    });
+
     // TODO
     it('should have some utils.', function() {
         carcass.should.have.property('utils');
