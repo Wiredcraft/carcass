@@ -31,6 +31,7 @@
     "underscore": "~1.4.4"
   },
   "devDependencies": {
+    "benchmark": "1.x",
     "mkdirp": "~0.3.4",
     "mocha": "1.x",
     "request": "2.x",
