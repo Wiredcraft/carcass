@@ -50,6 +50,13 @@ describe('Carcass / mixable:', function() {
         lorem.should.not.have.property('mixin');
     });
 
+    it('cannot make strings mixable.', function() {
+        var lorem = carcass.mixable('');
+        lorem.should.be.a('string');
+        lorem.should.equal('');
+        lorem.should.not.have.property('mixin');
+    });
+
     it('cannot make numbers mixable.', function() {
         var lorem = carcass.mixable(1);
         lorem.should.be.a('number');
