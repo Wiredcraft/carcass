@@ -18,7 +18,7 @@ var ipsum = {
 
 // Benchmark
 // ---
-describe('Proto / Mixin:', function() {
+describe.skip('Proto / Mixin:', function() {
 
     it('benchmarking the speed of mixin.', function(done) {
         var suite = Benchmark.Suite();
