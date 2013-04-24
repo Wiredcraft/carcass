@@ -1,4 +1,20 @@
 
+0.4.1 / 2013-04-24 
+==================
+
+  * Fixed CORS test; HEAD returns an empty body.
+  * Added a benchmark for using loaderSync in different ways.
+  * Added a benchmark for mixin.
+  * Mixable: shouldn't bind when we don't need to.
+  * Added a new proto: a synchronous loader.
+  * Updated Express to 3.2.0.
+  * Added benchmark to devDependencies.
+  * Rebuilding register into proto.
+  * Carcass itself is also mixable now.
+  * Moved mixable again - it's a core library.
+  * Proto/stack: removed shared stack; doesn't make sense to share it.
+  * Redefining scope. Rewriting readme.
+
 0.4.0 (Proto) / 2013-04-17 
 ==================
 
