@@ -34,7 +34,7 @@
     "benchmark": "1.x",
     "mkdirp": "~0.3.4",
     "mocha": "1.x",
-    "request": "2.x",
+    "request": "~2.20",
     "should": "1.x",
     "stash": "~0.0.3"
   },
