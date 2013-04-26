@@ -1,4 +1,4 @@
-var debug = require('debug')('carcass:Application:Ipsum');
+var debug = require('debug')('carcass:application:ipsum');
 
 var carcass = require('carcass');
 
