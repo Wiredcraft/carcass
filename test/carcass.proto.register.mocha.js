@@ -97,6 +97,38 @@ describe('Carcass / proto / register:', function() {
             obj.applications.should.have.property('dolor');
             obj.applications.dolor.should.have.property('lorem');
             obj.applications.dolor.lorem.should.equal(dolor);
+            obj.applications.dolor.should.not.have.property('index');
+            obj.applications.dolor.should.have.property('ipsum', 'not ipsum');
+            obj.applications.dolor.should.have.property('dolor', 'dolor');
+        });
+    });
+
+    describe('Use with a folder but disable index:', function() {
+        var obj = carcass.mixable({
+            lorem: 'lorem',
+            registerOptions: {
+                noIndex: true
+            }
+        });
+
+        before(function() {
+            obj.mixin(carcass.proto.register);
+        });
+
+        it('should ...', function() {
+            obj.register(root, 'applications', 'dolor');
+            obj.should.have.property('lorem', 'lorem');
+            obj.should.not.have.property('dolor');
+            obj.should.have.property('applications');
+            obj.applications.should.be.a('object');
+            obj.applications.should.not.have.property('lorem');
+            obj.applications.should.not.have.property('ipsum');
+            obj.applications.should.have.property('dolor');
+            obj.applications.dolor.should.have.property('lorem');
+            obj.applications.dolor.lorem.should.equal(dolor);
+            obj.applications.dolor.should.not.have.property('index');
+            obj.applications.dolor.should.have.property('ipsum', 'ipsum');
+            obj.applications.dolor.should.not.have.property('dolor');
         });
     });
 
