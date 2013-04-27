@@ -46,6 +46,37 @@ describe('Carcass / proto / register:', function() {
         });
     });
 
+    describe('User with a tree but no recursive:', function() {
+        var obj = carcass.mixable({
+            lorem: 'lorem',
+            registerOptions: {
+                noRecursive: true
+            }
+        });
+
+        before(function() {
+            obj.mixin(carcass.proto.register);
+        });
+
+        it('should ...', function() {
+            obj.should.have.property('lorem', 'lorem');
+            obj.should.have.property('register');
+        });
+
+        it('should ...', function() {
+            obj.register(root, 'applications');
+            obj.should.have.property('lorem', 'lorem');
+            obj.should.not.have.property('dolor');
+            obj.should.have.property('applications');
+            obj.applications.should.be.a('object');
+            obj.applications.should.have.property('lorem');
+            obj.applications.lorem.should.equal(lorem);
+            obj.applications.should.have.property('ipsum');
+            obj.applications.ipsum.should.equal(ipsum);
+            obj.applications.should.not.have.property('dolor');
+        });
+    });
+
     describe('Use with a folder:', function() {
         var obj = carcass.mixable({
             lorem: 'lorem'

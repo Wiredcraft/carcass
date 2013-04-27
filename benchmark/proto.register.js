@@ -22,6 +22,16 @@ describe.skip('Proto / register:', function() {
             obj.mixin(carcass.proto.register);
             obj.register(root, 'applications');
         });
+        suite.add('using register.', function() {
+            var obj = carcass.mixable({
+                lorem: 'lorem',
+                registerOptions: {
+                    noRecursive: true
+                }
+            });
+            obj.mixin(carcass.proto.register);
+            obj.register(root, 'applications');
+        });
         suite.on('start', function(event) {
             debug('started');
         }).on('cycle', function(event) {
