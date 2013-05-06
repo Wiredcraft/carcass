@@ -28,7 +28,7 @@
     "eson": "~0.4.1",
     "express": "~3.2.0",
     "methods": "~0.0.1",
-    "postal": "~0.8.2",
+    "postal": "~0.8.4",
     "underscore": "~1.4.4"
   },
   "devDependencies": {
