@@ -18,9 +18,10 @@ var ipsum = {
 
 // Benchmark
 // ---
-describe.skip('Proto / Mixin:', function() {
+describe.skip('Proto / mixin:', function() {
 
     it('benchmarking the speed of mixin.', function(done) {
+        Benchmark.options.maxTime = 1;
         var suite = Benchmark.Suite();
         suite.add('using mixin.', function() {
             var obj = {

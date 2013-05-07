@@ -33,7 +33,7 @@ LoaderC.prototype.mixin(loaderSync);
 
 // Benchmark
 // ---
-describe.skip('Proto / Loader Sync:', function() {
+describe.skip('Proto / loaderSync:', function() {
 
     it('benchmarking the speed of building instances.', function(done) {
         var suite = Benchmark.Suite();
