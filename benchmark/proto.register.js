@@ -14,6 +14,7 @@ var dolor = require(path.resolve(root, 'applications', 'dolor', 'lorem'));
 describe.skip('Proto / register:', function() {
 
     it('benchmarking the speed of register.', function(done) {
+        Benchmark.options.maxTime = 1;
         var suite = Benchmark.Suite();
         suite.add('using register.', function() {
             var obj = carcass.mixable({
