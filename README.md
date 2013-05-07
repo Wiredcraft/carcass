@@ -14,21 +14,21 @@ A toolbox for [Node.js](http://nodejs.org/), includes [Express.js](http://expres
 
 ## Summary
 
-Output of `git summary`. See [Git Extras](https://github.com/visionmedia/git-extras).
+Output of `git summary` (carcass 0.4.2). See [Git Extras](https://github.com/visionmedia/git-extras).
 
 ```
 project  : carcass
-repo age : 4 months ago
-commits  : 137
-active   : 59 days
-files    : 72
-authors  : 
-  118	Makara Wang             86.1%
-    9	Zhou Honglin            6.6%
-    8	xeodou                  5.8%
-    2	Vincent Viallet         1.5%
+repo age : 5 months ago
+commits  : 159
+active   : 72 days
+files    : 79
+authors  :
+  140	Makara Wang             88.1%
+    9	Zhou Honglin            5.7%
+    8	xeodou                  5.0%
+    2	Vincent Viallet         1.3%
 ```
 
 ## License
 
-No idea (yet). How about [WTFPL](http://en.wikipedia.org/wiki/WTFPL)?
+[WTFPL](http://en.wikipedia.org/wiki/WTFPL)

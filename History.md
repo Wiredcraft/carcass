@@ -1,4 +1,10 @@
 
+0.4.2 / 2013-05-07 
+==================
+
+  * Rebuilt carcass.register to proto/register.
+  * Requires request 2.20.
+
 0.4.1 / 2013-04-24 
 ==================
 
