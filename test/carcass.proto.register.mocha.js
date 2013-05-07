@@ -25,12 +25,12 @@ describe('Carcass / proto / register:', function() {
             obj.mixin(carcass.proto.register);
         });
 
-        it('should ...', function() {
+        it('should have the method.', function() {
             obj.should.have.property('lorem', 'lorem');
             obj.should.have.property('register');
         });
 
-        it('should ...', function() {
+        it('should have the content.', function() {
             obj.register(root, 'applications');
             obj.should.have.property('lorem', 'lorem');
             obj.should.not.have.property('dolor');
@@ -58,12 +58,7 @@ describe('Carcass / proto / register:', function() {
             obj.mixin(carcass.proto.register);
         });
 
-        it('should ...', function() {
-            obj.should.have.property('lorem', 'lorem');
-            obj.should.have.property('register');
-        });
-
-        it('should ...', function() {
+        it('should have the content.', function() {
             obj.register(root, 'applications');
             obj.should.have.property('lorem', 'lorem');
             obj.should.not.have.property('dolor');
@@ -86,7 +81,7 @@ describe('Carcass / proto / register:', function() {
             obj.mixin(carcass.proto.register);
         });
 
-        it('should ...', function() {
+        it('should have the content.', function() {
             obj.register(root, 'applications', 'dolor');
             obj.should.have.property('lorem', 'lorem');
             obj.should.not.have.property('dolor');
@@ -115,7 +110,7 @@ describe('Carcass / proto / register:', function() {
             obj.mixin(carcass.proto.register);
         });
 
-        it('should ...', function() {
+        it('should have the content.', function() {
             obj.register(root, 'applications', 'dolor');
             obj.should.have.property('lorem', 'lorem');
             obj.should.not.have.property('dolor');
@@ -141,7 +136,7 @@ describe('Carcass / proto / register:', function() {
             obj.mixin(carcass.proto.register);
         });
 
-        it('should ...', function() {
+        it('should have the content.', function() {
             obj.register(path.resolve(root, 'applications'), 'dolor');
             obj.should.have.property('lorem', 'lorem');
             obj.should.not.have.property('applications');
@@ -161,7 +156,7 @@ describe('Carcass / proto / register:', function() {
             obj.mixin(carcass.proto.register);
         });
 
-        it('should ...', function() {
+        it('should have the content.', function() {
             obj.register(path.resolve(root, 'applications'));
             obj.should.not.have.property('applications');
             obj.should.have.property('lorem');
@@ -183,7 +178,7 @@ describe('Carcass / proto / register:', function() {
             obj.mixin(carcass.proto.register);
         });
 
-        it('should ...', function() {
+        it('should fail silently.', function() {
             obj.register(root, 'applications', 'xxx');
             obj.should.have.property('lorem', 'lorem');
         });
