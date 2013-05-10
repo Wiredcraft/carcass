@@ -36,6 +36,7 @@ LoaderC.prototype.mixin(loaderSync);
 describe.skip('Proto / loaderSync:', function() {
 
     it('benchmarking the speed of building instances.', function(done) {
+        Benchmark.options.maxTime = 1;
         var suite = Benchmark.Suite();
         suite.add('Loader returns a function using mixin', function() {
             return LoaderA('lorem');
@@ -58,6 +59,7 @@ describe.skip('Proto / loaderSync:', function() {
     });
 
     it('benchmarking the speed of using instances.', function(done) {
+        Benchmark.options.maxTime = 1;
         var a = LoaderA('lorem');
         var b = LoaderB('lorem');
         var c = LoaderC('lorem');
