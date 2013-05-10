@@ -1,28 +1,18 @@
-var carcass = require('carcass');
 var configurable = require('configurable');
-var eson = require('eson');
-var _ = require('underscore');
+var isObject = require('es5-ext/lib/Object/is-object');
 
-// Make it configurable.
+/**
+ * A simple wrap to `configurable`.
+ * 
+ * @see https://github.com/visionmedia/configurable.js
+ * 
+ * @param {Object}
+ * @return {Object}
+ */
 module.exports = function(obj) {
-    obj = obj || {};
+    if (0 == arguments.length) obj = {};
 
-    carcass.mixable(obj);
-    configurable(obj);
+    if (!isObject(obj)) return obj;
 
-    // TODO: remove from here, once we have a config manager.
-    // File config.
-    obj.eson = eson;
-    obj.parser = eson();
-
-    obj.load = function(filepath) {
-        var config = obj.parser.read(filepath);
-        obj.settings && _.extend(obj.settings, config);
-    };
-
-    return obj;
+    return require('configurable')(obj);
 };
-
-// .
-module.exports.configurable = configurable;
-module.exports.eson = eson;
