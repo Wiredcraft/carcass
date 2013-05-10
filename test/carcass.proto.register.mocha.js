@@ -16,7 +16,7 @@ describe('Carcass / proto / register:', function() {
         carcass.proto.register.should.be.a('object');
     });
 
-    describe('User with a tree:', function() {
+    describe('Use with a tree:', function() {
         var obj = carcass.mixable({
             lorem: 'lorem'
         });
@@ -46,7 +46,7 @@ describe('Carcass / proto / register:', function() {
         });
     });
 
-    describe('User with a tree but no recursive:', function() {
+    describe('Use with a tree but no recursive:', function() {
         var obj = carcass.mixable({
             lorem: 'lorem',
             registerOptions: {
