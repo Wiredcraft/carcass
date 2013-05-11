@@ -8,25 +8,25 @@ A toolbox for [Node.js](http://nodejs.org/), includes [Express.js](http://expres
 
 ## How to use
 
-## What inside
+## What's inside
 
 ## Roadmap
 
 ## Summary
 
-Output of `git summary` (carcass 0.4.2). See [Git Extras](https://github.com/visionmedia/git-extras).
+Output of `git summary`. See [Git Extras](https://github.com/visionmedia/git-extras).
 
 ```
-project  : carcass
+project  : carcass (0.4.3)
 repo age : 5 months ago
-commits  : 159
-active   : 72 days
-files    : 79
+commits  : 162
+active   : 74 days
+files    : 80
 authors  :
-  140	Makara Wang             88.1%
-    9	Zhou Honglin            5.7%
-    8	xeodou                  5.0%
-    2	Vincent Viallet         1.3%
+  143	Makara Wang             88.3%
+    9	Zhou Honglin            5.6%
+    8	xeodou                  4.9%
+    2	Vincent Viallet         1.2%
 ```
 
 ## License

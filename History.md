@@ -1,4 +1,9 @@
 
+0.4.3 / 2013-05-11 
+==================
+
+  * Fixed proto/loaderSync didn't work without cache, and removed isCallable check to improve performance.
+
 0.4.2 / 2013-05-07 
 ==================
 
