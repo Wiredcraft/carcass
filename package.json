@@ -28,7 +28,8 @@
     "eson": "~0.4.1",
     "express": "~3.2.4",
     "methods": "~0.0.1",
-    "underscore": "~1.4.4"
+    "underscore": "~1.4.4",
+    "spdy" : "~1.8.7"
   },
   "devDependencies": {
     "benchmark": "1.x",
