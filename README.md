@@ -8,9 +8,32 @@ A toolbox for [Node.js](http://nodejs.org/), includes [Express.js](http://expres
 
 ## How to use
 
+`var carcass = require('carcass');`
+
 ## What's inside
 
+### Root level tools
+
+Can be accessed as `carcass.xxx`.
+
+* 3rd-party libraries.
+    * **`carcass.deferred`**: [deferred](https://github.com/medikoo/deferred), a promise implementation.
+    * **`carcass.postal`**: [postal.js](https://github.com/postaljs/postal.js), an in-memory message bus.
+* My tools.
+    * **`carcass.mixin`**: ...
+    * **`carcass.mixable`**: ...
+    * **`carcass.register`**: ...
+
+### "Proto"s
+
+...
+
 ## Roadmap
+
+* Rebuild `lib/model` as `proto/model` and drop the storage part.
+* Rebuild (or probably drop) `constructors`, `servers`, `storages`, `factories`, `applications`.
+* Review `examples`, `plugins`, `utils`.
+* Remove some package dependencies; only require as needed.
 
 ## Summary
 
@@ -31,4 +54,4 @@ authors  :
 
 ## License
 
-[WTFPL](http://en.wikipedia.org/wiki/WTFPL)
+**[WTFPL](http://en.wikipedia.org/wiki/WTFPL)**
