@@ -1,6 +1,6 @@
 var debug = require('debug')('carcass:test');
 
-var carcass = require('carcass');
+var carcass = require('..');
 var should = require('should');
 
 var path = require('path');
