@@ -1,6 +1,7 @@
 .*
 !.gitignore
 !.npmignore
+!.jshintrc
 
 node_modules
 npm-debug.log
