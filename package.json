@@ -23,16 +23,18 @@
   "dependencies": {
     "configurable": "~0.0.1",
     "debug": "~0.7.2",
-    "deferred": "~0.6.4",
+    "deferred": "~0.6.5",
     "es5-ext": "~0.9.2",
-    "eson": "~0.4.1",
-    "express": "~3.2.4",
+    "express": "~3.2.6",
     "methods": "~0.0.1",
     "postal": "~0.8.4",
     "underscore": "~1.4.4"
   },
   "devDependencies": {
     "benchmark": "1.x",
+    "eson": "~0.4.1",
+    "grunt": "~0.4.1",
+    "grunt-contrib-jshint": "~0.3.0",
     "mkdirp": "~0.3.4",
     "mocha": "1.x",
     "request": "~2.21",
