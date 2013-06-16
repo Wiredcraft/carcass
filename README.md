@@ -23,6 +23,7 @@ Can be accessed as `carcass.xxx`.
     * **`carcass.mixin`**: ...
     * **`carcass.mixable`**: ...
     * **`carcass.register`**: ...
+    * **`carcass.tools.config`**: ...
 
 ### "Proto"s
 
@@ -40,16 +41,16 @@ Can be accessed as `carcass.xxx`.
 Output of `git summary`. See [Git Extras](https://github.com/visionmedia/git-extras).
 
 ```
-project  : carcass (0.4.4)
-repo age : 5 months ago
-commits  : 169
-active   : 75 days
-files    : 83
+project  : carcass (0.4.5)
+repo age : 6 months ago
+commits  : 183
+active   : 82 days
+files    : 90
 authors  :
-  150	Makara Wang             88.8%
-    9	Zhou Honglin            5.3%
-    8	xeodou                  4.7%
-    2	Vincent Viallet         1.2%
+  164  Makara Wang             89.6%
+    9  Zhou Honglin            4.9%
+    8  xeodou                  4.4%
+    2  Vincent Viallet         1.1%
 ```
 
 ## License

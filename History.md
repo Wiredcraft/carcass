@@ -1,22 +1,34 @@
 
-0.4.4 / 2013-05-19 
+0.4.5 / 2013-06-16
+==================
+
+  * Eson is optional now.
+  * Deferred 0.6.5. Express 3.2.6.
+  * Satisfy jshint.
+  * Added grunt and jshint.
+  * Updating readme.
+  * Added a config loader `carcass.tools.config` (lib/tools/config.js).
+  * Added plugins/stackable as a simple wrap to proto/stack.
+  * Rebuilt plugins/configurable to be a simple wrap to the configurable library.
+
+0.4.4 / 2013-05-19
 ==================
 
   * Added proto/channel.
   * Added carcass.postal.
 
-0.4.3 / 2013-05-11 
+0.4.3 / 2013-05-11
 ==================
 
   * Fixed proto/loaderSync didn't work without cache, and removed isCallable check to improve performance.
 
-0.4.2 / 2013-05-07 
+0.4.2 / 2013-05-07
 ==================
 
   * Rebuilt carcass.register to proto/register.
   * Requires request 2.20.
 
-0.4.1 / 2013-04-24 
+0.4.1 / 2013-04-24
 ==================
 
   * Fixed CORS test; HEAD returns an empty body.
@@ -32,7 +44,7 @@
   * Proto/stack: removed shared stack; doesn't make sense to share it.
   * Redefining scope. Rewriting readme.
 
-0.4.0 (Proto) / 2013-04-17 
+0.4.0 (Proto) / 2013-04-17
 ==================
 
   * Rebuilt mixable() with proto/mixin.
@@ -42,19 +54,19 @@
   * Building promise flow - not ready.
   * Rebuilt utils.machineName() with promise.
 
-0.3.2 / 2013-03-11 
+0.3.2 / 2013-03-11
 ==================
 
   * Added a test case for carcass.httpError().
   * Expose Express as carcass.express.
 
-0.3.1 / 2013-02-25 
+0.3.1 / 2013-02-25
 ==================
 
   * Updated package keywords and url.
   * Added carcass.httpError().
 
-0.3.0 (Promise) / 2013-02-18 
+0.3.0 (Promise) / 2013-02-18
 ==================
 
   * Core: added deferred to carcass core; also exposed a promise with carcass itself as the resolve value.
@@ -64,7 +76,7 @@
   * Upgraded: Express 3.1.0; Underscore 1.4.4.
   * Adding a few examples; not ready.
 
-0.2.2 / 2013-01-15 
+0.2.2 / 2013-01-15
 ==================
 
   * Improved storage: given a cache key, also cache without an id.
@@ -73,12 +85,12 @@
   * Fixed storage: do not merge id; mixin options.
   * Added cors example and credential support to applications/cors.
 
-0.2.1 / 2013-01-10 
+0.2.1 / 2013-01-10
 ==================
 
   * Improved storages: memory doesn't need "_id"; stash uses "_id" as the filename; display error with "noop()".
 
-0.2.0 (Model) / 2013-01-09 
+0.2.0 (Model) / 2013-01-09
 ==================
 
   * Added 2 factory: "Model" and "Storage".
@@ -91,7 +103,7 @@
   * Reorganized mixable tests.
   * Improved mixin(): only merge enumerable properties for now, and removed "black lists".
 
-0.1.1 / 2012-12-26 
+0.1.1 / 2012-12-26
 ==================
 
   * Improved tests.
@@ -100,7 +112,7 @@
   * Changed applications syntax to have arguments more than only an initialize function.
   * Update Express.
 
-0.1.0 / 2012-12-19 
+0.1.0 / 2012-12-19
 ==================
 
   * Improved configurable: ability to load config files.
@@ -115,7 +127,7 @@
   * Improved debug info for mixin().
   * Reorganizing tests.
 
-0.0.3 / 2012-12-13 
+0.0.3 / 2012-12-13
 ==================
 
   * Added a default OPTIONS handler for Cors.
@@ -130,7 +142,7 @@
   * Added 2 demo applications: Restify and Cors.
   * Carcass.mixable() returns the target now, so it can be also used to build an object.
 
-0.0.2 / 2012-12-10 
+0.0.2 / 2012-12-10
 ==================
 
   * Added plugin: configurable.
@@ -139,7 +151,7 @@
   * Renamed: mixin() -> plugin().
   * Removed: mixinPlugin().
 
-0.0.1 / 2012-12-06 
+0.0.1 / 2012-12-06
 ==================
 
   * Initial commit
