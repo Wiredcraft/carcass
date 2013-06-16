@@ -33,6 +33,8 @@
   },
   "devDependencies": {
     "benchmark": "1.x",
+    "grunt": "~0.4.1",
+    "grunt-contrib-jshint": "~0.3.0",
     "mkdirp": "~0.3.4",
     "mocha": "1.x",
     "request": "~2.21",
