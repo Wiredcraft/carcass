@@ -1,4 +1,4 @@
-var debug = require('debug')('carcass:proto:mixin');
+var debug = require('debug')('carcass:benchmark');
 
 var carcass = require('..');
 var Benchmark = require('benchmark');
