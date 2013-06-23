@@ -1,34 +1,15 @@
-var carcass = require('carcass');
-var util = require('util');
+var carcass = require('../');
+var isObject = require('es5-ext/lib/Object/is-object');
 
-// Make it extendable.
+/**
+ * .
+ */
 module.exports = function(obj) {
-    obj = obj || {};
+    if (0 === arguments.length) obj = {};
 
-    obj.extend = function(protoProps) {
-        var parent = this;
-        var child = function() {
-            parent.apply(this, arguments);
-        };
+    if (!isObject(obj)) return obj;
 
-        // .
-        carcass.mixable(child);
-
-        // .
-        child.mixin(parent);
-
-        // .
-        child.title && delete child.title;
-
-        // Inherit.
-        util.inherits(child, this);
-
-        // Add prototype properties (instance properties) to the subclass, if
-        // supplied.
-        if (protoProps) child.prototype.mixin(protoProps);
-
-        return child;
-    };
+    obj.extend = carcass.helpers.extend;
 
     return obj;
 };

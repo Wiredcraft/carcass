@@ -8,7 +8,7 @@ var isObject = require('es5-ext/lib/Object/is-object');
  * @return {Object}
  */
 module.exports = function(obj) {
-    if (0 == arguments.length) obj = {};
+    if (0 === arguments.length) obj = {};
 
     if (!isObject(obj)) return obj;
 

@@ -30,6 +30,8 @@
     "postal": "~0.8.4",
     "underscore": "~1.4.4"
   },
+  "optionalDependencies": {
+  },
   "devDependencies": {
     "benchmark": "1.x",
     "eson": "~0.4.1",
