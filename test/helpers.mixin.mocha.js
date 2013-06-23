@@ -7,7 +7,7 @@ describe('Carcass / proto / mixin:', function() {
     describe('With an object', function() {
         var obj = {
             lorem: 'ipsum',
-            mixin: carcass.proto.mixin
+            mixin: carcass.helpers.mixin
         };
 
         it('can mixin an object.', function() {

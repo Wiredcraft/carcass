@@ -3,7 +3,7 @@ var debug = require('debug')('carcass:benchmark');
 var carcass = require('..');
 var Benchmark = require('benchmark');
 
-var mixin = carcass.proto.mixin;
+var mixin = carcass.helpers.mixin;
 var extend = require('es5-ext/lib/Object/extend-properties');
 
 var lorem = {
@@ -18,7 +18,7 @@ var ipsum = {
 
 // Benchmark
 // ---
-describe.skip('Proto / mixin:', function() {
+describe('Proto / mixin:', function() {
 
     it('benchmarking the speed of mixin.', function(done) {
         Benchmark.options.maxTime = 1;

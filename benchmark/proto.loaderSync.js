@@ -4,7 +4,7 @@ var carcass = require('..');
 var Benchmark = require('benchmark');
 
 var loaderSync = carcass.proto.loaderSync;
-var mixin = carcass.proto.mixin;
+var mixin = carcass.helpers.mixin;
 
 function LoaderA(_source) {
     function loader() {
@@ -33,7 +33,7 @@ LoaderC.prototype.mixin(loaderSync);
 
 // Benchmark
 // ---
-describe.skip('Proto / loaderSync:', function() {
+describe('Proto / loaderSync:', function() {
 
     it('benchmarking the speed of building instances.', function(done) {
         Benchmark.options.maxTime = 1;
