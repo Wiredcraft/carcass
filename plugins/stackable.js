@@ -2,7 +2,9 @@ var carcass = require('..');
 var isObject = require('es5-ext/lib/Object/is-object');
 
 /**
- * A simple wrap/shortcut to carcass.proto.stack.
+ * Make it stackable.
+ * 
+ * A simple wrap to `carcass.proto.stack()`.
  * 
  * @param {Object}
  * @return {Object}
