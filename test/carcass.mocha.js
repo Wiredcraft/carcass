@@ -1,3 +1,5 @@
+var debug = require('debug')('carcass:test');
+
 var carcass = require('carcass');
 var should = require('should');
 
@@ -39,6 +41,12 @@ describe('Carcass', function() {
     // TODO
     it('should have some applications.', function() {
         carcass.should.have.property('applications');
+    });
+
+    // TODO
+    it('should have some examples.', function() {
+        carcass.should.have.property('examples');
+        carcass.examples.should.have.property('proto');
     });
 
     // TODO: more.
