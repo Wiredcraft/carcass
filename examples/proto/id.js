@@ -1,5 +1,7 @@
 /**
- * Example of ...
+ * Example of a simple accessor.
+ * 
+ * Mixin this so your object/instance can have an ID.
  */
 
 module.exports = {

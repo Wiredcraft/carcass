@@ -1,5 +1,8 @@
 /**
- * Example of ...
+ * Example of how to use the config tool `carcass.tools.config()`.
+ * 
+ * Mixin this example so your object/instance can have the ability to load
+ * config files.
  */
 
 var carcass = require('../..');

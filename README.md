@@ -31,6 +31,10 @@ Can be accessed as `carcass.xxx`.
 
 ### Examples
 
+Not only examples, but also some well prepared tools that you can use if you see them useful.
+
+...
+
 ## Roadmap
 
 * Rebuild `lib/model` as `proto/model` and drop the storage part.
