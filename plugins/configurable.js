@@ -1,4 +1,3 @@
-var configurable = require('configurable');
 var isObject = require('es5-ext/lib/Object/is-object');
 
 /**

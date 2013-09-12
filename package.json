@@ -31,10 +31,12 @@
     "underscore": "~1.4.4"
   },
   "optionalDependencies": {
+    "cjson": "~0.2.1",
+    "eson": "~0.4.1",
+    "uid": "~0.0.2"
   },
   "devDependencies": {
     "benchmark": "1.x",
-    "eson": "~0.4.1",
     "grunt": "~0.4.1",
     "grunt-contrib-jshint": "~0.6.0",
     "mkdirp": "~0.3.4",

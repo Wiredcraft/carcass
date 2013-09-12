@@ -2,6 +2,8 @@
  * Example of ...
  */
 
+var uid = require('uid');
+
 module.exports = {
     id: id
 };
@@ -18,8 +20,8 @@ function id(options) {
             id: options
         };
     }
-    // ID cannot be a false value.
-    if (!options.id) return false;
+    // Default to a random unique ID.
+    if (!options.id) options.id = uid();
     // Setter.
     this._id = options.id;
     return this;
