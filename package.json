@@ -32,6 +32,7 @@
   },
   "optionalDependencies": {
     "cjson": "~0.2.1",
+    "commander": "~2.0.0",
     "eson": "~0.4.1",
     "uid": "~0.0.2"
   },
