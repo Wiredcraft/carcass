@@ -40,11 +40,9 @@
     "benchmark": "1.x",
     "grunt": "~0.4.1",
     "grunt-contrib-jshint": "~0.6.0",
-    "mkdirp": "~0.3.4",
     "mocha": "1.x",
-    "request": "~2.21",
-    "should": "1.x",
-    "stash": "~0.0.3"
+    "request": "2.x",
+    "should": "1.x"
   },
   "scripts": {
     "test": "./node_modules/.bin/mocha ./test/*.mocha.js"
