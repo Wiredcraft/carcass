@@ -1,7 +1,4 @@
-var carcass = require('carcass');
-
-// Register models.
-carcass.register(__dirname, 'models');
+var carcass = require('../..');
 
 // Register applications.
 carcass.register(__dirname, 'applications');
