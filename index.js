@@ -25,9 +25,6 @@ _.each(exports.constructors, function(obj) {
     exports.plugins.extendable(obj);
 });
 
-// Register storages.
-exports.register(__dirname, 'storages');
-
 // Register servers.
 exports.register(__dirname, 'servers');
 

@@ -38,7 +38,7 @@ Not only examples, but also some well prepared tools that you can use if you see
 ## Roadmap
 
 * Rebuild `lib/model` as `proto/model` and drop the storage part.
-* Rebuild (or probably drop) `constructors`, `servers`, `storages`, `factories`, `applications`.
+* Rebuild (or probably drop) `constructors`, `servers`, `factories`, `applications`.
 * Review `examples`, `plugins`, `utils`.
 * Remove some package dependencies; only require as needed.
 
