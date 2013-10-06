@@ -5,7 +5,7 @@
  * provided with the options, it will generate a random id with `uid`.
  */
 
-var uid = require('uid');
+var uid = require('uid2');
 
 module.exports = {
     id: id
@@ -17,7 +17,7 @@ module.exports = {
 function id(options) {
     // Getter.
     if (0 === arguments.length) {
-        if (!this._id) this._id = uid();
+        if (!this._id) this._id = uid(7);
         return this._id;
     }
     // The argument can be either an object or just the ID.
@@ -27,7 +27,7 @@ function id(options) {
         };
     }
     // Default to a random unique ID.
-    if (!options.id) options.id = uid();
+    if (!options.id) options.id = uid(7);
     // Setter.
     this._id = options.id;
     return this;
