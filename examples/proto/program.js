@@ -88,10 +88,29 @@ function bootConfig() {
  * Start a registered server, if the command asked for it.
  */
 function bootServer() {
-    if (!this._server || !this._server.start) return this;
-    // Start server and send a message to the master process.
+    if (!this._server) return this;
     var _process = this._process;
-    this._server.start(this._command, function() {
+    var _server = this._server;
+
+    // Event handlers.
+    if (_process && _process.send) {
+        _process.on('exit', function() {
+            _server.onExit && _server.onExit();
+        });
+        // TODO: _process.on('uncaughtException', function(err) {});
+        _process.on('SIGTERM', function() {
+            if (_server.onSIGTERM) {
+                _server.onSIGTERM(function() {
+                    _process.exit(0);
+                });
+            } else {
+                _process.exit(0);
+            }
+        });
+    }
+
+    // Start server and send a message to the master process.
+    _server.start && _server.start(this._command, function() {
         _process && _process.send && _process.send({
             listening: true
         });
