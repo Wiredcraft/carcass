@@ -12,9 +12,6 @@ exports.register(__dirname, 'utils');
 // Shortcuts.
 exports.httpError = exports.utils.httpError;
 
-// Register factories.
-exports.register(__dirname, 'factories');
-
 // Register servers.
 exports.register(__dirname, 'servers');
 
