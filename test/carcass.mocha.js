@@ -19,11 +19,6 @@ describe('Carcass', function() {
     });
 
     // TODO
-    it('should have some utils', function() {
-        carcass.should.have.property('utils');
-    });
-
-    // TODO
     it('should have some plugins', function() {
         carcass.should.have.property('plugins');
     });
