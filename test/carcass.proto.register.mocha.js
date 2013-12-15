@@ -1,6 +1,6 @@
 var debug = require('debug')('carcass:test');
 
-var carcass = require('..');
+var carcass = require('../');
 var should = require('should');
 
 var path = require('path');
@@ -11,7 +11,7 @@ var dolor = require(path.resolve(root, 'applications', 'dolor', 'lorem'));
 
 describe('Carcass / proto / register:', function() {
 
-    it('should be a proto.', function() {
+    it('should be a proto', function() {
         carcass.proto.should.have.property('register');
         carcass.proto.register.should.be.a('object');
     });
@@ -25,12 +25,12 @@ describe('Carcass / proto / register:', function() {
             obj.mixin(carcass.proto.register);
         });
 
-        it('should have the method.', function() {
+        it('should have the method', function() {
             obj.should.have.property('lorem', 'lorem');
             obj.should.have.property('register');
         });
 
-        it('should have the content.', function() {
+        it('should have the content', function() {
             obj.register(root, 'applications');
             obj.should.have.property('lorem', 'lorem');
             obj.should.not.have.property('dolor');
@@ -58,7 +58,7 @@ describe('Carcass / proto / register:', function() {
             obj.mixin(carcass.proto.register);
         });
 
-        it('should have the content.', function() {
+        it('should have the content', function() {
             obj.register(root, 'applications');
             obj.should.have.property('lorem', 'lorem');
             obj.should.not.have.property('dolor');
@@ -81,7 +81,7 @@ describe('Carcass / proto / register:', function() {
             obj.mixin(carcass.proto.register);
         });
 
-        it('should have the content.', function() {
+        it('should have the content', function() {
             obj.register(root, 'applications', 'dolor');
             obj.should.have.property('lorem', 'lorem');
             obj.should.not.have.property('dolor');
@@ -110,7 +110,7 @@ describe('Carcass / proto / register:', function() {
             obj.mixin(carcass.proto.register);
         });
 
-        it('should have the content.', function() {
+        it('should have the content', function() {
             obj.register(root, 'applications', 'dolor');
             obj.should.have.property('lorem', 'lorem');
             obj.should.not.have.property('dolor');
@@ -136,7 +136,7 @@ describe('Carcass / proto / register:', function() {
             obj.mixin(carcass.proto.register);
         });
 
-        it('should have the content.', function() {
+        it('should have the content', function() {
             obj.register(path.resolve(root, 'applications'), 'dolor');
             obj.should.have.property('lorem', 'lorem');
             obj.should.not.have.property('applications');
@@ -156,7 +156,7 @@ describe('Carcass / proto / register:', function() {
             obj.mixin(carcass.proto.register);
         });
 
-        it('should have the content.', function() {
+        it('should have the content', function() {
             obj.register(path.resolve(root, 'applications'));
             obj.should.not.have.property('applications');
             obj.should.have.property('lorem');
@@ -178,7 +178,7 @@ describe('Carcass / proto / register:', function() {
             obj.mixin(carcass.proto.register);
         });
 
-        it('should fail silently.', function() {
+        it('should fail silently', function() {
             obj.register(root, 'applications', 'xxx');
             obj.should.have.property('lorem', 'lorem');
         });

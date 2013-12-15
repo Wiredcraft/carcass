@@ -1,15 +1,6 @@
-var debug = require('debug')('carcass:application:dolor:lorem');
+var express = require('express');
+var app = module.exports = express();
 
-var carcass = require('carcass');
-
-module.exports = carcass.factories.Express({
-    initialize: initialize
+app.get('/', function(req, res, next) {
+    res.send('Lorem ipsum dolor sit amet');
 });
-
-function initialize(app, options) {
-    debug('initializing');
-
-    app.get('/', function(req, res, next) {
-        res.send('Lorem ipsum dolor sit amet');
-    });
-}
