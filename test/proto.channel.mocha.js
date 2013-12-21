@@ -5,7 +5,7 @@ var carcass = require('..');
 
 describe('Carcass / proto / channel:', function() {
 
-    it('should be a proto.', function() {
+    it('should be a proto', function() {
         carcass.proto.should.have.property('channel');
         carcass.proto.channel.should.be.a('object');
     });
@@ -26,41 +26,41 @@ describe('Carcass / proto / channel:', function() {
             obj.mixin(carcass.proto.channel);
         });
 
-        it('should have the properties.', function() {
+        it('should have the properties', function() {
             obj.should.have.property('_postal');
             obj.should.have.property('channel');
             obj.should.have.property('publish');
             obj.should.have.property('subscribe');
         });
 
-        it('should not have channel yet.', function() {
+        it('should not have channel yet', function() {
             obj.should.not.have.property('_channel');
         });
 
-        it('can not subscribe without a channel.', function() {
+        it('can not subscribe without a channel', function() {
             (function() {
                 obj.subscribe('*', function() {});
             }).should.throwError();
         });
 
-        it('can not publish without a channel.', function() {
+        it('can not publish without a channel', function() {
             (function() {
                 obj.publish('topic', 'message');
             }).should.throwError();
         });
 
-        it('can have a channel.', function() {
+        it('can have a channel', function() {
             obj.channel('lorem');
             obj.should.have.property('_channel');
         });
 
-        it('can publish but does nothing without a consumer.', function() {
+        it('can publish but does nothing without a consumer', function() {
             published = false;
             obj.publish('topic', 'message');
             published.should.equal(false);
         });
 
-        it('can subscribe with a channel.', function() {
+        it('can subscribe with a channel', function() {
             sub = obj.subscribe('*', consumer);
             sub.should.be.a('object');
             sub.should.have.property('channel', 'lorem');
@@ -69,13 +69,13 @@ describe('Carcass / proto / channel:', function() {
             sub.should.have.property('unsubscribe');
         });
 
-        it('can publish with a channel.', function() {
+        it('can publish with a channel', function() {
             published = false;
             obj.publish('topic', 'message');
             published.should.equal(true);
         });
 
-        it('can unsubscribe.', function() {
+        it('can unsubscribe', function() {
             published = false;
             sub.unsubscribe();
             obj.publish('topic', 'message');

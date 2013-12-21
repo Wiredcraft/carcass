@@ -3,15 +3,15 @@ var debug = require('debug')('carcass:benchmark');
 var carcass = require('..');
 var Benchmark = require('benchmark');
 
-var loaderSync = carcass.proto.loaderSync;
+var proto = carcass.proto.loader;
 var mixin = carcass.helpers.mixin;
 
 function LoaderA(_source) {
     function loader() {
-        return loader.get();
+        return loader.reload();
     }
     loader.mixin = mixin;
-    loader.mixin(loaderSync);
+    loader.mixin(proto);
     loader.source(_source);
     return loader;
 }
@@ -19,7 +19,7 @@ function LoaderA(_source) {
 function LoaderB(_source) {
     var loader = {};
     loader.mixin = mixin;
-    loader.mixin(loaderSync);
+    loader.mixin(proto);
     loader.source(_source);
     return loader;
 }
@@ -29,11 +29,11 @@ function LoaderC(_source) {
     this.source(_source);
 }
 LoaderC.prototype.mixin = mixin;
-LoaderC.prototype.mixin(loaderSync);
+LoaderC.prototype.mixin(proto);
 
 // Benchmark
 // ---
-describe('Proto / loaderSync:', function() {
+describe('Proto / loader:', function() {
 
     it('benchmarking the speed of building instances.', function(done) {
         Benchmark.options.maxTime = 1;
@@ -66,10 +66,10 @@ describe('Proto / loaderSync:', function() {
         var suite = Benchmark.Suite();
         suite.add('Loader returns a function using mixin', a);
         suite.add('Loader returns an object using mixin', function() {
-            b.get();
+            b.reload();
         });
         suite.add('Loader returns an object using prototype', function() {
-            c.get();
+            c.reload();
         });
         suite.on('start', function(event) {
             debug('started');

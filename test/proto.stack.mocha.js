@@ -9,24 +9,24 @@ describe('Carcass / proto / stack:', function() {
     });
     obj.mixin(carcass.proto.stack);
 
-    it('should have a stack.', function() {
+    it('should have a stack', function() {
         obj.should.have.property('stack');
         obj.stack.should.eql([]);
     });
 
-    it('should have a use method.', function() {
+    it('should have a use method', function() {
         obj.should.have.property('use');
         obj.use.should.be.a('function');
     });
 
-    it('can add a layer.', function() {
+    it('can add a layer', function() {
         obj.use('lorem');
         obj.stack.should.eql([
             'lorem'
         ]);
     });
 
-    it('should not share with another stack.', function() {
+    it('should not share with another stack', function() {
         var another = carcass.mixable({
             stack: []
         });
@@ -40,7 +40,7 @@ describe('Carcass / proto / stack:', function() {
         ]);
     });
 
-    it('can add more layers.', function() {
+    it('can add more layers', function() {
         obj.use('ipsum');
         obj.stack.should.eql([
             'lorem',
