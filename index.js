@@ -1,5 +1,3 @@
-var _ = require('underscore');
-
 // I am Carcass.
 require('./lib/carcass')(exports);
 
