@@ -6,7 +6,7 @@
     "curly"         : false,
     "eqeqeq"        : true,
     "forin"         : true,
-    "immed"         : true,
+    "immed"         : false,
     "indent"        : 4,
     "latedef"       : false,
     "newcap"        : false,
@@ -67,5 +67,12 @@
     "passfail"      : false,
     "white"         : false,
 
-    "predef"        : [ ]
+    "predef"        : [
+        "describe",
+        "it",
+        "before",
+        "beforeEach",
+        "after",
+        "afterEach"
+    ]
 }

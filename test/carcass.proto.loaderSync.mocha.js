@@ -1,4 +1,4 @@
-var debug = require('debug')('carcass:test');
+// var debug = require('debug')('carcass:test');
 
 var carcass = require('..');
 var should = require('should');

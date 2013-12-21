@@ -1,7 +1,7 @@
-var debug = require('debug')('carcass:test');
+// var debug = require('debug')('carcass:test');
 
 var carcass = require('..');
-var should = require('should');
+// var should = require('should');
 
 describe('Carcass / proto / channel:', function() {
 
@@ -39,7 +39,7 @@ describe('Carcass / proto / channel:', function() {
 
         it('can not subscribe without a channel.', function() {
             (function() {
-                obj.subscribe('*', function(data, envelope) {});
+                obj.subscribe('*', function() {});
             }).should.throwError();
         });
 

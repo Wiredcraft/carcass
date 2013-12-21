@@ -1,7 +1,7 @@
-var debug = require('debug')('carcass:test');
+// var debug = require('debug')('carcass:test');
 
 var carcass = require('..');
-var should = require('should');
+// var should = require('should');
 
 describe('Carcass / proto / mixin:', function() {
     describe('With an object', function() {
