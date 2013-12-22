@@ -1,4 +1,33 @@
 
+0.5.0 (Rebirth) / 2013-12-22 
+==================
+
+ * API change: renamed proto/stack.use() to proto/stack.stack() and rebuilt it as an accessor.
+ * Removed plugins.
+ * Rebuilt lib/tools to lib/classes (loader and config).
+ * Renamed loaderSync to loader; rebuilt it with accessor; removed get() from it.
+ * Updated jshintrc and pass it.
+ * Added helpers/accessor.
+ * Cleaned some styles, comments; removed promise flow (never enabled);
+ * Rebuilt applications; to be tested.
+ * Removed servers; to be rebuilt.
+ * Moved Express to optional dependencies.
+ * Removed utils.
+ * Removed factories.
+ * Removed constructors.
+ * Switched to uid2.
+ * Removed lib/model.
+ * Removed model factory.
+ * Removed storage factory.
+ * Removed memory storage.
+ * Removed stash storage.
+ * Cleaned out some empty files.
+ * Moved the default loader class from inside tools.config to tools.loader.
+ * Rebuilt tools.config with prototype, so it returns an object, not anymore a function.
+ * Added helpers/extend which is very similar to Backbone's extend helper.
+ * Moved proto/mixin to helpers/mixin.
+ * Cleaned up examples; to be rebuilt.
+
 0.4.5 / 2013-06-16
 ==================
 

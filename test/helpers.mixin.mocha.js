@@ -1,16 +1,21 @@
 // var debug = require('debug')('carcass:test');
 
-var carcass = require('..');
+var mixin = require('../lib/helpers/mixin');
 // var should = require('should');
 
 describe('Carcass / proto / mixin:', function() {
-    describe('With an object', function() {
+
+    it('should be a function', function() {
+        mixin.should.be.a('function');
+    });
+
+    describe('Use with an object:', function() {
         var obj = {
             lorem: 'ipsum',
-            mixin: carcass.helpers.mixin
+            mixin: mixin
         };
 
-        it('can mixin an object.', function() {
+        it('can mixin an object', function() {
             obj.mixin({
                 dolor: 'sit'
             });
@@ -18,7 +23,7 @@ describe('Carcass / proto / mixin:', function() {
             obj.should.have.property('dolor', 'sit');
         });
 
-        it('can mixin a function.', function() {
+        it('can mixin a function', function() {
             var func = function() {};
             func.dolor = 'amet';
             obj.mixin(func);
@@ -28,7 +33,7 @@ describe('Carcass / proto / mixin:', function() {
 
         // TODO: other simple types like a number.
 
-        it('can override.', function() {
+        it('can override', function() {
             obj.mixin({
                 dolor: 'amet'
             });
@@ -36,7 +41,7 @@ describe('Carcass / proto / mixin:', function() {
             obj.should.have.property('dolor', 'amet');
         });
 
-        it('can mixin enumerable.', function() {
+        it('can mixin enumerable', function() {
             var other = Object.defineProperties({}, {
                 consectetur: {
                     value: true,
@@ -47,7 +52,7 @@ describe('Carcass / proto / mixin:', function() {
             obj.should.have.property('consectetur', true);
         });
 
-        it('cannot mixin non-enumerable.', function() {
+        it('cannot mixin non-enumerable', function() {
             var other = Object.defineProperties({}, {
                 consectetur: {
                     value: false,
@@ -58,7 +63,7 @@ describe('Carcass / proto / mixin:', function() {
             obj.should.have.property('consectetur', true);
         });
 
-        it('can mixin getters / setters.', function() {
+        it('can mixin getters / setters', function() {
             var elit = null;
             var other = Object.defineProperties({}, {
                 adipisicing: {

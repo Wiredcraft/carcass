@@ -7,8 +7,8 @@ module.exports = function(grunt) {
         jshint: {
             all: ['*.js',
                 'lib/**/*.js',
-                'plugins/**/*.js',
                 'test/**/*.js',
+                'applications/**/*.js',
                 'examples/**/*.js'
             ],
             options: {

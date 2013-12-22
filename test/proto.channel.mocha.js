@@ -1,17 +1,17 @@
 // var debug = require('debug')('carcass:test');
 
-var carcass = require('..');
+var mixable = require('../lib/mixable');
+var channelProto = require('../lib/proto/channel');
 // var should = require('should');
 
 describe('Carcass / proto / channel:', function() {
 
     it('should be a proto', function() {
-        carcass.proto.should.have.property('channel');
-        carcass.proto.channel.should.be.a('object');
+        channelProto.should.be.a('object');
     });
 
     describe('Use:', function() {
-        var obj = carcass.mixable();
+        var obj = mixable();
         var published = false;
         var sub = null;
         var consumer = function(data, envelope) {
@@ -23,7 +23,7 @@ describe('Carcass / proto / channel:', function() {
         };
 
         before(function() {
-            obj.mixin(carcass.proto.channel);
+            obj.mixin(channelProto);
         });
 
         it('should have the properties', function() {

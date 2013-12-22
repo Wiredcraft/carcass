@@ -5,7 +5,7 @@ var stackProto = require('../lib/proto/stack');
 // var should = require('should');
 
 describe('Carcass / proto / stack:', function() {
-    var obj = mixable({});
+    var obj = mixable();
     obj.mixin(stackProto);
 
     it('should not have a stack', function() {

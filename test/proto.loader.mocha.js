@@ -1,18 +1,18 @@
 // var debug = require('debug')('carcass:test');
 
-var carcass = require('..');
+var mixable = require('../lib/mixable');
+var loaderProto = require('../lib/proto/loader');
 var should = require('should');
 
 describe('Carcass / proto / loader:', function() {
 
     it('should be a proto', function() {
-        carcass.proto.should.have.property('loader');
-        carcass.proto.loader.should.be.a('object');
+        loaderProto.should.be.a('object');
     });
 
     describe('Use:', function() {
-        var obj = carcass.mixable();
-        obj.mixin(carcass.proto.loader);
+        var obj = mixable();
+        obj.mixin(loaderProto);
 
         it('should have some methods', function() {
             obj.should.have.property('source');

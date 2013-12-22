@@ -1,6 +1,7 @@
 // var debug = require('debug')('carcass:test');
 
-var carcass = require('../');
+var mixable = require('../lib/mixable');
+var registerProto = require('../lib/proto/register');
 // var should = require('should');
 
 var path = require('path');
@@ -12,17 +13,16 @@ var dolor = require(path.resolve(root, 'applications', 'dolor', 'lorem'));
 describe('Carcass / proto / register:', function() {
 
     it('should be a proto', function() {
-        carcass.proto.should.have.property('register');
-        carcass.proto.register.should.be.a('object');
+        registerProto.should.be.a('object');
     });
 
     describe('Use with a tree:', function() {
-        var obj = carcass.mixable({
+        var obj = mixable({
             lorem: 'lorem'
         });
 
         before(function() {
-            obj.mixin(carcass.proto.register);
+            obj.mixin(registerProto);
         });
 
         it('should have the method', function() {
@@ -47,7 +47,7 @@ describe('Carcass / proto / register:', function() {
     });
 
     describe('Use with a tree but no recursive:', function() {
-        var obj = carcass.mixable({
+        var obj = mixable({
             lorem: 'lorem',
             registerOptions: {
                 noRecursive: true
@@ -55,7 +55,7 @@ describe('Carcass / proto / register:', function() {
         });
 
         before(function() {
-            obj.mixin(carcass.proto.register);
+            obj.mixin(registerProto);
         });
 
         it('should have the content', function() {
@@ -73,12 +73,12 @@ describe('Carcass / proto / register:', function() {
     });
 
     describe('Use with a folder:', function() {
-        var obj = carcass.mixable({
+        var obj = mixable({
             lorem: 'lorem'
         });
 
         before(function() {
-            obj.mixin(carcass.proto.register);
+            obj.mixin(registerProto);
         });
 
         it('should have the content', function() {
@@ -99,7 +99,7 @@ describe('Carcass / proto / register:', function() {
     });
 
     describe('Use with a folder but disable index:', function() {
-        var obj = carcass.mixable({
+        var obj = mixable({
             lorem: 'lorem',
             registerOptions: {
                 noIndex: true
@@ -107,7 +107,7 @@ describe('Carcass / proto / register:', function() {
         });
 
         before(function() {
-            obj.mixin(carcass.proto.register);
+            obj.mixin(registerProto);
         });
 
         it('should have the content', function() {
@@ -128,12 +128,12 @@ describe('Carcass / proto / register:', function() {
     });
 
     describe('Use with more arguments:', function() {
-        var obj = carcass.mixable({
+        var obj = mixable({
             lorem: 'lorem'
         });
 
         before(function() {
-            obj.mixin(carcass.proto.register);
+            obj.mixin(registerProto);
         });
 
         it('should have the content', function() {
@@ -148,12 +148,12 @@ describe('Carcass / proto / register:', function() {
     });
 
     describe('Use with only one argument:', function() {
-        var obj = carcass.mixable({
+        var obj = mixable({
             lorem: 'lorem'
         });
 
         before(function() {
-            obj.mixin(carcass.proto.register);
+            obj.mixin(registerProto);
         });
 
         it('should have the content', function() {
@@ -170,12 +170,12 @@ describe('Carcass / proto / register:', function() {
     });
 
     describe('Use with something wrong:', function() {
-        var obj = carcass.mixable({
+        var obj = mixable({
             lorem: 'lorem'
         });
 
         before(function() {
-            obj.mixin(carcass.proto.register);
+            obj.mixin(registerProto);
         });
 
         it('should fail silently', function() {

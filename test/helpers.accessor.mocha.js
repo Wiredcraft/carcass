@@ -1,26 +1,25 @@
 // var debug = require('debug')('carcass:test');
 
-var carcass = require('..');
+var accessor = require('../lib/helpers/accessor');
 var should = require('should');
 
 describe('Carcass / helpers / accessor:', function() {
 
     it('should be a function', function() {
-        carcass.helpers.should.have.property('accessor');
-        carcass.helpers.accessor.should.be.a('function');
+        accessor.should.be.a('function');
     });
 
     it('can build a function', function() {
-        carcass.helpers.accessor('lorem').should.be.a('function');
+        accessor('lorem').should.be.a('function');
     });
 
     it('should throw without a key', function() {
-        carcass.helpers.accessor.should.throwError();
+        accessor.should.throwError();
     });
 
-    describe('Use with an object', function() {
+    describe('Use with an object:', function() {
         var obj = {
-            lorem: carcass.helpers.accessor('_lorem')
+            lorem: accessor('_lorem')
         };
 
         it('should not have a value', function() {
@@ -40,9 +39,9 @@ describe('Carcass / helpers / accessor:', function() {
         });
     });
 
-    describe('Plus a default value', function() {
+    describe('Plus a default value:', function() {
         var obj = {
-            lorem: carcass.helpers.accessor('_lorem', {
+            lorem: accessor('_lorem', {
                 getDefault: function() {
                     return false;
                 }
@@ -60,9 +59,9 @@ describe('Carcass / helpers / accessor:', function() {
         });
     });
 
-    describe('Plus a pre hook', function() {
+    describe('Plus a pre hook:', function() {
         var obj = {
-            lorem: carcass.helpers.accessor('_lorem', {
+            lorem: accessor('_lorem', {
                 pre: function(value) {
                     if (!value) return true;
                     return value;
