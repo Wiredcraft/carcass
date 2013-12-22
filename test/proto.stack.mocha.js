@@ -1,48 +1,49 @@
 // var debug = require('debug')('carcass:test');
 
-var carcass = require('..');
+var mixable = require('../lib/mixable');
+var stackProto = require('../lib/proto/stack');
 // var should = require('should');
 
 describe('Carcass / proto / stack:', function() {
-    var obj = carcass.mixable({
-        stack: []
-    });
-    obj.mixin(carcass.proto.stack);
+    var obj = mixable({});
+    obj.mixin(stackProto);
 
-    it('should have a stack', function() {
+    it('should not have a stack', function() {
+        obj.should.not.have.property('_stack');
+    });
+
+    it('should have a stack method', function() {
         obj.should.have.property('stack');
-        obj.stack.should.eql([]);
+        obj.stack.should.be.a('function');
     });
 
-    it('should have a use method', function() {
-        obj.should.have.property('use');
-        obj.use.should.be.a('function');
+    it('can have a default stack', function() {
+        obj.should.have.property('stack');
+        obj.stack().should.eql([]);
     });
 
     it('can add a layer', function() {
-        obj.use('lorem');
-        obj.stack.should.eql([
+        obj.stack('lorem');
+        obj.stack().should.eql([
             'lorem'
         ]);
     });
 
     it('should not share with another stack', function() {
-        var another = carcass.mixable({
-            stack: []
-        });
-        another.mixin(carcass.proto.stack);
-        another.use('ipsum');
-        another.stack.should.eql([
+        var another = mixable({});
+        another.mixin(stackProto);
+        another.stack('ipsum');
+        another.stack().should.eql([
             'ipsum'
         ]);
-        obj.stack.should.eql([
+        obj.stack().should.eql([
             'lorem'
         ]);
     });
 
     it('can add more layers', function() {
-        obj.use('ipsum');
-        obj.stack.should.eql([
+        obj.stack('ipsum');
+        obj.stack().should.eql([
             'lorem',
             'ipsum'
         ]);

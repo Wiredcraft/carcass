@@ -1,6 +1,5 @@
 // var debug = require('debug')('carcass:test');
 
-// var carcass = require('carcass');
 // var should = require('should');
 var path = require('path');
 var eson = require('eson');
@@ -42,7 +41,6 @@ describe('Classes / Config:', function() {
 
         it('should be a stack', function() {
             config.should.have.property('stack');
-            config.should.have.property('use');
         });
 
         it('should have some methods', function() {
@@ -50,9 +48,9 @@ describe('Classes / Config:', function() {
             config.should.have.property('parser');
         });
 
-        it('can use a source', function() {
-            config.use(lorem).should.have.property('stack');
-            config.stack.should.eql([lorem]);
+        it('can stack a source', function() {
+            config.stack(lorem).should.equal(config);
+            config.stack().should.eql([lorem]);
         });
 
         it('can reload', function() {
@@ -63,9 +61,9 @@ describe('Classes / Config:', function() {
             res.should.not.have.property('root');
         });
 
-        it('can use one more source', function() {
-            config.use(ipsum).should.have.property('stack');
-            config.stack.should.eql([lorem, ipsum]);
+        it('can stack one more source', function() {
+            config.stack(ipsum).should.equal(config);
+            config.stack().should.eql([lorem, ipsum]);
         });
 
         it('can reload', function() {
@@ -84,7 +82,7 @@ describe('Classes / Config:', function() {
         });
 
         it('can reload', function() {
-            config.stack.should.eql([lorem]);
+            config.stack().should.eql([lorem]);
             var res = config.reload();
             res.should.be.a('object');
             res.should.have.property('lorem', 'ipsum');
@@ -100,7 +98,7 @@ describe('Classes / Config:', function() {
         });
 
         it('can reload', function() {
-            config.stack.should.eql([lorem, ipsum]);
+            config.stack().should.eql([lorem, ipsum]);
             var res = config.reload();
             res.should.be.a('object');
             res.should.have.property('lorem', 'ipsum');
@@ -119,7 +117,7 @@ describe('Classes / Config:', function() {
         });
 
         it('can reload', function() {
-            config.stack.should.eql([lorem, ipsum]);
+            config.stack().should.eql([lorem, ipsum]);
             var res = config.reload();
             res.should.be.a('object');
             res.should.have.property('lorem', 'ipsum');
