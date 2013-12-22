@@ -1,17 +1,17 @@
 // var debug = require('debug')('carcass:test');
 
-var carcass = require('carcass');
+// var carcass = require('carcass');
 // var should = require('should');
 var path = require('path');
 var eson = require('eson');
 
-var Config = carcass.tools.config;
+var Config = require('../lib/classes/Config');
 var config = null;
 var root = path.resolve(__dirname, 'fixture');
 var lorem = path.resolve(root, 'configs', 'lorem.json');
 var ipsum = path.resolve(root, 'configs', 'ipsum.json');
 
-describe('Tools / config:', function() {
+describe('Classes / Config:', function() {
 
     it('should be a function', function() {
         Config.should.be.a('function');
