@@ -1,8 +1,11 @@
-
-bm:
-	@NODE_ENV=test DEBUG=carcass:benchmark ./node_modules/.bin/mocha --timeout 120s --slow 60s ./benchmark/*.js
+ENV = NODE_ENV=test DEBUG=carcass:*
+MOCHA = ./node_modules/.bin/mocha
+TESTS = ./test/*.mocha.js
 
 test:
-	@NODE_ENV=test DEBUG=carcass:* ./node_modules/.bin/mocha ./test/*.mocha.js
+	$(ENV) $(MOCHA) $(TESTS)
+
+bm:
+	$(ENV) DEBUG=carcass:benchmark $(MOCHA) --timeout 120s --slow 60s ./benchmark/*.js
 
 .PHONY: test bm

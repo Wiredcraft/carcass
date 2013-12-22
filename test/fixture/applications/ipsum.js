@@ -1,31 +1,22 @@
-var debug = require('debug')('carcass:application:ipsum');
+var express = require('express');
+var app = module.exports = express();
 
-var carcass = require('carcass');
-
-module.exports = carcass.factories.Express({
-    initialize: initialize
+app.post('/post', function(req, res) {
+    res.send(req.body);
 });
 
-function initialize(app, options) {
-    debug('initializing');
-
-    app.post('/post', function(req, res, next) {
-        res.send(req.body);
+app.post('/multipart', function(req, res) {
+    res.json({
+        'field': req.body.field,
+        'filename': req.files.file.name
     });
+});
 
-    app.post('/multipart', function(req, res, next) {
-        res.json({
-            'field': req.body.field,
-            'filename': req.files.file.name
-        });
-    });
+app.get('/cookie', function(req, res) {
+    res.cookie('cookie', 'cookie');
+    res.send();
+});
 
-    app.get('/cookie', function(req, res, next) {
-        res.cookie('cookie', 'cookie');
-        res.send();
-    });
-
-    app.get('/random-cookie', function(req, res, next) {
-        res.json(req.cookies);
-    });
-}
+app.get('/random-cookie', function(req, res) {
+    res.json(req.cookies);
+});

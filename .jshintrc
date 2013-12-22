@@ -6,10 +6,10 @@
     "curly"         : false,
     "eqeqeq"        : true,
     "forin"         : true,
-    "immed"         : true,
+    "immed"         : false,
     "indent"        : 4,
     "latedef"       : false,
-    "newcap"        : true,
+    "newcap"        : false,
     "noarg"         : true,
     "noempty"       : true,
     "nonew"         : true,
@@ -27,9 +27,8 @@
 
     "asi"           : false,
     "boss"          : true,
-    "debug"         : false,
+    "debug"         : true,
     "eqnull"        : true,
-    "es5"           : true,
     "esnext"        : false,
     "evil"          : false,
     "expr"          : true,
@@ -68,5 +67,12 @@
     "passfail"      : false,
     "white"         : false,
 
-    "predef"        : [ ]
+    "predef"        : [
+        "describe",
+        "it",
+        "before",
+        "beforeEach",
+        "after",
+        "afterEach"
+    ]
 }

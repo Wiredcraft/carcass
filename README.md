@@ -1,6 +1,6 @@
 # Carcass
 
-A toolbox for [Node.js](http://nodejs.org/), includes [Express.js](http://expressjs.com/), [Deferred](https://github.com/medikoo/deferred), and a lot more.
+A toolbox for [Node.js](http://nodejs.org/), includes [Deferred](https://github.com/medikoo/deferred), [Postal.js](https://github.com/postaljs/postal.js), and a lot more.
 
 **Caution**: Everything will be reviewed before 1.0 release. That means nothing is stable at this point. We will have stability indications like [Node.js does](http://nodejs.org/api/documentation.html#documentation_stability_index).
 
@@ -23,34 +23,39 @@ Can be accessed as `carcass.xxx`.
     * **`carcass.mixin`**: ...
     * **`carcass.mixable`**: ...
     * **`carcass.register`**: ...
-    * **`carcass.tools.config`**: ...
 
 ### "Proto"s
 
 ...
 
+### Examples
+
+...
+
 ## Roadmap
 
-* Rebuild `lib/model` as `proto/model` and drop the storage part.
-* Rebuild (or probably drop) `constructors`, `servers`, `storages`, `factories`, `applications`.
-* Review `examples`, `plugins`, `utils`.
-* Remove some package dependencies; only require as needed.
+* Build "config".
+* Build "errors".
+* Build "log".
+* Rebuild examples.
+* Build a Carcass class.
+* Review applications.
 
 ## Summary
 
 Output of `git summary`. See [Git Extras](https://github.com/visionmedia/git-extras).
 
 ```
-project  : carcass (0.4.5)
-repo age : 6 months ago
-commits  : 183
-active   : 82 days
-files    : 90
+project  : carcass (0.5.0)
+repo age : 1 year, 1 month
+active   : 116 days
+commits  : 260
+files    : 48
 authors  :
-  164  Makara Wang             89.6%
-    9  Zhou Honglin            4.9%
-    8  xeodou                  4.4%
-    2  Vincent Viallet         1.1%
+  241  Makara Wang             92.7%
+    9  Zhou Honglin            3.5%
+    8  xeodou                  3.1%
+    2  Vincent Viallet         0.8%
 ```
 
 ## License

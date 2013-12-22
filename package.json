@@ -6,7 +6,7 @@
   },
   "name": "carcass",
   "description": "A toolbox for Node.js, includes Express.js, Deferred, and a lot more.",
-  "version": "0.4.5",
+  "version": "0.5.0",
   "contributors": [],
   "keywords": [
     "carcass",
@@ -22,24 +22,27 @@
   "url": "https://github.com/devo-ps/carcass",
   "dependencies": {
     "configurable": "~0.0.1",
-    "debug": "~0.7.2",
-    "deferred": "~0.6.5",
+    "debug": "~0.7.4",
+    "deferred": "~0.6.6",
     "es5-ext": "~0.9.2",
-    "express": "~3.2.6",
-    "methods": "~0.0.1",
-    "postal": "~0.8.4",
+    "postal": "~0.8.9",
     "underscore": "~1.4.4"
+  },
+  "optionalDependencies": {
+    "cjson": "0.x",
+    "commander": "2.x",
+    "eson": "0.x",
+    "express": "3.x",
+    "methods": "0.x",
+    "uid2": "0.x"
   },
   "devDependencies": {
     "benchmark": "1.x",
-    "eson": "~0.4.1",
-    "grunt": "~0.4.1",
-    "grunt-contrib-jshint": "~0.3.0",
-    "mkdirp": "~0.3.4",
+    "grunt": "~0.4.2",
+    "grunt-contrib-jshint": "~0.7.2",
     "mocha": "1.x",
-    "request": "~2.21",
-    "should": "1.x",
-    "stash": "~0.0.3"
+    "request": "2.x",
+    "should": "1.x"
   },
   "scripts": {
     "test": "./node_modules/.bin/mocha ./test/*.mocha.js"
