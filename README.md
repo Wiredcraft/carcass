@@ -26,8 +26,9 @@ Can be accessed as `carcass.xxx`.
 
         ```js
         carcass.register('dirname/of/the_directory', 'the_directory');
-        // now you can use
-        carcass.the_directory.whatever_the_file_exports
+        // now you have
+        carcass.the_directory.a_file_basename === whatever_the_file_exports
+        carcass.the_directory.another_file === that_file_exports
         // plus everything in the sub-directories
         carcass.the_directory.sub_directory.xxx
         ```
@@ -49,12 +50,12 @@ Can be accessed as `carcass.xxx`.
         It also makes the `prototype` of an object "mixable". For example
 
         ```js
-        carcass.mixable(myClass);
-        myClass.prototype.mixin(carcass.proto.register);
+        carcass.mixable(MyClass);
+        MyClass.prototype.mixin(carcass.proto.register);
         // either
-        myClass.prototype.register(...);
+        MyClass.prototype.register(...);
         // or
-        var myInstance = new myClass();
+        var myInstance = new MyClass();
         myInstance.register(...);
         ```
 
