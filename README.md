@@ -8,7 +8,8 @@ A toolbox for [Node.js](http://nodejs.org/), includes [Deferred](https://github.
 
 ## How to use
 
-`var carcass = require('carcass');`
+* `var carcass = require('carcass');`
+* For detailed usage, please see the tests.
 
 ## What's inside
 
@@ -17,12 +18,37 @@ A toolbox for [Node.js](http://nodejs.org/), includes [Deferred](https://github.
 Can be accessed as `carcass.xxx`.
 
 * 3rd-party libraries.
-    * **`carcass.deferred`**: [deferred](https://github.com/medikoo/deferred), a promise implementation.
-    * **`carcass.postal`**: [postal.js](https://github.com/postaljs/postal.js), an in-memory message bus.
+    * **`carcass.deferred`**: [Deferred](https://github.com/medikoo/deferred), a promise implementation.
+    * **`carcass.postal`**: [Postal.js](https://github.com/postaljs/postal.js), an in-memory message bus.
+
 * My tools.
-    * **`carcass.mixin`**: ...
-    * **`carcass.mixable`**: ...
-    * **`carcass.register`**: ...
+    * **`carcass.register`**: It can be used to register a new tool or a new directory to carcass, e.g. `carcass.register(__dirname, 'the_directory')`, then the files inside the directory can be accessed as `carcass.the_directory.xxx`, plus the sub-directories can be also accessed, like `carcass.the_directory.sub_directory.xxx`. The files are not loaded until accessed.
+
+    * **`carcass.mixin`**: "Mixin" is the major way we do code sharing. It simply merges the attributes from one object to another. For convenient, we prepare the origin objects as "proto"s with each a single purpose and "mixin" them together so we got a full functional object or class. For example we have `carcass.register` because we do
+
+        ```js
+        carcass.mixin(require('path/to/register'));
+        ```
+
+    * **`carcass.mixable`**: Want to register or mixin tools to something other than `carcass` itself? You can do it with `mixable`. For example say you have an object `myObject`
+
+        ```js
+        carcass.mixable(myObject);
+        myObject.mixin(carcass.proto.register);
+        myObject.register(...);
+        ```
+
+        It also makes the `prototype` of an object "mixable". For example
+
+        ```js
+        carcass.mixable(myClass);
+        myClass.prototype.mixin(carcass.proto.register);
+        // either
+        myClass.prototype.register(...);
+        // or
+        var myInstance = new myClass();
+        myInstance.register(...);
+        ```
 
 ### "Proto"s
 

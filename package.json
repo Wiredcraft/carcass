@@ -5,7 +5,7 @@
     "url": "https://github.com/devo-ps"
   },
   "name": "carcass",
-  "description": "A toolbox for Node.js, includes Express.js, Deferred, and a lot more.",
+  "description": "A toolbox for Node.js, includes Deferred, Postal.js, and a lot more.",
   "version": "0.5.0",
   "contributors": [],
   "keywords": [
