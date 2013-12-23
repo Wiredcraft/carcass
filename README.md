@@ -2,7 +2,7 @@
 
 A toolbox for [Node.js](http://nodejs.org/), includes [Deferred](https://github.com/medikoo/deferred), [Postal.js](https://github.com/postaljs/postal.js), and a lot more.
 
-**Caution**: Everything will be reviewed before 1.0 release. That means nothing is stable at this point. We will have stability indications like [Node.js does](http://nodejs.org/api/documentation.html#documentation_stability_index).
+__Caution__: Everything will be reviewed before 1.0 release. That means nothing is stable at this point. We will have stability indications like [Node.js does](http://nodejs.org/api/documentation.html#documentation_stability_index).
 
 ## Why
 
@@ -18,19 +18,27 @@ A toolbox for [Node.js](http://nodejs.org/), includes [Deferred](https://github.
 Can be accessed as `carcass.xxx`.
 
 * 3rd-party libraries.
-    * **`carcass.deferred`**: [Deferred](https://github.com/medikoo/deferred), a promise implementation.
-    * **`carcass.postal`**: [Postal.js](https://github.com/postaljs/postal.js), an in-memory message bus.
+    * __carcass.deferred__: [Deferred](https://github.com/medikoo/deferred), a promise implementation.
+    * __carcass.postal__: [Postal.js](https://github.com/postaljs/postal.js), an in-memory message bus.
 
 * My tools.
-    * **`carcass.register`**: It can be used to register a new tool or a new directory to carcass, e.g. `carcass.register(__dirname, 'the_directory')`, then the files inside the directory can be accessed as `carcass.the_directory.xxx`, plus the sub-directories can be also accessed, like `carcass.the_directory.sub_directory.xxx`. The files are not loaded until accessed.
+    * __carcass.register__: It can be used to register a new tool or a new directory to carcass. For example
 
-    * **`carcass.mixin`**: "Mixin" is the major way we do code sharing. It simply merges the attributes from one object to another. For convenient, we prepare the origin objects as "proto"s with each a single purpose and "mixin" them together so we got a full functional object or class. For example we have `carcass.register` because we do
+        ```js
+        carcass.register('dirname/of/the_directory', 'the_directory');
+        // now you can use
+        carcass.the_directory.whatever_the_file_exports
+        // plus everything in the sub-directories
+        carcass.the_directory.sub_directory.xxx
+        ```
+
+    * __carcass.mixin__: "Mixin" is the major way we do code sharing. It simply merges the attributes from one object to another. For convenient, we prepare the origin objects as "proto"s with each a single purpose and "mixin" them together so we got a full functional object or class. For example we have `carcass.register` because we do
 
         ```js
         carcass.mixin(require('path/to/register'));
         ```
 
-    * **`carcass.mixable`**: Want to register or mixin tools to something other than `carcass` itself? You can do it with `mixable`. For example say you have an object `myObject`
+    * __carcass.mixable__: Want to register or mixin tools to something other than `carcass` itself? You can do it with `mixable`. For example say you have an object `myObject`
 
         ```js
         carcass.mixable(myObject);
@@ -86,4 +94,4 @@ authors  :
 
 ## License
 
-**[WTFPL](http://en.wikipedia.org/wiki/WTFPL)**
+__[WTFPL](http://en.wikipedia.org/wiki/WTFPL)__
