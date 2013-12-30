@@ -17,11 +17,11 @@ describe('Classes / Config:', function() {
     });
 
     it('should return an object', function() {
-        Config().should.be.a('object');
+        (new Config()).should.be.a('object');
     });
 
     it('should return a different instance', function() {
-        Config().should.not.equal(Config());
+        (new Config()).should.not.equal(new Config());
     });
 
     describe('An instance:', function() {

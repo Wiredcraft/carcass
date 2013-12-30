@@ -1,5 +1,7 @@
-// I am Carcass.
-require('./lib/carcass')(exports);
+var Carcass = require('./lib/classes/Carcass');
+
+// Export a global instance.
+var carcass = module.exports = new Carcass('global');
 
 // Register applications.
-exports.register(__dirname, 'applications');
+carcass.register(__dirname, 'applications');

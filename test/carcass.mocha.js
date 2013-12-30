@@ -1,21 +1,22 @@
 // var debug = require('debug')('carcass:test');
 
-var carcass = require('carcass');
 // var should = require('should');
-
-require('./fixture');
+var carcass = require('../');
 
 describe('Carcass', function() {
-    it('should be an object with some methods', function() {
+
+    it('should be an object', function() {
         carcass.should.be.a('object');
+    });
+
+    it('should have an id', function() {
+        carcass.id().should.equal('global');
+    });
+
+    it('should have some methods', function() {
         carcass.should.have.property('mixable');
         carcass.should.have.property('mixin');
         carcass.should.have.property('register');
-    });
-
-    it('should have proto', function() {
-        carcass.should.have.property('proto');
-        carcass.proto.should.be.a('object');
     });
 
     // TODO
