@@ -1,8 +1,8 @@
 // var debug = require('debug')('carcass:test');
 
+var should = require('should');
 var mixable = require('../lib/mixable');
 var configProto = require('../lib/proto/configManager');
-var should = require('should');
 
 var path = require('path');
 var eson = require('eson');
@@ -11,7 +11,7 @@ var root = path.resolve(__dirname, 'fixture');
 var lorem = path.resolve(root, 'configs', 'lorem.json');
 var ipsum = path.resolve(root, 'configs', 'ipsum.json');
 
-describe('Carcass / proto / config:', function() {
+describe('Carcass / proto / configManager:', function() {
 
     it('should be a proto', function() {
         configProto.should.be.a('object');
