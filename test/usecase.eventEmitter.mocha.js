@@ -1,4 +1,4 @@
-var carcass = require('carcass');
+var carcass = require('../');
 var util = require('util');
 var EventEmitter = require('events').EventEmitter;
 

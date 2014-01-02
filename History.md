@@ -1,5 +1,15 @@
 
-0.5.0 (Rebirth) / 2013-12-22 
+0.6.0 (Config) / 2014-01-01
+==================
+
+ * Added proto.configConsumer.
+ * Rebuilt Carcass itself as a class and export a global instance.
+ * Added proto.configManager.
+ * Rebuilt proto.uid with helpers.accessor().
+ * Rebuilt proto.id with helpers.accessor().
+ * Updated readme and description.
+
+0.5.0 (Rebirth) / 2013-12-22
 ==================
 
  * API change: renamed proto/stack.use() to proto/stack.stack() and rebuilt it as an accessor.
