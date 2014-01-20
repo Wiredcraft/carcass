@@ -20,6 +20,7 @@ Can be accessed as `carcass.xxx`.
 * 3rd-party libraries.
     * __carcass.deferred__: [Deferred](https://github.com/medikoo/deferred), a promise implementation.
     * __carcass.postal__: [Postal.js](https://github.com/postaljs/postal.js), an in-memory message bus.
+    * __[ES6 Shim](https://github.com/paulmillr/es6-shim)__: Provides compatibility shims so that legacy JavaScript engines behave as closely as possible to ECMAScript 6 (Harmony). Note that it is auto-loaded with Carcass (when you do `require('carcass')`).
 
 * My tools.
     * __carcass.register__: It can be used to register a new tool or a new directory to carcass. For example
