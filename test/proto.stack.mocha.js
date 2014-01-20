@@ -14,7 +14,7 @@ describe('Carcass / proto / stack:', function() {
 
     it('should have a stack method', function() {
         obj.should.have.property('stack');
-        obj.stack.should.be.a('function');
+        obj.stack.should.be.type('function');
     });
 
     it('can have a default stack', function() {

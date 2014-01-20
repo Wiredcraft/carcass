@@ -6,7 +6,7 @@ var carcass = require('../');
 describe('Carcass', function() {
 
     it('should be an object', function() {
-        carcass.should.be.a('object');
+        carcass.should.be.type('object');
     });
 
     it('should have an id', function() {

@@ -9,11 +9,11 @@ var ipsum = null;
 describe('Classes / Carcass:', function() {
 
     it('should be a function', function() {
-        Carcass.should.be.a('function');
+        Carcass.should.be.type('function');
     });
 
     it('should return an object', function() {
-        (new Carcass()).should.be.a('object');
+        (new Carcass()).should.be.type('object');
     });
 
     it('should return a different instance', function() {
@@ -27,7 +27,7 @@ describe('Classes / Carcass:', function() {
         });
 
         it('should be an object', function() {
-            lorem.should.be.a('object');
+            lorem.should.be.type('object');
         });
 
         it('should have an id', function() {
@@ -36,23 +36,23 @@ describe('Classes / Carcass:', function() {
 
         it('should be mixable', function() {
             lorem.should.have.property('mixin');
-            lorem.mixin.should.be.a('function');
+            lorem.mixin.should.be.type('function');
         });
 
         it('should be a register', function() {
             lorem.should.have.property('register');
-            lorem.register.should.be.a('function');
+            lorem.register.should.be.type('function');
         });
 
         it('should be a config manager', function() {
             lorem.should.have.property('settings');
-            lorem.settings.should.be.a('object');
+            lorem.settings.should.be.type('object');
             lorem.should.have.property('config');
-            lorem.config.should.be.a('function');
+            lorem.config.should.be.type('function');
             lorem.should.have.property('source');
-            lorem.source.should.be.a('function');
+            lorem.source.should.be.type('function');
             lorem.should.have.property('reload');
-            lorem.reload.should.be.a('function');
+            lorem.reload.should.be.type('function');
         });
 
         it('should export some tools', function() {
@@ -94,7 +94,7 @@ describe('Classes / Carcass:', function() {
         });
 
         it('should be a different object', function() {
-            ipsum.should.be.a('object');
+            ipsum.should.be.type('object');
             ipsum.should.not.equal(lorem);
         });
 

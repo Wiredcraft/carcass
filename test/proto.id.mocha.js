@@ -7,7 +7,7 @@ var should = require('should');
 describe('Carcass / proto / id:', function() {
 
     it('should be a proto', function() {
-        idProto.should.be.a('object');
+        idProto.should.be.type('object');
     });
 
     describe('Use:', function() {

@@ -14,7 +14,7 @@ var ipsum = path.resolve(root, 'configs', 'ipsum.json');
 describe('Carcass / proto / configManager:', function() {
 
     it('should be a proto', function() {
-        configProto.should.be.a('object');
+        configProto.should.be.type('object');
     });
 
     describe('Use:', function() {
@@ -33,8 +33,8 @@ describe('Carcass / proto / configManager:', function() {
 
         it('can setup config', function() {
             obj.config().should.equal(obj);
-            obj._config.should.be.a('object');
-            obj.settings.should.be.a('object');
+            obj._config.should.be.type('object');
+            obj.settings.should.be.type('object');
         });
 
         it('can use a source', function() {
@@ -43,7 +43,7 @@ describe('Carcass / proto / configManager:', function() {
         });
 
         it('can reload', function() {
-            obj.reload().should.be.a('object');
+            obj.reload().should.be.type('object');
             obj.get('lorem').should.equal('ipsum');
             obj.get('dolor').should.equal(true);
             should.not.exist(obj.get('root'));
@@ -55,14 +55,14 @@ describe('Carcass / proto / configManager:', function() {
         });
 
         it('can reload', function() {
-            obj.reload().should.be.a('object');
+            obj.reload().should.be.type('object');
             obj.get('lorem').should.equal('ipsum');
             obj.get('dolor').should.equal(false);
             obj.get('root').should.equal('{root}');
         });
 
         it ('can have different eson plugins', function() {
-            obj.esonPlugins.should.be.a('function');
+            obj.esonPlugins.should.be.type('function');
             obj.esonPlugins = function() {
                 return [eson.replace('{root}', root)];
             };
@@ -70,7 +70,7 @@ describe('Carcass / proto / configManager:', function() {
 
         it('can reload', function() {
             obj.config().should.equal(obj);
-            obj.reload().should.be.a('object');
+            obj.reload().should.be.type('object');
             obj.get('lorem').should.equal('ipsum');
             obj.get('dolor').should.equal(false);
             obj.get('root').should.equal(root);

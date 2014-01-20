@@ -13,7 +13,7 @@ var dolor = require(path.resolve(root, 'applications', 'dolor', 'lorem'));
 describe('Carcass / proto / register:', function() {
 
     it('should be a proto', function() {
-        registerProto.should.be.a('object');
+        registerProto.should.be.type('object');
     });
 
     describe('Use with a tree:', function() {
@@ -35,7 +35,7 @@ describe('Carcass / proto / register:', function() {
             obj.should.have.property('lorem', 'lorem');
             obj.should.not.have.property('dolor');
             obj.should.have.property('applications');
-            obj.applications.should.be.a('object');
+            obj.applications.should.be.type('object');
             obj.applications.should.have.property('lorem');
             obj.applications.lorem.should.equal(lorem);
             obj.applications.should.have.property('ipsum');
@@ -63,7 +63,7 @@ describe('Carcass / proto / register:', function() {
             obj.should.have.property('lorem', 'lorem');
             obj.should.not.have.property('dolor');
             obj.should.have.property('applications');
-            obj.applications.should.be.a('object');
+            obj.applications.should.be.type('object');
             obj.applications.should.have.property('lorem');
             obj.applications.lorem.should.equal(lorem);
             obj.applications.should.have.property('ipsum');
@@ -86,7 +86,7 @@ describe('Carcass / proto / register:', function() {
             obj.should.have.property('lorem', 'lorem');
             obj.should.not.have.property('dolor');
             obj.should.have.property('applications');
-            obj.applications.should.be.a('object');
+            obj.applications.should.be.type('object');
             obj.applications.should.not.have.property('lorem');
             obj.applications.should.not.have.property('ipsum');
             obj.applications.should.have.property('dolor');
@@ -115,7 +115,7 @@ describe('Carcass / proto / register:', function() {
             obj.should.have.property('lorem', 'lorem');
             obj.should.not.have.property('dolor');
             obj.should.have.property('applications');
-            obj.applications.should.be.a('object');
+            obj.applications.should.be.type('object');
             obj.applications.should.not.have.property('lorem');
             obj.applications.should.not.have.property('ipsum');
             obj.applications.should.have.property('dolor');
@@ -141,7 +141,7 @@ describe('Carcass / proto / register:', function() {
             obj.should.have.property('lorem', 'lorem');
             obj.should.not.have.property('applications');
             obj.should.have.property('dolor');
-            obj.dolor.should.be.a('object');
+            obj.dolor.should.be.type('object');
             obj.dolor.should.have.property('lorem');
             obj.dolor.lorem.should.equal(dolor);
         });

@@ -6,7 +6,7 @@ var mixin = require('../lib/helpers/mixin');
 describe('Carcass / proto / mixin:', function() {
 
     it('should be a function', function() {
-        mixin.should.be.a('function');
+        mixin.should.be.type('function');
     });
 
     describe('Use with an object:', function() {

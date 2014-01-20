@@ -7,7 +7,7 @@ var channelProto = require('../lib/proto/channel');
 describe('Carcass / proto / channel:', function() {
 
     it('should be a proto', function() {
-        channelProto.should.be.a('object');
+        channelProto.should.be.type('object');
     });
 
     describe('Use:', function() {
@@ -16,7 +16,7 @@ describe('Carcass / proto / channel:', function() {
         var sub = null;
         var consumer = function(data, envelope) {
             data.should.equal('message');
-            envelope.should.be.a('object');
+            envelope.should.be.type('object');
             envelope.should.have.property('topic', 'topic');
             envelope.should.have.property('data', 'message');
             published = true;
@@ -62,7 +62,7 @@ describe('Carcass / proto / channel:', function() {
 
         it('can subscribe with a channel', function() {
             sub = obj.subscribe('*', consumer);
-            sub.should.be.a('object');
+            sub.should.be.type('object');
             sub.should.have.property('channel', 'lorem');
             sub.should.have.property('topic', '*');
             sub.should.have.property('callback', consumer);

@@ -13,11 +13,11 @@ var ipsum = path.resolve(root, 'configs', 'ipsum.json');
 describe('Classes / Config:', function() {
 
     it('should be a function', function() {
-        Config.should.be.a('function');
+        Config.should.be.type('function');
     });
 
     it('should return an object', function() {
-        (new Config()).should.be.a('object');
+        (new Config()).should.be.type('object');
     });
 
     it('should return a different instance', function() {
@@ -31,12 +31,12 @@ describe('Classes / Config:', function() {
         });
 
         it('should be an object', function() {
-            config.should.be.a('object');
+            config.should.be.type('object');
         });
 
         it('should be mixable', function() {
             config.should.have.property('mixin');
-            config.mixin.should.be.a('function');
+            config.mixin.should.be.type('function');
         });
 
         it('should be a stack', function() {
@@ -55,7 +55,7 @@ describe('Classes / Config:', function() {
 
         it('can reload', function() {
             var res = config.reload();
-            res.should.be.a('object');
+            res.should.be.type('object');
             res.should.have.property('lorem', 'ipsum');
             res.should.have.property('dolor', true);
             res.should.not.have.property('root');
@@ -68,7 +68,7 @@ describe('Classes / Config:', function() {
 
         it('can reload', function() {
             var res = config.reload();
-            res.should.be.a('object');
+            res.should.be.type('object');
             res.should.have.property('lorem', 'ipsum');
             res.should.have.property('dolor', false);
             res.should.have.property('root', '{root}');
@@ -84,7 +84,7 @@ describe('Classes / Config:', function() {
         it('can reload', function() {
             config.stack().should.eql([lorem]);
             var res = config.reload();
-            res.should.be.a('object');
+            res.should.be.type('object');
             res.should.have.property('lorem', 'ipsum');
             res.should.have.property('dolor', true);
             res.should.not.have.property('root');
@@ -100,7 +100,7 @@ describe('Classes / Config:', function() {
         it('can reload', function() {
             config.stack().should.eql([lorem, ipsum]);
             var res = config.reload();
-            res.should.be.a('object');
+            res.should.be.type('object');
             res.should.have.property('lorem', 'ipsum');
             res.should.have.property('dolor', false);
             res.should.have.property('root', '{root}');
@@ -119,7 +119,7 @@ describe('Classes / Config:', function() {
         it('can reload', function() {
             config.stack().should.eql([lorem, ipsum]);
             var res = config.reload();
-            res.should.be.a('object');
+            res.should.be.type('object');
             res.should.have.property('lorem', 'ipsum');
             res.should.have.property('dolor', false);
             res.should.have.property('root', root);

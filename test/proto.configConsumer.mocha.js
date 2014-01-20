@@ -14,7 +14,7 @@ var lorem = path.resolve(root, 'configs', 'lorem.json');
 describe('Carcass / proto / configConsumer:', function() {
 
     it('should be a proto', function() {
-        configProto.should.be.a('object');
+        configProto.should.be.type('object');
     });
 
     describe('Use:', function() {

@@ -6,11 +6,11 @@ var should = require('should');
 describe('Carcass / helpers / accessor:', function() {
 
     it('should be a function', function() {
-        accessor.should.be.a('function');
+        accessor.should.be.type('function');
     });
 
     it('can build a function', function() {
-        accessor('lorem').should.be.a('function');
+        accessor('lorem').should.be.type('function');
     });
 
     it('should throw without a key', function() {

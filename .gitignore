@@ -3,6 +3,8 @@
 !.npmignore
 !.jshintrc
 
+*.orig
+
 node_modules
 npm-debug.log
 
