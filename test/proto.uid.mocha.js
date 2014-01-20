@@ -18,12 +18,21 @@ describe('Carcass / proto / uid:', function() {
             obj.should.have.property('id');
         });
 
+        it('should not have the internal value by default', function() {
+            should.not.exist(obj._id);
+        });
+
         it('should have a default id', function() {
             should.exist(obj.id());
+            should.exist(obj._id);
         });
 
         it('should have a same default id', function() {
             obj.id().should.equal(obj.id());
+        });
+
+        it('should not generate a new id', function() {
+            obj.id().should.equal(obj._id);
         });
 
         it('can have an id', function() {
@@ -50,9 +59,28 @@ describe('Carcass / proto / uid:', function() {
             obj.id().should.equal(2);
         });
 
-        it('can use null and generates an id', function() {
+        it('can use undefined and generates a new id', function() {
+            var id = obj.id();
+            obj.id(undefined).should.equal(obj);
+            should.exist(obj._id);
+            obj.id().should.equal(obj._id);
+            obj.id().should.not.equal(id);
+        });
+
+        it('can use null and generates a new id', function() {
+            var id = obj.id();
             obj.id(null).should.equal(obj);
-            should.exist(obj.id());
+            should.exist(obj._id);
+            obj.id().should.equal(obj._id);
+            obj.id().should.not.equal(id);
+        });
+
+        it('can use an empty option and generates a new id', function() {
+            var id = obj.id();
+            obj.id({}).should.equal(obj);
+            should.exist(obj._id);
+            obj.id().should.equal(obj._id);
+            obj.id().should.not.equal(id);
         });
     });
 });
