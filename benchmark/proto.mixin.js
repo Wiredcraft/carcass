@@ -6,6 +6,9 @@ var Benchmark = require('benchmark');
 var mixin = carcass.helpers.mixin;
 var extend = require('es5-ext/lib/Object/extend-properties');
 
+var mixinA = require('./baselines/mixin-a');
+var mixinB = require('./baselines/mixin-b');
+
 var lorem = {
     lorem: function() {
         return 'lorem';
@@ -36,11 +39,32 @@ describe('Proto / mixin:', function() {
             });
             obj.mixin(lorem).mixin(ipsum);
         });
-        suite.add('using extend-properties.', function() {
+        suite.add('using extend-properties from es5-ext.', function() {
             var obj = {
                 something: 'Lorem ipsum dolor sit amet'
             };
             extend(obj, lorem, ipsum);
+        });
+        suite.add('using mixin from es6-shim.', function() {
+            var obj = {
+                something: 'Lorem ipsum dolor sit amet'
+            };
+            Object.mixin(obj, lorem);
+            Object.mixin(obj, ipsum);
+        });
+        suite.add('using mixin a from my baselines.', function() {
+            var obj = {
+                something: 'Lorem ipsum dolor sit amet',
+                mixin: mixinA
+            };
+            obj.mixin(lorem).mixin(ipsum);
+        });
+        suite.add('using mixin b from my baselines.', function() {
+            var obj = {
+                something: 'Lorem ipsum dolor sit amet',
+                mixin: mixinB
+            };
+            obj.mixin(lorem).mixin(ipsum);
         });
         suite.on('start', function(event) {
             debug('started');
