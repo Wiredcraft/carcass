@@ -6,7 +6,7 @@
   },
   "name": "carcass",
   "description": "A toolbox for Node.js, includes Deferred, Postal.js, and a lot more.",
-  "version": "0.6.0",
+  "version": "0.7.0",
   "contributors": [],
   "keywords": [
     "carcass",

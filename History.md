@@ -1,4 +1,13 @@
 
+0.7.0 (ES6) / 2014-01-21
+==================
+
+ * API change: changed proto.configManager#esonPlugins() to an accessor.
+ * Improved proto.uid: generate an id if given a null or undefined.
+ * Rebuilt mixin() with reduce() (same with es6-shim).
+ * Added es6-shim.
+ * Updated to should 2.x.
+
 0.6.0 (Config) / 2014-01-01
 ==================
 
