@@ -63,9 +63,7 @@ describe('Carcass / proto / configManager:', function() {
 
         it ('can have different eson plugins', function() {
             obj.esonPlugins.should.be.type('function');
-            obj.esonPlugins = function() {
-                return [eson.replace('{root}', root)];
-            };
+            obj.esonPlugins([eson.replace('{root}', root)]);
         });
 
         it('can reload', function() {

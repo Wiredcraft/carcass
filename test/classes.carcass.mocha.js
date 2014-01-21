@@ -105,6 +105,7 @@ describe('Classes / Carcass:', function() {
         it('should share some prototypes', function() {
             ipsum.mixin.should.equal(lorem.mixin);
             ipsum.register.should.equal(lorem.register);
+            ipsum.esonPlugins.should.equal(lorem.esonPlugins);
             ipsum.config.should.equal(lorem.config);
             ipsum.source.should.equal(lorem.source);
             ipsum.reload.should.equal(lorem.reload);
@@ -119,15 +120,6 @@ describe('Classes / Carcass:', function() {
 
         it('should not share the configs', function() {
             ipsum._config.should.not.equal(lorem._config);
-        });
-
-        it('can override the methods', function() {
-            ipsum.esonPlugins.should.equal(lorem.esonPlugins);
-            ipsum.esonPlugins = function() {
-                return [];
-            };
-            ipsum.esonPlugins.should.not.equal(lorem.esonPlugins);
-            ipsum.esonPlugins.should.not.eql(lorem.esonPlugins);
         });
     });
 });
