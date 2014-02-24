@@ -1,40 +1,40 @@
 {
+  "name": "carcass",
+  "version": "0.7.0",
+  "description": "A toolbox for Node.js, includes Deferred, Postal.js, and a lot more.",
   "author": {
     "name": "devo.ps",
     "email": "info@devo.ps",
     "url": "https://github.com/devo-ps"
   },
-  "name": "carcass",
-  "description": "A toolbox for Node.js, includes Deferred, Postal.js, and a lot more.",
-  "version": "0.7.0",
   "contributors": [],
   "keywords": [
     "carcass",
     "toolbox",
-    "express",
+    "stream",
     "promise",
+    "highland",
     "deferred"
   ],
   "repository": {
     "type": "git",
     "url": "https://github.com/devo-ps/carcass.git"
   },
-  "url": "https://github.com/devo-ps/carcass",
+  "bugs": {
+    "url": "https://github.com/devo-ps/carcass/issues"
+  },
+  "homepage": "https://github.com/devo-ps/carcass",
   "dependencies": {
     "cjson": "~0.3.0",
     "configurable": "0.x",
     "debug": "0.x",
     "deferred": "~0.6.8",
     "es5-ext": "~0.9.2",
-    "es6-shim": "~0.9.2",
-    "eson": "~0.4.1",
+    "es6-shim": "~0.9.3",
+    "eson": "~0.5.0",
+    "highland": "1.x",
     "postal": "~0.8.11",
-    "uid2": "0.x",
-    "underscore": "~1.4.4"
-  },
-  "optionalDependencies": {
-    "commander": "2.x",
-    "methods": "0.x"
+    "uid2": "0.x"
   },
   "devDependencies": {
     "benchmark": "latest",

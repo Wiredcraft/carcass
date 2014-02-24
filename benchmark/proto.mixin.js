@@ -45,12 +45,12 @@ describe('Proto / mixin:', function() {
             };
             extend(obj, lorem, ipsum);
         });
-        suite.add('using mixin from es6-shim.', function() {
+        suite.add('using Object.assign() from es6-shim.', function() {
             var obj = {
                 something: 'Lorem ipsum dolor sit amet'
             };
-            Object.mixin(obj, lorem);
-            Object.mixin(obj, ipsum);
+            Object.assign(obj, lorem);
+            Object.assign(obj, ipsum);
         });
         suite.add('using mixin a from my baselines.', function() {
             var obj = {
