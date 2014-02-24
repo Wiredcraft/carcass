@@ -1,7 +1,7 @@
 {
   "name": "carcass",
-  "version": "0.7.0",
-  "description": "A toolbox for Node.js, includes Deferred, Postal.js, and a lot more.",
+  "version": "0.8.0",
+  "description": "A toolbox for Node.js, including Highland, Deferred, Postal.js, and a lot more.",
   "author": {
     "name": "devo.ps",
     "email": "info@devo.ps",

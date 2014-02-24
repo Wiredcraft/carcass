@@ -1,4 +1,10 @@
 
+0.8.0 (Highland) / 2014-02-24
+==================
+
+ * Updated es6-shim. Updated eson. Removed underscore. Added highland.
+ * Exported es5-ext with Carcass.
+
 0.7.0 (ES6) / 2014-01-21
 ==================
 

@@ -18,6 +18,7 @@ __Caution__: Everything will be reviewed before 1.0 release. That means nothing 
 Can be accessed as `carcass.xxx`.
 
 * 3rd-party libraries.
+    * __carcass.highland__: [Highland](https://github.com/caolan/highland), a high-level streams library.
     * __carcass.deferred__: [Deferred](https://github.com/medikoo/deferred), a promise implementation.
     * __carcass.postal__: [Postal.js](https://github.com/postaljs/postal.js), an in-memory message bus.
     * __[ES6 Shim](https://github.com/paulmillr/es6-shim)__: Provides compatibility shims so that legacy JavaScript engines behave as closely as possible to ECMAScript 6 (Harmony). Note that it is auto-loaded with Carcass (when you do `require('carcass')`).
@@ -74,7 +75,6 @@ Can be accessed as `carcass.xxx`.
 
 ## Roadmap
 
-* Build "server" and "program".
 * Build "errors".
 * Build "log".
 * Rebuild examples.
@@ -85,14 +85,14 @@ Can be accessed as `carcass.xxx`.
 Output of `git summary`. See [Git Extras](https://github.com/visionmedia/git-extras).
 
 ```
-project  : carcass (0.7.0)
-repo age : 1 year, 2 months
-active   : 124 days
-commits  : 276
-files    : 56
+project  : carcass (0.8.0)
+repo age : 1 year, 3 months
+active   : 125 days
+commits  : 279
+files    : 57
 authors  :
-  257  Makara Wang             93.1%
-    9  Zhou Honglin            3.3%
+  260  Makara Wang             93.2%
+    9  Zhou Honglin            3.2%
     8  xeodou                  2.9%
     2  Vincent Viallet         0.7%
 ```
