@@ -1,7 +1,7 @@
 // var debug = require('debug')('carcass:test');
 
-var mixin = require('../lib/helpers/mixin');
 // var should = require('should');
+var mixin = require('../lib/helpers/mixin');
 
 describe('Carcass / proto / mixin:', function() {
 

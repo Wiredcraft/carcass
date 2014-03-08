@@ -59,7 +59,6 @@ describe('Classes / Carcass:', function() {
         it('should export some helpers', function() {
             lorem.should.have.property('helpers').with.type('object');
             lorem.helpers.should.have.property('accessor').with.type('function');
-            lorem.helpers.should.have.property('extend').with.type('function');
             lorem.helpers.should.have.property('mixin').with.type('function');
         });
 

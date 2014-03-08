@@ -1,7 +1,7 @@
 // var debug = require('debug')('carcass:test');
 
-var accessor = require('../lib/helpers/accessor');
 var should = require('should');
+var accessor = require('../lib/helpers/accessor');
 
 describe('Carcass / helpers / accessor:', function() {
 
