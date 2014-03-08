@@ -12,16 +12,9 @@ var ipsum = path.resolve(root, 'configs', 'ipsum.json');
 
 describe('Classes / Config:', function() {
 
-    it('should be a function', function() {
+    it('should be a class', function() {
         Config.should.be.type('function');
-    });
-
-    it('should return an object', function() {
         (new Config()).should.be.type('object');
-    });
-
-    it('should return a different instance', function() {
-        (new Config()).should.not.equal(new Config());
     });
 
     describe('An instance:', function() {

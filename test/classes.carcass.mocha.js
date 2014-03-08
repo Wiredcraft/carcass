@@ -8,16 +8,9 @@ var ipsum = null;
 
 describe('Classes / Carcass:', function() {
 
-    it('should be a function', function() {
+    it('should be a class', function() {
         Carcass.should.be.type('function');
-    });
-
-    it('should return an object', function() {
         (new Carcass()).should.be.type('object');
-    });
-
-    it('should return a different instance', function() {
-        (new Carcass()).should.not.equal(new Carcass());
     });
 
     describe('An instance:', function() {

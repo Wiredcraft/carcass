@@ -30,7 +30,7 @@
     "debug": "0.x",
     "deferred": "~0.6.8",
     "es5-ext": "~0.9.2",
-    "es6-shim": "~0.9.3",
+    "es6-shim": "~0.10.0",
     "eson": "~0.5.0",
     "highland": "1.x",
     "postal": "~0.8.11",
@@ -38,18 +38,15 @@
   },
   "devDependencies": {
     "benchmark": "latest",
-    "blanket": "1.1.5",
     "express": "latest",
-    "grunt": "latest",
-    "grunt-contrib-jshint": "latest",
-    "mocha": "latest",
-    "request": "latest",
-    "should": "~2.1.1"
+    "gulp": "latest",
+    "gulp-coffee": "latest",
+    "gulp-coffeelint": "latest",
+    "gulp-jshint": "latest",
+    "gulp-mocha": "latest",
+    "gulp-util": "latest",
+    "jshint-stylish": "latest",
+    "should": "latest"
   },
-  "scripts": {
-    "test": "./node_modules/.bin/mocha ./test/*.mocha.js",
-    "blanket": {
-      "pattern": "carcass/lib"
-    }
-  }
+  "scripts": {}
 }
