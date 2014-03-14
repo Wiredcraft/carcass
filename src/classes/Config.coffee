@@ -2,7 +2,7 @@ debug = require('debug')('carcass:class:Config')
 
 mixable = require('../mixable')
 accessor = require('../helpers/accessor')
-stackProto = require('../proto/stack')
+stacker = require('../helpers/stacker')
 extend = require('es5-ext/lib/Object/extend-deep')
 
 ###*
@@ -18,7 +18,7 @@ module.exports = class Config
     constructor: -> @initialize(arguments...)
 
 mixable(Config)
-Config::mixin(stackProto)
+Config::stack = stacker('_stack')
 Config::parser = accessor('_parser')
 
 ###*

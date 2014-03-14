@@ -60,6 +60,7 @@ describe('Classes / Carcass:', function() {
             lorem.should.have.property('helpers').with.type('object');
             lorem.helpers.should.have.property('accessor').with.type('function');
             lorem.helpers.should.have.property('mixin').with.type('function');
+            lorem.helpers.should.have.property('stacker').with.type('function');
         });
 
         it('should export some proto', function() {
@@ -69,7 +70,6 @@ describe('Classes / Carcass:', function() {
             lorem.proto.should.have.property('id').with.type('object');
             lorem.proto.should.have.property('loader').with.type('object');
             lorem.proto.should.have.property('register').with.type('object');
-            lorem.proto.should.have.property('stack').with.type('object');
             lorem.proto.should.have.property('uid').with.type('object');
         });
 

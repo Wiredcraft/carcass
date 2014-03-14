@@ -3,7 +3,7 @@
 // var should = require('should');
 var mixin = require('../lib/helpers/mixin');
 
-describe('Carcass / proto / mixin:', function() {
+describe('Carcass / helpers / mixin:', function() {
 
     it('should be a function', function() {
         mixin.should.be.type('function');
