@@ -28,7 +28,7 @@ gulp.task('coffee', function() {
         .pipe(coffee({
             bare: true
         }).on('error', gutil.log))
-        .pipe(gulp.dest('./'));
+        .pipe(gulp.dest('lib'));
 });
 
 // Run jshint.

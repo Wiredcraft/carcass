@@ -9,17 +9,14 @@ defineProp = Object.defineProperty
  *   from the source.
  *
  * @param {Object} source
- * @param {Object|null} options
  *
  * @return {this}
 ###
-module.exports = mixin = (source, options) ->
-    # options ?= {}
+module.exports = mixin = (source) ->
     # Merge.
     # TODO: optionally prevent overriding?
     # TODO: optionally merge non-enumerable properties?
-    properties(source).reduce((target, key) ->
-        return target if not source.propertyIsEnumerable(key)
-        return defineProp(target, key, descriptor(source, key))
-    , @)
+    for key in properties(source)
+        if source.propertyIsEnumerable(key)
+            defineProp(@, key, descriptor(source, key))
     return @

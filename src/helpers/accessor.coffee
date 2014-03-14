@@ -1,22 +1,23 @@
 validValue = require('es5-ext/lib/Object/valid-value')
 
 ###*
+ * Builds an accessor.
+ *
+ * @param {String} key
+ * @param {Object} options
+ *
+ * @option options {Function} getDefault: can be used to provide a default
+ *   value when there's no value set already.
+ * @option options {Function} pre: can be used to do whatever before the value
+ *   is set. Note that if it presents, the return value will be used.
+ * @option options {Function} post: can be used to do whatever after the value
+ *   is set.
+ *
  * @return {Function} an accessor
 ###
-module.exports = accessor = (key, options) ->
+module.exports = accessor = (key, options = {}) ->
 
     validValue(key)
-
-    ###*
-     * 3 options available.
-     *
-     * @optional getDefault: can be used to provide a default value when there's
-     *   no value set already.
-     * @optional pre: can be used to do whatever before the value is set. Note
-     *   that if it presents, the return value will be used.
-     * @optional post: can be used to do whatever after the value is set.
-    ###
-    options ?= {}
 
     ###*
      * A simple accessor.
