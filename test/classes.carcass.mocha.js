@@ -45,7 +45,6 @@ describe('Classes / Carcass:', function() {
         it('should export some tools', function() {
             lorem.should.have.property('mixable').with.type('function');
             lorem.should.have.property('highland').with.type('function');
-            lorem.should.have.property('deferred').with.type('function');
             lorem.should.have.property('postal').with.type('object');
         });
 

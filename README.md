@@ -1,6 +1,6 @@
 # Carcass
 
-A toolbox for [Node.js](http://nodejs.org/), includes [Deferred](https://github.com/medikoo/deferred), [Postal.js](https://github.com/postaljs/postal.js), and a lot more.
+A toolbox for [Node.js](http://nodejs.org/).
 
 __Caution__: Everything will be reviewed before 1.0 release. That means nothing is stable at this point. We will have stability indications like [Node.js does](http://nodejs.org/api/documentation.html#documentation_stability_index).
 
@@ -19,7 +19,6 @@ Can be accessed as `carcass.xxx`.
 
 * 3rd-party libraries.
     * __carcass.highland__: [Highland](https://github.com/caolan/highland), a high-level streams library.
-    * __carcass.deferred__: [Deferred](https://github.com/medikoo/deferred), a promise implementation.
     * __carcass.postal__: [Postal.js](https://github.com/postaljs/postal.js), an in-memory message bus.
     * __[ES6 Shim](https://github.com/paulmillr/es6-shim)__: Provides compatibility shims so that legacy JavaScript engines behave as closely as possible to ECMAScript 6 (Harmony). Note that it is auto-loaded with Carcass (when you do `require('carcass')`).
 
@@ -63,15 +62,11 @@ Can be accessed as `carcass.xxx`.
 
 ### "Proto"s
 
-...
-
 ### Classes
 
 ### Helpers
 
 ### Examples
-
-...
 
 ## Roadmap
 

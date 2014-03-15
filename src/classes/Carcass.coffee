@@ -24,10 +24,6 @@ Carcass::mixable = mixable
 # @see `npm info highland`
 Carcass::highland = require('../highland')
 
-# Deferred is a promise implementation.
-# @see `npm info deferred`
-Carcass::deferred = require('../deferred')
-
 # Postal.js is an in-memory message bus.
 # @see `npm info postal`
 Carcass::postal = require('../postal')
