@@ -46,9 +46,30 @@ describe('Carcass / proto / id:', function() {
             obj.id().should.equal(2);
         });
 
+        it('can use an option with a different id', function() {
+            obj.id({
+                _id: 1
+            }).should.equal(obj);
+            obj.id().should.equal(1);
+        });
+
+        it('can use an option with a different id', function() {
+            obj.id({
+                _id: 2,
+                id: 1
+            }).should.equal(obj);
+            obj.id().should.equal(2);
+        });
+
         it('should throw with a bad argument', function() {
             (function() {
                 obj.id(null);
+            }).should.throwError();
+        });
+
+        it('should throw with a bad argument', function() {
+            (function() {
+                obj.id({});
             }).should.throwError();
         });
     });
