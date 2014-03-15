@@ -85,13 +85,15 @@ describe('Carcass / mixable:', function() {
         lorem.should.not.have.property('mixin');
     });
 
-    it('cannot make null mixable', function() {
+    it('can make null mixable and return an object', function() {
         var lorem = mixable(null);
-        should.not.exist(lorem);
+        lorem.should.be.type('object');
+        lorem.should.have.property('mixin');
     });
 
-    it('cannot make undefined mixable', function() {
+    it('can make undefined mixable and return an object', function() {
         var lorem = mixable(undefined);
-        should.not.exist(lorem);
+        lorem.should.be.type('object');
+        lorem.should.have.property('mixin');
     });
 });
