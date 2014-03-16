@@ -18,19 +18,29 @@ module.exports = class Config
     constructor: -> @initialize(arguments...)
 
 mixable(Config)
-Config::stack = stacker('_stack')
+
+###*
+ * A stack of sources.
+ *
+ * @type {Function}
+###
+Config::source = stacker('_sources')
+
+###*
+ * One parser.
+ *
+ * @type {Function}
+###
 Config::parser = accessor('_parser')
 
 ###*
  * Initializer.
 ###
 Config::initialize = ->
-    # Default loader class.
-    @Loader = require('./Loader')
     # Default parser to a simple require.
     @parser(require)
     # Use arguments as sources.
-    @stack(source) for source in arguments
+    @source(source) for source in arguments
     return @
 
 ###*
@@ -40,6 +50,5 @@ Config::initialize = ->
 Config::reload = ->
     debug('reloading')
     config = {}
-    for source in @stack()
-        extend(config, (new @Loader(source)).parser(@parser()).reload())
+    extend(config, @parser()(source)) for source in @source()
     return config

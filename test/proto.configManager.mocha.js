@@ -39,7 +39,7 @@ describe('Carcass / proto / configManager:', function() {
 
         it('can use a source', function() {
             obj.source(lorem).should.equal(obj);
-            obj._config.stack().should.eql([lorem]);
+            obj._config.source().should.eql([lorem]);
         });
 
         it('can reload', function() {
@@ -51,7 +51,7 @@ describe('Carcass / proto / configManager:', function() {
 
         it('can use one more source', function() {
             obj.source(ipsum).should.equal(obj);
-            obj._config.stack().should.eql([lorem, ipsum]);
+            obj._config.source().should.eql([lorem, ipsum]);
         });
 
         it('can reload', function() {
