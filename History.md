@@ -1,4 +1,17 @@
 
+0.9.0 (Coffee) / 2014-03-17
+==================
+
+ * API change: renamed Config#stack to Config#source.
+ * Rebuilt proto/id, proto/uid, proto/loader with coffee.
+ * Rebuilt root level libs with coffee.
+ * Removed deferred module, cause Promise is in es6-shim and will be in ES6.
+ * API change: rebuilt proto/stack as helpers/stacker based on helpers/accessor.
+ * Rebuilt classes with coffee.
+ * Moved coffee files from src/lib to src.
+ * Rebuilt helpers with coffee. Removed helpers/extend.
+ * Replaced Grunt and Make with Gulp.
+
 0.8.0 (Highland) / 2014-02-24
 ==================
 

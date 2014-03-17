@@ -80,15 +80,15 @@ Can be accessed as `carcass.xxx`.
 Output of `git summary`. See [Git Extras](https://github.com/visionmedia/git-extras).
 
 ```
-project  : carcass (0.8.0)
+project  : carcass (0.9.0)
 repo age : 1 year, 3 months
-active   : 125 days
-commits  : 279
-files    : 57
+active   : 129 days
+commits  : 289
+files    : 66
 authors  :
-  260  Makara Wang             93.2%
-    9  Zhou Honglin            3.2%
-    8  xeodou                  2.9%
+  270  Makara Wang             93.4%
+    9  Zhou Honglin            3.1%
+    8  xeodou                  2.8%
     2  Vincent Viallet         0.7%
 ```
 
