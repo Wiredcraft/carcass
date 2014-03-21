@@ -35,13 +35,6 @@ describe('Classes / Carcass:', function() {
             lorem.should.have.property('register').with.type('function');
         });
 
-        it('should be a config manager', function() {
-            lorem.should.have.property('settings').with.type('object');
-            lorem.should.have.property('config').with.type('function');
-            lorem.should.have.property('source').with.type('function');
-            lorem.should.have.property('reload').with.type('function');
-        });
-
         it('should export some tools', function() {
             lorem.should.have.property('mixable').with.type('function');
             lorem.should.have.property('highland').with.type('function');
@@ -51,7 +44,6 @@ describe('Classes / Carcass:', function() {
         it('should export some classes', function() {
             lorem.should.have.property('classes').with.type('object');
             lorem.classes.should.have.property('Carcass').with.type('function');
-            lorem.classes.should.have.property('Config').with.type('function');
             lorem.classes.should.have.property('Loader').with.type('function');
         });
 
@@ -65,7 +57,6 @@ describe('Classes / Carcass:', function() {
         it('should export some proto', function() {
             lorem.should.have.property('proto').with.type('object');
             lorem.proto.should.have.property('channel').with.type('object');
-            lorem.proto.should.have.property('configManager').with.type('object');
             lorem.proto.should.have.property('id').with.type('object');
             lorem.proto.should.have.property('loader').with.type('object');
             lorem.proto.should.have.property('register').with.type('object');
@@ -104,21 +95,6 @@ describe('Classes / Carcass:', function() {
         it('should share some prototypes', function() {
             ipsum.mixin.should.equal(lorem.mixin);
             ipsum.register.should.equal(lorem.register);
-            ipsum.esonPlugins.should.equal(lorem.esonPlugins);
-            ipsum.config.should.equal(lorem.config);
-            ipsum.source.should.equal(lorem.source);
-            ipsum.reload.should.equal(lorem.reload);
-        });
-
-        it('should not share the settings', function() {
-            ipsum.settings.should.not.equal(lorem.settings);
-            ipsum.set('dolor', true).should.equal(ipsum);
-            ipsum.get('dolor').should.equal(true);
-            should.not.exist(lorem.get('dolor'));
-        });
-
-        it('should not share the configs', function() {
-            ipsum._config.should.not.equal(lorem._config);
         });
     });
 });

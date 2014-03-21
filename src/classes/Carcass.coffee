@@ -14,8 +14,6 @@ module.exports = class Carcass
     constructor: (options) ->
         @id(options)
         debug('initializing carcass %s.', @id())
-        # Initialize config.
-        @config()
 
 # Mixable and mixin is the way we do code sharing.
 Carcass::mixable = mixable
@@ -37,9 +35,6 @@ Carcass::mixin(require('../proto/uid'))
 
 # Register.
 Carcass::mixin(require('../proto/register'))
-
-# Config manager.
-Carcass::mixin(require('../proto/configManager'))
 
 # Exports.
 # ---
