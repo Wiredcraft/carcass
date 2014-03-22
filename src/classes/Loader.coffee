@@ -8,5 +8,8 @@ mixable = require('../mixable')
 module.exports = class Loader
     constructor: () -> @source(arguments...)
 
+###*
+ * Mixins.
+###
 mixable(Loader)
 Loader::mixin(require('../proto/loader'))

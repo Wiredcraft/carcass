@@ -4,43 +4,64 @@ path = require('path')
 mixable = require('../mixable')
 libRoot = path.resolve(__dirname, '..')
 
-# ES6 Shim automatically extends JS.
+###*
+ * ES6 Shim automatically extends JS.
+###
 require('es6-shim')
 
 ###*
  * It's simply a class.
 ###
 module.exports = class Carcass
+    ###*
+     * Constructor.
+    ###
     constructor: (options) ->
         @id(options)
         debug('initializing carcass %s.', @id())
 
-# Mixable and mixin is the way we do code sharing.
-Carcass::mixable = mixable
+    ###*
+     * Mixable and mixin is the way we do code sharing.
+    ###
+    mixable: mixable
 
-# Highland is a high-level streams library.
-# @see `npm info highland`
-Carcass::highland = require('../highland')
+    ###*
+     * Highland is a high-level streams library.
+     *
+     * @see `npm info highland`
+    ###
+    highland: require('../highland')
 
-# Postal.js is an in-memory message bus.
-# @see `npm info postal`
-Carcass::postal = require('../postal')
+    ###*
+     * Postal.js is an in-memory message bus.
+     *
+     * @see `npm info postal`
+    ###
+    postal: require('../postal')
 
-# Mixins.
-# ---
+###*
+ * Mixins.
+###
 mixable(Carcass)
 
-# UID.
+###*
+ * UID.
+###
 Carcass::mixin(require('../proto/uid'))
 
-# Register.
+###*
+ * Register.
+###
 Carcass::mixin(require('../proto/register'))
 
-# Exports.
-# ---
+###*
+ * Exports.
+###
 Carcass::register(libRoot, 'classes')
 Carcass::register(libRoot, 'helpers')
 Carcass::register(libRoot, 'proto')
 
-# Export es5-ext.
+###*
+ * Export es5-ext.
+###
 Carcass::mixin(require('es5-ext'))
