@@ -10,6 +10,11 @@ libRoot = path.resolve(__dirname, '..')
 require('es6-shim')
 
 ###*
+ * This extends JS Array with new methods.
+###
+require('highland-array')
+
+###*
  * It's simply a class.
 ###
 module.exports = class Carcass
