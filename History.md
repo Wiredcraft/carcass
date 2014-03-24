@@ -1,4 +1,13 @@
 
+0.10.0 (Processor) / 2014-03-24
+==================
+
+ * Added helpers/processor (and classes/Processor as a simple implement).
+ * Integrated highland-array.
+ * Added _.wrapInvoke as an extension to highland.
+ * Changed classes to be more coffee style.
+ * Removed things about config; refactored to carcass-config.
+
 0.9.0 (Coffee) / 2014-03-17
 ==================
 
