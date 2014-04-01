@@ -3,33 +3,33 @@
   "version": "0.10.1",
   "description": "A toolbox for Node.js.",
   "author": {
-    "name": "devo.ps",
-    "email": "info@devo.ps",
-    "url": "https://github.com/devo-ps"
+    "name": "Wiredcraft",
+    "email": "info@wiredcraft.com",
+    "url": "http://wiredcraft.com"
   },
-  "contributors": [],
+  "contributors": [
+    "Makara Wang"
+  ],
   "keywords": [
     "carcass",
-    "toolbox",
-    "stream",
-    "highland"
+    "toolbox"
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/devo-ps/carcass.git"
+    "url": "https://github.com/Wiredcraft/carcass.git"
   },
   "bugs": {
-    "url": "https://github.com/devo-ps/carcass/issues"
+    "url": "https://github.com/Wiredcraft/carcass/issues"
   },
-  "homepage": "https://github.com/devo-ps/carcass",
+  "homepage": "https://github.com/Wiredcraft/carcass",
   "dependencies": {
-    "debug": "0.x",
+    "debug": "*",
     "es5-ext": "~0.9.2",
     "es6-shim": "~0.10.1",
     "highland": "~1.19.1",
     "highland-array": "~0.1.0",
     "postal": "~0.8.11",
-    "uid2": "0.x"
+    "uid2": "*"
   },
   "devDependencies": {
     "benchmark": "latest",
