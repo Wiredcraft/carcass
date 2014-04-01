@@ -23,7 +23,7 @@ module.exports = class Carcass
     ###
     constructor: (options) ->
         @id(options)
-        debug('initializing carcass %s.', @id())
+        debug('initializing the %s carcass.', @id())
 
     ###*
      * Mixable and mixin is the way we do code sharing.

@@ -73,7 +73,6 @@ Can be accessed as `carcass.xxx`.
 * Build "errors".
 * Build "log".
 * Rebuild examples.
-* Review applications.
 
 ## Summary
 
