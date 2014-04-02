@@ -1,0 +1,97 @@
+body{
+    position: relative;
+    padding-left: 160px;
+    left: 0;
+    code {
+        border-radius: 2px;
+        background: #fafafa;
+        border: 1px solid #f4f4f4;
+        color: #333;
+        display: inline-block;
+        padding: 0.8em;
+    }
+    #menu {
+        margin-left: -160px;
+        width: 160px;
+        position: fixed;
+        top: 0;
+        left: 160px;
+        bottom: 0;
+        z-index: 1000;
+        background: #191818;
+        overflow-y: auto;
+        a{
+            cursor: pointer;
+            text-decoration: none;
+            outline: 0;
+        }
+        section{
+            padding: 1em 1.3em 0.8em;
+            .title{
+                color: #fff;
+                display: block;
+                margin-bottom: 0.3em;
+                font-weight: bold;
+                font-size: 0.9em;
+            }
+            ul{
+                margin: 0;
+                padding: 0;
+                list-style: none;
+                li{
+                    position: relative;
+                    margin:0 0 0.3em;
+                    &:first-child {
+                        margin-top: 0.6em;
+                    }
+                    a{
+                        color: #999;
+                        display: block;
+                        white-space: nowrap;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        font-size: 0.9rem;
+                        text-align: left;
+                    }
+                }
+            }
+        }
+    }
+    #main{
+        color: #777;
+        margin: 0.5em;
+        h2 {
+            font-size: 200%;
+        }
+        h3 {
+            font-size: 100%;
+        }
+        p {
+            font-family: "proxima-nova", sans-serif;
+        }
+        a{
+            color: #3b8bba;
+            text-decoration: none;
+            &:visited {
+                color: #265778;
+            }
+        }
+        section{
+            max-width: 768px;
+            margin-left: auto;
+            margin-right: auto;
+            padding-left: 2em;
+            padding-right: 2em;
+        }
+        .hero{
+            h1{
+                color: #1f8dd6;
+                font-size: 600%;
+                font-weight: bold;
+                text-align: center;
+            }
+        }
+    }
+}
+
+@import '_highlight.scss';
