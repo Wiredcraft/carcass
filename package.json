@@ -49,6 +49,7 @@
     "jshint-stylish": "latest",
     "metalsmith": "latest",
     "metalsmith-collections": "latest",
+    "metalsmith-ignore": "latest",
     "metalsmith-markdown": "latest",
     "metalsmith-metadata": "latest",
     "metalsmith-sass": "latest",

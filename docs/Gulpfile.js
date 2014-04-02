@@ -5,6 +5,7 @@ var minifyCSS = require('gulp-minify-css');
 
 var Metalsmith = require('metalsmith');
 var collections = require('metalsmith-collections');
+var ignore = require('metalsmith-ignore');
 var markdown = require('metalsmith-markdown');
 var metadata = require('metalsmith-metadata');
 var sass = require('metalsmith-sass');
@@ -13,7 +14,7 @@ var templates = require('metalsmith-templates');
 var highlight = require('highlight.js');
 
 var path = require('path');
-var root = path.resolve(__dirname)
+var root = path.resolve(__dirname);
 
 // Metalsmith.
 function metalsmith(options, done) {
@@ -39,6 +40,10 @@ function metalsmith(options, done) {
             }
         }))
         .use(templates('jade'))
+        .use(ignore([
+            '**/_*',
+            '*.yaml'
+        ]))
         .build(done);
 }
 

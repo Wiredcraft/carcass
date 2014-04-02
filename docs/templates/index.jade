@@ -6,24 +6,24 @@ html(lang='en')
         link(rel='stylesheet', href='#{meta.base}/assets/style.css')
         //- script(src='#{meta.base}/assets/index.js')
     body
-        a(href='#top', id='top')
         #layout
             header#menu
                 section
-                    a(href='#top').title Top
+                    a.title(href='#top') Top
                 section
-                    a(href='#api').title API list
+                    a.title(href='#api') API list
                     ul
                         for api in collections.api
                             li
                                 a(href='##{api.id}')= api.title
             section#main
                 section.hero
+                    a#top(href='#top')
                     h1 Carcass
                     != contents
                 section.details
-                    a(href='#api', id='api')
+                    a#api(href='#api')
                     for api in collections.api
-                        h2(id='#{api.id}')= api.title
+                        h2(id='#{api.id}')
+                            a(href='##{api.id}')= api.title
                         != api.contents
-
