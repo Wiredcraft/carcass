@@ -1,5 +1,5 @@
 ---
-weight: 10
+weight: 20
 id: mixin
 title: Mixin
 template: api.jade

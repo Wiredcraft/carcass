@@ -10,12 +10,16 @@ html(lang='en')
             ul
                 li
                     a(href='#top') Top
-                for api in collections.api
-                    li
-                        a(href='##{api.id}')= api.title
+                li
+                    a(href='#api') API list
+                    ul
+                        for api in collections.api
+                            li
+                                a(href='##{api.id}')= api.title
         section.body
             a(href='#top', id='top')
             != contents
+            a(href='#api', id='api')
             for api in collections.api
                 h2(id='#{api.id}')= api.title
                 != api.contents

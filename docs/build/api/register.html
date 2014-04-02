@@ -1,0 +1,8 @@
+<p>It can be used to register a new tool or a new directory to carcass. For example</p>
+<pre><code class="lang-js">carcass.register(<span class="hljs-string">'dirname/of/the_directory'</span>, <span class="hljs-string">'the_directory'</span>);
+<span class="hljs-comment">// now you have</span>
+carcass.the_directory.a_file_basename === whatever_the_file_exports
+carcass.the_directory.another_file === that_file_exports
+<span class="hljs-comment">// plus everything in the sub-directories</span>
+carcass.the_directory.sub_directory.xxx
+</code></pre>
