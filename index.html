@@ -1,0 +1,19 @@
+<!DOCTYPE html><html lang="en"><head><title>Carcass</title><link rel="stylesheet" href="/carcass/assets/vendor.css"><link rel="stylesheet" href="/carcass/assets/style.css"></head><body><header class="menu"><ul><li><a href="#top">Top</a></li><li><a href="#overview">Overview</a></li><li><a href="#mixin">Mixin</a></li></ul></header><section class="body"><a href="#top" id="top"></a><h2 id="what-why">What &amp; Why</h2>
+<p>Carcass and the Carcass Family are tools built for middle to large Node.js projects. Carcass is not a framework. It doesn&#39;t assume you have a certain database or handle a certain type of connection. The core of Carcass mainly provides two features.</p>
+<ul>
+<li>&quot;Mixable&quot; and &quot;Mixin&quot; help you do code reuse in a more natural JS way.</li>
+<li>&quot;Register&quot; helps you organise your files.</li>
+</ul>
+<h2 id="overview">Overview</h2><h3 id="getting-started">Getting started</h3>
+<ol>
+<li>Add carcass to your npm dependencies.</li>
+<li>Structure your project with the help of &quot;register&quot;. Example: <a href="https://github.com/Wiredcraft/carcass-couch/blob/master/src/index.coffee">https://github.com/Wiredcraft/carcass-couch/blob/master/src/index.coffee</a></li>
+<li>Config your project with &quot;Carcass Config&quot;. (I&#39;m building an example)</li>
+<li>Build servers and commands with &quot;Carcass Program&quot;.</li>
+<li>Test your project with the help of &quot;Carcass Monitor&quot;.</li>
+<li>Deploy with your favourite process manager, e.g. forever, pm2.</li>
+</ol>
+<h2 id="mixin">Mixin</h2><p>&quot;Mixin&quot; is the major way we do code sharing. It simply merges the attributes from one object to another. For convenient, we prepare the origin objects as &quot;proto&quot;s with each a single purpose and &quot;mixin&quot; them together so we got a full functional object or class. For example we have <code>carcass.register</code> because we do</p>
+<pre><code class="lang-js">carcass.mixin(<span class="hljs-built_in">require</span>(<span class="hljs-string">'path/to/register'</span>));
+</code></pre>
+</section></body></html>
