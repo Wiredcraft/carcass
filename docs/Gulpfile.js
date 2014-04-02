@@ -42,19 +42,6 @@ function metalsmith(options, done) {
         .build(done);
 }
 
-// Docs.
-gulp.task('docs', ['vendor'], function(done) {
-    metalsmith({}, done);
-});
-
-// Preview.
-gulp.task('preview', ['vendor', 'preview-docs', 'preview-server'], function() {
-    gulp.watch([
-        root + '/src/**',
-        root + '/templates/**'
-    ], ['preview-docs']);
-});
-
 // Vendor.
 gulp.task('vendor', function() {
     return gulp
@@ -64,6 +51,19 @@ gulp.task('vendor', function() {
         .pipe(concat('vendor.css'))
         .pipe(minifyCSS())
         .pipe(gulp.dest(root + '/src/assets'));
+});
+
+// Docs.
+gulp.task('docs', function(done) {
+    metalsmith({}, done);
+});
+
+// Preview.
+gulp.task('preview', ['preview-docs', 'preview-server'], function() {
+    gulp.watch([
+        root + '/src/**',
+        root + '/templates/**'
+    ], ['preview-docs']);
 });
 
 // Docs.
