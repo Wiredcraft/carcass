@@ -8,5 +8,9 @@
 node_modules
 npm-debug.log
 
-/test/coverage.*
 /backup
+/benchmark
+/docs
+/src
+/test
+/Gulpfile.js
