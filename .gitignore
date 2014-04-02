@@ -8,5 +8,8 @@
 node_modules
 npm-debug.log
 
+bower_components
+/docs/preview
+
 /test/coverage.*
 /backup

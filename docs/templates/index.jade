@@ -1,0 +1,21 @@
+doctype html
+html(lang='en')
+    head
+        title= title
+        link(rel='stylesheet', href='#{meta.base}/assets/vendor.css')
+        link(rel='stylesheet', href='#{meta.base}/assets/style.css')
+        //- script(src='#{meta.base}/assets/index.js')
+    body
+        header.menu
+            ul
+                li
+                    a(href='#top') Top
+                for api in collections.api
+                    li
+                        a(href='##{api.id}')= api.title
+        section.body
+            a(href='#top', id='top')
+            != contents
+            for api in collections.api
+                h2(id='#{api.id}')= api.title
+                != api.contents

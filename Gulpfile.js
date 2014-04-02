@@ -33,7 +33,7 @@ gulp.task('coffee', function() {
 
 // Run jshint.
 gulp.task('jshint', function() {
-    return gulp.src(tests)
+    return gulp.src(['Gulpfile.js', tests])
         .pipe(jshint())
         .pipe(jshint.reporter('jshint-stylish'));
 });
@@ -56,3 +56,6 @@ gulp.task('bm', ['coffee', 'jshint'], function() {
 });
 
 gulp.task('default', ['coffee', 'jshint', 'mocha']);
+
+// Docs.
+require('./docs/Gulpfile');
