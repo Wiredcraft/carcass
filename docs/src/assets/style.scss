@@ -3,7 +3,7 @@ body{
     position: relative;
     padding-left: 20%;
     left: 0;
-    #menu {
+    #nav {
         position: fixed;
         top: 0;
         bottom: 0;
@@ -11,13 +11,18 @@ body{
         right: 80%;
         background: #fff;
         overflow-y: auto;
+        z-index: 1000;
+        border-right: 2px solid #c2c8d1;
+        box-shadow: 0 0 20px #ccc;
+        -webkit-box-shadow: 0 0 20px #ccc;
+        -moz-box-shadow: 0 0 20px #ccc;
         a{
             cursor: pointer;
             text-decoration: none;
             outline: 0;
         }
         section{
-            padding: 1em 1.3em 0.8em;
+            padding: 1em 1em 1em 2.6em;
             .title{
                 color: #252628;
                 display: block;
