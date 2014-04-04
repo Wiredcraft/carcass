@@ -1,7 +1,7 @@
 var gulp = require('gulp');
-var serve = require('gulp-serve');
 var concat = require('gulp-concat');
 var minifyCSS = require('gulp-minify-css');
+var serve = require('gulp-serve');
 
 var Metalsmith = require('metalsmith');
 var collections = require('metalsmith-collections');
@@ -59,7 +59,7 @@ gulp.task('vendor', function() {
 });
 
 // Docs.
-gulp.task('docs', function(done) {
+gulp.task('default', function(done) {
     metalsmith({}, done);
 });
 

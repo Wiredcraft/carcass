@@ -1,0 +1,33 @@
+{
+  "name": "docs",
+  "private": true,
+  "version": "0.0.0",
+  "description": "",
+  "author": {
+    "name": "Wiredcraft",
+    "email": "info@wiredcraft.com",
+    "url": "http://wiredcraft.com"
+  },
+  "contributors": [],
+  "keywords": [],
+  "repository": {},
+  "bugs": {},
+  "homepage": "",
+  "dependencies": {},
+  "devDependencies": {
+    "gulp": "latest",
+    "gulp-concat": "latest",
+    "gulp-minify-css": "latest",
+    "gulp-serve": "latest",
+    "highlight.js": "latest",
+    "jade": "latest",
+    "metalsmith": "latest",
+    "metalsmith-collections": "latest",
+    "metalsmith-ignore": "latest",
+    "metalsmith-markdown": "latest",
+    "metalsmith-metadata": "latest",
+    "metalsmith-sass": "latest",
+    "metalsmith-templates": "latest"
+  },
+  "scripts": {}
+}

@@ -6,8 +6,8 @@ var gulp = require('gulp');
 var gutil = require('gulp-util');
 var coffee = require('gulp-coffee');
 var coffeelint = require('gulp-coffeelint');
-var mocha = require('gulp-mocha');
 var jshint = require('gulp-jshint');
+var mocha = require('gulp-mocha');
 
 // Files.
 var src = 'src/**/*.coffee';
@@ -56,6 +56,3 @@ gulp.task('bm', ['coffee', 'jshint'], function() {
 });
 
 gulp.task('default', ['coffee', 'jshint', 'mocha']);
-
-// Docs.
-require('./docs/Gulpfile');
