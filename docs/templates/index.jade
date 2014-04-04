@@ -10,7 +10,7 @@ html(lang='en')
                 section
                     a.title(href='#') Top
                 section
-                    a.title(href='#overview') API list
+                    a.title(href='#api') API list
                     ul
                         for api in collections.api
                             li
@@ -18,10 +18,11 @@ html(lang='en')
         section#main
             section.hero
                 h1
-                    a(href='/', title='Carcass')
+                    a(href='#{meta.base}/', title='Carcass')
                         img(src='#{meta.base}/assets/images/logo.png', alt='Carcass')
                 != contents
             section.details
+                a#api(href='#api')
                 for api in collections.api
                     h2(id='#{api.id}')
                         a(href='##{api.id}')= api.title
