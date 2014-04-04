@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><title>Carcass</title><link rel="stylesheet" href="/carcass/assets/vendor.css"><link rel="stylesheet" href="/carcass/assets/style.css"></head><body><div id="layout"><header id="menu"><section><a href="#top" class="title">Top</a></section><section><a href="#api" class="title">API list</a><ul><li><a href="#overview">Overview</a></li><li><a href="#register">Register</a></li><li><a href="#mixin">Mixin</a></li></ul></section></header><section id="main"><section class="hero"><a id="top" href="#top"></a><h1>Carcass</h1><h2 id="what-why">What &amp; Why</h2>
+<!DOCTYPE html><html lang="en"><head><title>Carcass</title><link rel="stylesheet" href="/carcass/assets/vendor.css"><link rel="stylesheet" href="/carcass/assets/style.css"></head><body><header id="menu"><section><a href="#" class="title">Top</a></section><section><a href="#overview" class="title">API list</a><ul><li><a href="#overview">Overview</a></li><li><a href="#register">Register</a></li><li><a href="#mixin">Mixin</a></li></ul></section></header><section id="main"><section class="hero"><h1><a href="/" title="Carcass"><img src="/assets/images/logo.png" alt="Carcass"></a></h1><h2 id="what-why">What &amp; Why</h2>
 <p>Carcass and the Carcass Family are tools built for middle to large Node.js projects. Carcass is not a framework. It doesn&#39;t assume you have a certain database or handle a certain type of connection. The core of Carcass mainly provides two features.</p>
 <ul>
 <li>&quot;Mixable&quot; and &quot;Mixin&quot; help you do code reuse in a more natural JS way.</li>
@@ -13,7 +13,8 @@
 <li>Test your project with the help of &quot;Carcass Monitor&quot;.</li>
 <li>Deploy with your favourite process manager, e.g. forever, pm2.</li>
 </ol>
-</section><section class="details"><a id="api" href="#api"></a><h2 id="overview"><a href="#overview">Overview</a></h2><h2 id="register"><a href="#register">Register</a></h2><p>It can be used to register a new tool or a new directory to carcass. For example</p>
+</section><section class="details"><h2 id="overview"><a href="#overview">Overview</a></h2><h2 id="register"><a href="#register">Register</a></h2><p>It can be used to register a new tool or a new directory to carcass.</p>
+<p>For example</p>
 <pre><code class="lang-js">carcass.register(<span class="hljs-string">'dirname/of/the_directory'</span>, <span class="hljs-string">'the_directory'</span>);
 <span class="hljs-comment">// now you have</span>
 carcass.the_directory.a_file_basename === whatever_the_file_exports
@@ -24,4 +25,4 @@ carcass.the_directory.sub_directory.xxx
 <h2 id="mixin"><a href="#mixin">Mixin</a></h2><p>&quot;Mixin&quot; is the major way we do code sharing. It simply merges the attributes from one object to another. For convenient, we prepare the origin objects as &quot;proto&quot;s with each a single purpose and &quot;mixin&quot; them together so we got a full functional object or class. For example we have <code>carcass.register</code> because we do</p>
 <pre><code class="lang-js">carcass.mixin(<span class="hljs-built_in">require</span>(<span class="hljs-string">'path/to/register'</span>));
 </code></pre>
-</section></section></div></body></html>
+</section></section></body></html>

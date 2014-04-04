@@ -1,24 +1,15 @@
 body{
+    font-family: sans-serif;
     position: relative;
-    padding-left: 160px;
+    padding-left: 20%;
     left: 0;
-    code {
-        border-radius: 2px;
-        background: #fafafa;
-        border: 1px solid #f4f4f4;
-        color: #333;
-        display: inline-block;
-        padding: 0.8em;
-    }
     #menu {
-        margin-left: -160px;
-        width: 160px;
         position: fixed;
         top: 0;
-        left: 160px;
         bottom: 0;
-        z-index: 1000;
-        background: #191818;
+        left: 0;
+        right: 80%;
+        background: #fff;
         overflow-y: auto;
         a{
             cursor: pointer;
@@ -28,11 +19,10 @@ body{
         section{
             padding: 1em 1.3em 0.8em;
             .title{
-                color: #fff;
+                color: #252628;
                 display: block;
-                margin-bottom: 0.3em;
-                font-weight: bold;
-                font-size: 0.9em;
+                margin: 1em 0;
+                font-weight: 600;
             }
             ul{
                 margin: 0;
@@ -52,40 +42,53 @@ body{
                         text-overflow: ellipsis;
                         font-size: 0.9rem;
                         text-align: left;
+                        margin: 1em 0;
                     }
                 }
             }
         }
     }
     #main{
-        color: #777;
-        margin: 0.5em;
+        color: #79808c;
+        background: #f8f8f8;
+        position: absolute;
+        right: 0;
+        left: 20%;
+        h2, h3{
+            font-weight: 500;
+            color: #626c82;
+            a{
+                color: #626c82;
+            }
+        }
         h2 {
             font-size: 200%;
+            margin: 1.6em auto;
+            &#overview{
+                margin-bottom: 2.6em;
+            }
         }
-        h3 {
-            font-size: 100%;
+        ul, ol {
+            padding-left: 1.4em;
+            a{
+                display: block;
+                color: #ca85a4;
+            }
         }
         p {
-            font-family: "proxima-nova", sans-serif;
+            word-break: break-all;
         }
         a{
             color: #3b8bba;
             text-decoration: none;
-            &:visited {
-                color: #265778;
-            }
         }
         section{
-            max-width: 768px;
-            margin-left: auto;
-            margin-right: auto;
-            padding-left: 2em;
-            padding-right: 2em;
+            max-width: 80%;
+            margin: 0 auto;
+            line-height: 2em;
         }
         .hero{
             h1{
-                color: #1f8dd6;
                 font-size: 600%;
                 font-weight: bold;
                 text-align: center;
@@ -94,4 +97,19 @@ body{
     }
 }
 
+/* code highlight*/
 @import '_highlight.scss';
+code{
+    border-radius: 4px;
+    background: #fff;
+    border: 1px solid #f4f4f4;
+    color: #5e6570;
+    padding: 0.6em;
+}
+
+pre{
+    code {
+        display: block;
+        padding: 1.6em;
+    }
+}

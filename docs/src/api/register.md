@@ -4,7 +4,9 @@ id: register
 title: Register
 template: api.jade
 ---
-It can be used to register a new tool or a new directory to carcass. For example
+It can be used to register a new tool or a new directory to carcass.
+
+For example
 
 ```js
 carcass.register('dirname/of/the_directory', 'the_directory');
