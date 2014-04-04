@@ -19,7 +19,7 @@ html(lang='en')
             section.hero
                 h1
                     a(href='/', title='Carcass')
-                        img(src='/assets/images/logo.png', alt='Carcass')
+                        img(src='#{meta.base}/assets/images/logo.png', alt='Carcass')
                 != contents
             section.details
                 for api in collections.api
