@@ -7,14 +7,14 @@ html(lang='en')
         //- script(src='#{meta.base}/assets/index.js')
     body
         nav#nav
-                section
-                    a.title(href='#') Top
-                section
-                    a.title(href='#api') API list
-                    ul
-                        for api in collections.api
-                            li
-                                a(href='##{api.id}')= api.title
+            section
+                a.title(href='#') Top
+            section
+                a.title(href='#api') API list
+                ul
+                    for api in collections.api
+                        li
+                            a(href='##{api.id}')= api.title
         section#main
             section.hero
                 h1
