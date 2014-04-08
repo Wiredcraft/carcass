@@ -1,0 +1,16 @@
+<p>It can be accessed with <code>carcass.proto.register</code>. It is an object:</p>
+<pre><code class="lang-js">{
+    register: register
+}
+</code></pre>
+<p>It can be merged to any object with <code>mixin()</code> or equivalent. It is used to read a dir and map the files to an object.</p>
+<p>For example</p>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> obj = carcass.mixable();
+obj.mixin(carcass.proto.register);
+obj.register(<span class="hljs-string">'dirname/of/the_dir'</span>, <span class="hljs-string">'the_dir'</span>);
+<span class="hljs-comment">// now you have</span>
+obj.the_dir.basename_of_a_file === whatever_the_file_exports
+obj.the_dir.another_file === that_file_exports
+<span class="hljs-comment">// plus everything in the sub-directories</span>
+obj.the_dir.sub_dir.xxx
+</code></pre>

@@ -1,28 +1,61 @@
-<!DOCTYPE html><html lang="en"><head><title>Carcass</title><link rel="stylesheet" href="/carcass/assets/vendor.css"><link rel="stylesheet" href="/carcass/assets/style.css"></head><body><nav id="nav"><section><a href="#" class="title">Top</a></section><section><a href="#api" class="title">API list</a><ul><li><a href="#overview">Overview</a></li><li><a href="#register">Register</a></li><li><a href="#mixin">Mixin</a></li></ul></section></nav><section id="main"><section class="hero"><h1><a href="/carcass/" title="Carcass"><img src="/carcass/assets/images/logo.png" alt="Carcass"></a></h1><h2 id="what-why">What &amp; Why</h2>
-<p>Carcass and the Carcass Family are tools built for middle to large Node.js projects. Carcass is not a framework. It doesn&#39;t assume you have a certain database or handle a certain type of connection. The core of Carcass mainly provides two features.</p>
+<!DOCTYPE html><html lang="en"><head><title>Carcass</title><link rel="stylesheet" href="/carcass/assets/vendor.css"><link rel="stylesheet" href="/carcass/assets/style.css"></head><body><nav id="nav"><section><a href="#" class="title">Top</a></section><section><a href="#api" class="title">API list</a><ul><li><a href="#carcass.mixable">carcass.mixable()</a></li><li><a href="#helpers.mixin">helpers.mixin</a></li><li><a href="#proto.register">proto.register</a></li></ul></section></nav><section id="main"><section class="hero"><h1><a href="/carcass/" title="Carcass"><img src="/carcass/assets/images/logo.png" alt="Carcass"></a></h1><h2 id="introduction">Introduction</h2>
+<p>Carcass and the Carcass Family are tools built for middle to large Node.js projects. Carcass is not a framework. It doesn&#39;t assume you have a certain database or handle a certain type of connection.</p>
+<p>Carcass only provides two main features by itself (see the API list for details):</p>
 <ul>
 <li>&quot;Mixable&quot; and &quot;Mixin&quot; help you do code reuse in a more natural JS way.</li>
 <li>&quot;Register&quot; helps you organise your files.</li>
 </ul>
-<h3 id="getting-started">Getting started</h3>
-<ol>
-<li>Add carcass to your npm dependencies.</li>
-<li>Structure your project with the help of &quot;register&quot;. Example: <a href="https://github.com/Wiredcraft/carcass-couch/blob/master/src/index.coffee">https://github.com/Wiredcraft/carcass-couch/blob/master/src/index.coffee</a></li>
-<li>Config your project with &quot;Carcass Config&quot;. (I&#39;m building an example)</li>
-<li>Build servers and commands with &quot;Carcass Program&quot;.</li>
-<li>Test your project with the help of &quot;Carcass Monitor&quot;.</li>
-<li>Deploy with your favourite process manager, e.g. forever, pm2.</li>
-</ol>
-</section><section class="details"><a id="api" href="#api"></a><h2 id="overview"><a href="#overview">Overview</a></h2><h2 id="register"><a href="#register">Register</a></h2><p>It can be used to register a new tool or a new directory to carcass.</p>
-<p>For example</p>
-<pre><code class="lang-js">carcass.register(<span class="hljs-string">'dirname/of/the_directory'</span>, <span class="hljs-string">'the_directory'</span>);
-<span class="hljs-comment">// now you have</span>
-carcass.the_directory.a_file_basename === whatever_the_file_exports
-carcass.the_directory.another_file === that_file_exports
-<span class="hljs-comment">// plus everything in the sub-directories</span>
-carcass.the_directory.sub_directory.xxx
+<p>Carcass is all about structuring code. And this is how we structured Carcass itself:</p>
+<ul>
+<li><code>Carcass</code> is a class. However in most cases we only use a single instance which is exported with the module, i.e.<code>var carcass = require(&#39;carcass&#39;);</code></li>
+<li>Features are organized into files and folders, and mapped to attributes of <code>carcass</code> with the help of &quot;register&quot;.<ul>
+<li>Classes are at <code>lib/classes/*</code> and mapped to <code>carcass.classes.*</code>.</li>
+<li>Helpers are at <code>lib/helpers/*</code> and mapped to <code>carcass.helpers.*</code>.</li>
+<li>Protos are at <code>lib/proto/*</code> and mapped to <code>carcass.proto.*</code>.</li>
+</ul>
+</li>
+</ul>
+<h3 id="what-is-proto-and-why-we-use-it">What is &quot;proto&quot; and why we use it</h3>
+<p><em>TODO</em></p>
+</section><section class="details"><a id="api" href="#api"></a><h2 id="carcass.mixable"><a href="#carcass.mixable">carcass.mixable()</a></h2><p><code>carcass.mixable()</code> is used to make any given object &quot;mixable&quot;, by simply attaching a <a href="#helpers.mixin">mixin()</a> to it. For example</p>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> obj = {};
+carcass.mixable(obj);
+obj.mixin(carcass.proto.register);
+obj.register(...);
 </code></pre>
-<h2 id="mixin"><a href="#mixin">Mixin</a></h2><p>&quot;Mixin&quot; is the major way we do code sharing. It simply merges the attributes from one object to another. For convenient, we prepare the origin objects as &quot;proto&quot;s with each a single purpose and &quot;mixin&quot; them together so we got a full functional object or class. For example we have <code>carcass.register</code> because we do</p>
-<pre><code class="lang-js">carcass.mixin(<span class="hljs-built_in">require</span>(<span class="hljs-string">'path/to/register'</span>));
+<p>It also makes the <code>prototype</code> of an object &quot;mixable&quot;. For example</p>
+<pre><code class="lang-js">carcass.mixable(MyClass);
+MyClass.prototype.mixin(carcass.proto.register);
+<span class="hljs-comment">// either</span>
+MyClass.prototype.register(...);
+<span class="hljs-comment">// or</span>
+<span class="hljs-keyword">var</span> myInstance = <span class="hljs-keyword">new</span> MyClass();
+myInstance.register(...);
+</code></pre>
+<p>It returns an object if no argument is provided.</p>
+<h2 id="helpers.mixin"><a href="#helpers.mixin">helpers.mixin</a></h2><p>&quot;Mixin&quot; is the major way we do code sharing. It simply merges the attributes from a given object to <code>this</code>. Because it uses <code>this</code> it needs to be attached to an object first. For example</p>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> obj = {};
+obj.mixin = carcass.helpers.mixin;
+obj.mixin({
+    lorem: <span class="hljs-literal">true</span>
+});
+<span class="hljs-comment">// obj now has lorem equal to true.</span>
+</code></pre>
+<p>Because we use mixin all the time, we also have a <a href="#carcass.mixable">mixable()</a>.</p>
+<h2 id="proto.register"><a href="#proto.register">proto.register</a></h2><p>It can be accessed with <code>carcass.proto.register</code>. It is an object:</p>
+<pre><code class="lang-js">{
+    register: register
+}
+</code></pre>
+<p>It can be merged to any object with <code>mixin()</code> or equivalent. It is used to read a dir and map the files to an object.</p>
+<p>For example</p>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> obj = carcass.mixable();
+obj.mixin(carcass.proto.register);
+obj.register(<span class="hljs-string">'dirname/of/the_dir'</span>, <span class="hljs-string">'the_dir'</span>);
+<span class="hljs-comment">// now you have</span>
+obj.the_dir.basename_of_a_file === whatever_the_file_exports
+obj.the_dir.another_file === that_file_exports
+<span class="hljs-comment">// plus everything in the sub-directories</span>
+obj.the_dir.sub_dir.xxx
 </code></pre>
 </section></section></body></html>
