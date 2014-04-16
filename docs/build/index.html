@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><title>Carcass</title><link rel="stylesheet" href="/carcass/assets/vendor.css"><link rel="stylesheet" href="/carcass/assets/style.css"></head><body><nav id="nav"><section><a href="#" class="title">Top</a></section><section><a href="#api" class="title">API list</a><ul><li><a href="#carcass.mixable">carcass.mixable()</a></li><li><a href="#helpers.mixin">helpers.mixin</a></li><li><a href="#proto.register">proto.register</a></li></ul></section></nav><section id="main"><section class="hero"><h1><a href="/carcass/" title="Carcass"><img src="/carcass/assets/images/logo.png" alt="Carcass"></a></h1><h2 id="introduction">Introduction</h2>
+<!DOCTYPE html><html lang="en"><head><title>Carcass</title><link rel="stylesheet" href="/carcass/assets/vendor.css"><link rel="stylesheet" href="/carcass/assets/style.css"><script src="/carcass/assets/vendor.js"></script></head><body data-spy="scroll" data-target="#nav"><nav id="nav"><section><a href="#" class="title">Top</a></section><section><a href="#api" class="title">API list</a><ul class="nav"><li><a href="#carcass-mixable">carcass.mixable()</a></li><li><a href="#helpers-mixin">helpers.mixin</a></li><li><a href="#proto-register">proto.register</a></li></ul></section></nav><section id="main"><section class="hero"><h1><a href="/carcass/" title="Carcass"><img src="/carcass/assets/images/logo.png" alt="Carcass"></a></h1><h2 id="introduction">Introduction</h2>
 <p>Carcass and the Carcass Family are tools built for middle to large Node.js projects. Carcass is not a framework. It doesn&#39;t assume you have a certain database or handle a certain type of connection.</p>
 <p>Carcass only provides two main features by itself (see the API list for details):</p>
 <ul>
@@ -17,7 +17,7 @@
 </ul>
 <h3 id="what-is-proto-and-why-we-use-it">What is &quot;proto&quot; and why we use it</h3>
 <p><em>TODO</em></p>
-</section><section class="details"><a id="api" href="#api"></a><h2 id="carcass.mixable"><a href="#carcass.mixable">carcass.mixable()</a></h2><p><code>carcass.mixable()</code> is used to make any given object &quot;mixable&quot;, by simply attaching a <a href="#helpers.mixin">mixin()</a> to it. For example</p>
+</section><section class="details"><a id="api" href="#api"></a><h2 id="carcass-mixable">carcass.mixable()<a href="#carcass-mixable"></a></h2><p><code>carcass.mixable()</code> is used to make any given object &quot;mixable&quot;, by simply attaching a <a href="#helpers.mixin">mixin()</a> to it. For example</p>
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> obj = {};
 carcass.mixable(obj);
 obj.mixin(carcass.proto.register);
@@ -33,7 +33,7 @@ MyClass.prototype.register(...);
 myInstance.register(...);
 </code></pre>
 <p>It returns an object if no argument is provided.</p>
-<h2 id="helpers.mixin"><a href="#helpers.mixin">helpers.mixin</a></h2><p>&quot;Mixin&quot; is the major way we do code sharing. It simply merges the attributes from a given object to <code>this</code>. Because it uses <code>this</code> it needs to be attached to an object first. For example</p>
+<h2 id="helpers-mixin">helpers.mixin<a href="#helpers-mixin"></a></h2><p>&quot;Mixin&quot; is the major way we do code sharing. It simply merges the attributes from a given object to <code>this</code>. Because it uses <code>this</code> it needs to be attached to an object first. For example</p>
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> obj = {};
 obj.mixin = carcass.helpers.mixin;
 obj.mixin({
@@ -42,7 +42,7 @@ obj.mixin({
 <span class="hljs-comment">// obj now has lorem equal to true.</span>
 </code></pre>
 <p>Because we use mixin all the time, we also have a <a href="#carcass.mixable">mixable()</a>.</p>
-<h2 id="proto.register"><a href="#proto.register">proto.register</a></h2><p>It can be accessed with <code>carcass.proto.register</code>. It is an object:</p>
+<h2 id="proto-register">proto.register<a href="#proto-register"></a></h2><p>It can be accessed with <code>carcass.proto.register</code>. It is an object:</p>
 <pre><code class="lang-js">{
     register: register
 }

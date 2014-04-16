@@ -36,8 +36,13 @@ body{
                 li{
                     position: relative;
                     margin:0 0 0.3em;
+                    padding-left: 10px;
                     &:first-child {
                         margin-top: 0.6em;
+                    }
+                    &.active{
+                        border-left: 2px solid #A8A9A9;
+                        padding-left: 8px;
                     }
                     a{
                         color: #999;
@@ -69,15 +74,24 @@ body{
         h2 {
             font-size: 200%;
             margin: 1.6em auto;
+            position: relative;
             &#overview{
                 margin-bottom: 2.6em;
+            }
+            a{
+                position: absolute;
+                top: 0;
+                right: 0;
+                height: 100%;
+                width: 20px;
+                background: rgba(0, 0, 0, 0) url('./images/link.png') no-repeat center center;
+                background-size: 20px 20px;
             }
         }
         ul, ol {
             padding-left: 1.4em;
             a{
-                display: block;
-                color: #ca85a4;
+                color: #3B8BBA;
             }
         }
         p {
@@ -94,9 +108,12 @@ body{
         }
         .hero{
             h1{
+                color: #535356;
                 font-size: 600%;
-                font-weight: bold;
                 text-align: center;
+                font-weight: 100;
+                font-family: 'omnes-pro', sans-serif;
+                letter-spacing: 2px;
             }
         }
     }
@@ -109,7 +126,7 @@ code{
     background: #fff;
     border: 1px solid #f4f4f4;
     color: #5e6570;
-    padding: 0.6em;
+    padding: 0.4em;
 }
 
 pre{

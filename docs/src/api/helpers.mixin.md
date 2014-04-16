@@ -1,6 +1,6 @@
 ---
 weight: 10
-id: helpers.mixin
+id: helpers-mixin
 title: helpers.mixin
 template: api.jade
 ---

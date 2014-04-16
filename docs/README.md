@@ -8,11 +8,11 @@ We require 0 Ruby gems.
 
 * `npm -g install gulp`
 * `npm install`
-* `gulp preview`
-* [http://127.0.0.1:3000/](http://127.0.0.1:3000/)
+* `gulp`
+* [http://127.0.0.1:4321/](http://127.0.0.1:4321/)
 
 ## Deploy
 
-* `gulp docs`
+* `gulp dist`
 * `git commit ...` etc.
 * `git subtree push --prefix docs/build origin gh-pages`

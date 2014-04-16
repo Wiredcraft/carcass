@@ -19,6 +19,7 @@
     "gulp-concat": "latest",
     "gulp-minify-css": "latest",
     "gulp-serve": "latest",
+    "gulp-uglify": "latest",
     "highlight.js": "latest",
     "jade": "latest",
     "metalsmith": "latest",

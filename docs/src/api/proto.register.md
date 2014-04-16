@@ -1,6 +1,6 @@
 ---
 weight: 20
-id: proto.register
+id: proto-register
 title: proto.register
 template: api.jade
 ---

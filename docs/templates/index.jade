@@ -4,14 +4,14 @@ html(lang='en')
         title= title
         link(rel='stylesheet', href='#{meta.base}/assets/vendor.css')
         link(rel='stylesheet', href='#{meta.base}/assets/style.css')
-        //- script(src='#{meta.base}/assets/index.js')
-    body
+        script(src='#{meta.base}/assets/vendor.js')
+    body(data-spy='scroll', data-target='#nav')
         nav#nav
             section
                 a.title(href='#') Top
             section
                 a.title(href='#api') API list
-                ul
+                ul.nav
                     for api in collections.api
                         li
                             a(href='##{api.id}')= api.title
@@ -25,5 +25,6 @@ html(lang='en')
                 a#api(href='#api')
                 for api in collections.api
                     h2(id='#{api.id}')
-                        a(href='##{api.id}')= api.title
+                        = api.title
+                        a(href='##{api.id}')
                     != api.contents

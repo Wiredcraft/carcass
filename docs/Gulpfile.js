@@ -1,6 +1,7 @@
 var gulp = require('gulp');
 var concat = require('gulp-concat');
 var minifyCSS = require('gulp-minify-css');
+var uglify = require('gulp-uglify');
 var serve = require('gulp-serve');
 
 var Metalsmith = require('metalsmith');
@@ -47,21 +48,13 @@ function metalsmith(options, done) {
         .build(done);
 }
 
-// Vendor.
-gulp.task('vendor', function() {
-    return gulp
-        .src([
-            root + 'bower_components/normalize-css/normalize.css'
-        ])
-        .pipe(concat('vendor.css'))
-        .pipe(minifyCSS())
-        .pipe(gulp.dest(root + '/src/assets'));
-});
-
-// Docs.
-gulp.task('default', function(done) {
+// Dist.
+gulp.task('dist', function(done) {
     metalsmith({}, done);
 });
+
+// Default.
+gulp.task('default', ['preview']);
 
 // Preview.
 gulp.task('preview', ['preview-docs', 'preview-server'], function() {
@@ -71,7 +64,7 @@ gulp.task('preview', ['preview-docs', 'preview-server'], function() {
     ], ['preview-docs']);
 });
 
-// Docs.
+// Preview.
 gulp.task('preview-docs', function(done) {
     metalsmith({
         destination: 'preview',
@@ -79,5 +72,34 @@ gulp.task('preview-docs', function(done) {
     }, done);
 });
 
-// Server.
-gulp.task('preview-server', serve(root + '/preview'));
+// Preview.
+gulp.task('preview-server', serve({
+    root: root + '/preview',
+    port: 4321
+}));
+
+// Vendor.
+gulp.task('vendor', ['vendorJS', 'vendorCSS']);
+
+// Vendor.
+gulp.task('vendorJS', function() {
+    return gulp
+        .src([
+            root + '/bower_components/jquery/dist/jquery.js',
+            root + '/bower_components/bootstrap/js/scrollspy.js'
+        ])
+        .pipe(concat('vendor.js'))
+        .pipe(uglify())
+        .pipe(gulp.dest(root + '/src/assets'));
+});
+
+// Vendor.
+gulp.task('vendorCSS', function() {
+    return gulp
+        .src([
+            root + '/bower_components/normalize-css/normalize.css'
+        ])
+        .pipe(concat('vendor.css'))
+        .pipe(minifyCSS())
+        .pipe(gulp.dest(root + '/src/assets'));
+});
