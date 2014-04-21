@@ -1,5 +1,5 @@
 ---
-weight: 0
+weight: 1
 id: carcass-mixable
 title: carcass.mixable()
 template: api.jade

@@ -9,22 +9,24 @@ html(lang='en')
         nav#nav
             section
                 a.title(href='#') Top
-            section
-                a.title(href='#api') API list
-                ul.nav
-                    for api in collections.api
-                        li
-                            a(href='##{api.id}')= api.title
+            for coll, key in collections
+                section
+                    a.title(href='##{key}')= index[key]
+                    ul.nav
+                        for doc in coll
+                            li
+                                a(href='##{doc.id}')= doc.title
         section#main
             section.hero
                 h1
-                    a(href='#{meta.base}/', title='Carcass')
-                        img(src='#{meta.base}/assets/images/logo.png', alt='Carcass')
+                    a(href='#{meta.base}/', title='#{title}')
+                        img(src='#{meta.base}/assets/images/logo.png', alt='#{title}')
                 != contents
-            section.details
-                a#api(href='#api')
-                for api in collections.api
-                    h2(id='#{api.id}')
-                        = api.title
-                        a(href='##{api.id}')
-                    != api.contents
+            for coll, key in collections
+                section.details
+                    a(id='#{key}', href='##{key}')
+                    for doc in coll
+                        h2(id='#{doc.id}')
+                            = doc.title
+                            a(href='##{doc.id}')
+                        != doc.contents

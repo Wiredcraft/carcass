@@ -17,6 +17,24 @@ var highlight = require('highlight.js');
 var path = require('path');
 var root = path.resolve(__dirname);
 
+var docs = {
+    api: {
+        title: 'API list',
+        pattern: 'api/*.md',
+        sortBy: 'weight'
+    }
+};
+
+function buildIndex(files, metalsmith, done) {
+    var metadata = metalsmith.metadata();
+    metadata.index = {};
+    var key;
+    for (key in docs) {
+        metadata.index[key] = docs[key].title;
+    }
+    done();
+}
+
 // Metalsmith.
 function metalsmith(options, done) {
     Metalsmith(root)
@@ -27,12 +45,8 @@ function metalsmith(options, done) {
         .use(sass({
             outputStyle: 'compressed'
         }))
-        .use(collections({
-            api: {
-                pattern: 'api/*.md',
-                sortBy: 'weight'
-            }
-        }))
+        .use(collections(docs))
+        .use(buildIndex)
         .use(markdown({
             gfm: true,
             highlight: function(code, lang) {
