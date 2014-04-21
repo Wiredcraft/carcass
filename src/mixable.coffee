@@ -1,4 +1,4 @@
-isObject = require('es5-ext/lib/Object/is-object')
+isObject = require('es5-ext/object/is-object')
 
 ###*
  * Add a mixin() function to a target object.

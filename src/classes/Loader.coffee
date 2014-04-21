@@ -6,7 +6,7 @@ mixable = require('../mixable')
  * @see lib/proto/loader.js
 ###
 module.exports = class Loader
-    constructor: () -> @source(arguments...)
+    constructor: -> @source(arguments...)
 
 ###*
  * Mixins.

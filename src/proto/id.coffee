@@ -1,6 +1,6 @@
 accessor = require('../helpers/accessor')
-isObject = require('es5-ext/lib/Object/is-object')
-validValue = require('es5-ext/lib/Object/valid-value')
+isObject = require('es5-ext/object/is-object')
+validValue = require('es5-ext/object/valid-value')
 
 ###*
  * Mixin this so your object / instance can have an ID, which cannot be a null

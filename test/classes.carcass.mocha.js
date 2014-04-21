@@ -64,16 +64,17 @@ describe('Classes / Carcass:', function() {
         });
 
         it('should export methods from es5-ext', function() {
-            lorem.should.have.property('Array').with.type('object');
-            lorem.should.have.property('Boolean').with.type('object');
-            lorem.should.have.property('Date').with.type('object');
-            lorem.should.have.property('Error').with.type('object');
-            lorem.should.have.property('Function').with.type('object');
-            lorem.should.have.property('Math').with.type('object');
-            lorem.should.have.property('Number').with.type('object');
-            lorem.should.have.property('Object').with.type('object');
-            lorem.should.have.property('RegExp').with.type('object');
-            lorem.should.have.property('String').with.type('object');
+            lorem.should.have.property('global').with.type('object');
+            lorem.should.have.property('array').with.type('object');
+            lorem.should.have.property('boolean').with.type('object');
+            lorem.should.have.property('date').with.type('object');
+            lorem.should.have.property('error').with.type('object');
+            lorem.should.have.property('function').with.type('object');
+            lorem.should.have.property('math').with.type('object');
+            lorem.should.have.property('number').with.type('object');
+            lorem.should.have.property('object').with.type('object');
+            lorem.should.have.property('regExp').with.type('object');
+            lorem.should.have.property('string').with.type('object');
         });
     });
 

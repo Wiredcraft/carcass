@@ -1,6 +1,6 @@
 accessor = require('../helpers/accessor')
 uid = require('uid2')
-isObject = require('es5-ext/lib/Object/is-object')
+isObject = require('es5-ext/object/is-object')
 
 ###*
  * Mixin this so your object / instance can have an ID, and in case no ID is

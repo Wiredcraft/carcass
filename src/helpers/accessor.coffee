@@ -1,4 +1,4 @@
-validValue = require('es5-ext/lib/Object/valid-value')
+validValue = require('es5-ext/object/valid-value')
 
 ###*
  * Builds an accessor.

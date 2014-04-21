@@ -2,7 +2,7 @@
 
 var should = require('should');
 var highland = require('../lib/highland');
-var isNumber = require('es5-ext/lib/Number/is-number');
+var isNumber = require('es5-ext/number/is-number');
 
 describe('Carcass / highland:', function() {
 

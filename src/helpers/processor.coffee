@@ -1,10 +1,10 @@
 # debug = require('debug')('carcass:processor')
 
 _ = require('highland')
-invoke = require('es5-ext/lib/Function/invoke')
-isString = require('es5-ext/lib/String/is-string')
-isObject = require('es5-ext/lib/Object/is-object')
-isFunction = require('es5-ext/lib/Function/is-function')
+invoke = require('es5-ext/function/invoke')
+isString = require('es5-ext/string/is-string')
+isObject = require('es5-ext/object/is-object')
+isFunction = require('es5-ext/function/is-function')
 
 ###*
  * Builds a processor, which can be used to process a series of tasks, with the
