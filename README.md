@@ -37,4 +37,4 @@ authors  :
 
 ## License
 
-__[WTFPL](http://en.wikipedia.org/wiki/WTFPL)__
+__MIT__
