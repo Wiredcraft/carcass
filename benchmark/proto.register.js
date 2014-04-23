@@ -5,9 +5,6 @@ var Benchmark = require('benchmark');
 
 var path = require('path');
 var root = path.resolve(__dirname, '../test', 'fixture');
-var lorem = require(path.resolve(root, 'applications', 'lorem'));
-var ipsum = require(path.resolve(root, 'applications', 'ipsum'));
-var dolor = require(path.resolve(root, 'applications', 'dolor', 'lorem'));
 
 // Benchmark
 // ---
@@ -21,27 +18,7 @@ describe('Proto / register:', function() {
                 lorem: 'lorem'
             });
             obj.mixin(carcass.proto.register);
-            obj.register(root, 'applications');
-        });
-        suite.add('using register with no recursive.', function() {
-            var obj = carcass.mixable({
-                lorem: 'lorem',
-                registerOptions: {
-                    noRecursive: true
-                }
-            });
-            obj.mixin(carcass.proto.register);
-            obj.register(root, 'applications');
-        });
-        suite.add('using register with no index.', function() {
-            var obj = carcass.mixable({
-                lorem: 'lorem',
-                registerOptions: {
-                    noIndex: true
-                }
-            });
-            obj.mixin(carcass.proto.register);
-            obj.register(root, 'applications');
+            obj.register(root, 'files');
         });
         suite.on('start', function(event) {
             debug('started');

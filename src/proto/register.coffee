@@ -1,10 +1,9 @@
 debug = require('debug')('carcass:proto:register')
 
-slice = Array.prototype.slice
-isObject = require('es5-ext/object/is-object')
-mixin = require('es5-ext/object/mixin')
 path = require('path')
 fs = require('fs')
+isObject = require('es5-ext/object/is-object')
+accessor = require('../helpers/accessor')
 
 module.exports = {
     ###*
@@ -16,14 +15,19 @@ module.exports = {
      * @param *name
      * @return {this}
     ###
-    register: (root, names...) ->
+    register: (root, names..., name) ->
         leaf = @
         dir = path.resolve(root)
-        for name in names
-            leaf[name] = {} if not isObject(leaf[name])
-            leaf = leaf[name]
-            dir = path.resolve(dir, name)
-        walk(leaf, dir, @registerOptions ? {})
+        for _name in names
+            # Must be an object.
+            leaf[_name] = {} if not isObject(leaf[_name])
+            leaf = leaf[_name]
+            dir = path.resolve(dir, _name)
+        # Extract name from root if there's no name.
+        if not name?
+            name = path.basename(dir, path.extname(dir))
+            dir = path.dirname(dir)
+        walk(leaf, dir, name)
         return @
 }
 
@@ -35,30 +39,22 @@ module.exports = {
  * @param dir
  * @param options
 ###
-walk = (leaf, dir, options) ->
-    # TODO: make this an option.
-    ext = '.js'
-    index = null
-    try
-        files = fs.readdirSync(dir)
-    catch e
-        debug(e)
-    return if not files?
-    files.forEach((filename) ->
-        filepath = path.resolve(dir, filename)
-        if path.extname(filename) is ext
-            name = path.basename(filename, ext)
-            if name is 'index'
-                return index = filepath
-            _reg(leaf, name, filepath)
-        else if not options.noRecursive and fs.statSync(filepath).isDirectory()
-            if not isObject(leaf[filename])
-                leaf[filename] = {}
-            walk(leaf[filename], filepath, options)
-    )
-    # An index file can be used to override everything.
-    if not options.noIndex and index
-        mixin(leaf, require(index))
+walk = (leaf, dir, name) ->
+    subPath = path.resolve(dir, name)
+    # Handle with require if possible.
+    try modPath = require.resolve(subPath)
+    if modPath?
+        return _reg(leaf, name, modPath)
+    # Handle as a directory if possible.
+    try files = fs.readdirSync(subPath)
+    if files?
+        # Create an object.
+        leaf[name] = {} if not leaf[name]?
+        # But do not override.
+        return if not isObject(leaf[name])
+        # Walk recursively.
+        walk(leaf[name], subPath, filename) for filename in files
+    # TODO: what else?
 
 ###*
  * Defines a getter, which is simply a require(). Returns nothing.
@@ -68,6 +64,7 @@ walk = (leaf, dir, options) ->
  * @param filepath
 ###
 _reg = (leaf, name, filepath) ->
+    name = path.basename(name, path.extname(name))
     Object.defineProperty(leaf, name, {
         configurable: true
         enumerable: true
@@ -76,3 +73,4 @@ _reg = (leaf, name, filepath) ->
                 debug('loading %s.', filepath)
             return require(filepath)
     })
+    return true

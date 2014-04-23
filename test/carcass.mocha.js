@@ -19,10 +19,5 @@ describe('Carcass', function() {
         carcass.should.have.property('register');
     });
 
-    // TODO
-    it('should have some applications', function() {
-        carcass.should.have.property('applications');
-    });
-
     // TODO: more.
 });
