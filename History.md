@@ -1,4 +1,16 @@
 
+0.11.0 / 2014-04-23
+==================
+
+ * Added extend() to proto/register.
+ * API change: register now uses require.resolve() and supports everything that can be loaded with require(); also removed registerOptions.
+ * Rebuilt proto/register with coffee.
+ * Changed license to MIT.
+ * API change: updated to es5-ext 0.10 which changed a lot; see https://github.com/medikoo/es5-ext/blob/master/CHANGES.
+ * Revamped ignore files.
+ * Moved to Wiredcraft.
+ * Removed applications.
+
 0.10.1 / 2014-03-24
 ==================
 
