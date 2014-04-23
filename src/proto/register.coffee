@@ -2,6 +2,7 @@ debug = require('debug')('carcass:proto:register')
 
 path = require('path')
 fs = require('fs')
+mixin = require('es5-ext/object/mixin')
 isObject = require('es5-ext/object/is-object')
 accessor = require('../helpers/accessor')
 
@@ -13,6 +14,7 @@ module.exports = {
      *
      * @param root
      * @param *name
+     *
      * @return {this}
     ###
     register: (root, names..., name) ->
@@ -28,6 +30,25 @@ module.exports = {
             name = path.basename(dir, path.extname(dir))
             dir = path.dirname(dir)
         walk(leaf, dir, name)
+        return @
+
+    ###*
+     * Extend with another register.
+     *
+     * @param lib
+     * @param *name
+     *
+     * @return {this}
+    ###
+    extend: (lib, names...) ->
+        for name in names
+            return if not lib[name]?
+            # Create an object if nothing is there.
+            @[name] = {} if not @[name]?
+            # But do not override.
+            return if not isObject(@[name])
+            # Mixin.
+            mixin(@[name], lib[name])
         return @
 }
 
@@ -48,7 +69,7 @@ walk = (leaf, dir, name) ->
     # Handle as a directory if possible.
     try files = fs.readdirSync(subPath)
     if files?
-        # Create an object.
+        # Create an object if nothing is there.
         leaf[name] = {} if not leaf[name]?
         # But do not override.
         return if not isObject(leaf[name])

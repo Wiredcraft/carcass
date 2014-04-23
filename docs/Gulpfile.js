@@ -17,13 +17,7 @@ var highlight = require('highlight.js');
 var path = require('path');
 var root = path.resolve(__dirname);
 
-var docs = {
-    api: {
-        title: 'API list',
-        pattern: 'api/*.md',
-        sortBy: 'weight'
-    }
-};
+var docs = require('./docs');
 
 function buildIndex(files, metalsmith, done) {
     var metadata = metalsmith.metadata();

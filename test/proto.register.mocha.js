@@ -103,4 +103,28 @@ describe('Carcass / proto / register:', function() {
             obj.files.should.not.have.property('xxx');
         });
     });
+
+    describe('Extend with another register:', function() {
+        var obj = mixable({
+            lorem: 'lorem'
+        });
+        var another = mixable({});
+
+        before(function() {
+            obj.mixin(registerProto);
+            another.mixin(registerProto);
+        });
+
+        it('should have the content', function() {
+            another.register(path.resolve(root, 'files'));
+            obj.should.have.property('lorem', 'lorem');
+            obj.should.not.have.property('files');
+            obj.extend(another, 'files');
+            obj.should.have.property('files').with.type('object');
+            obj.files.should.have.property('lorem').equal(lorem);
+            obj.files.should.have.property('ipsum').equal(ipsum);
+            obj.files.should.have.property('dolor').equal(dolor);
+        });
+    });
+
 });
