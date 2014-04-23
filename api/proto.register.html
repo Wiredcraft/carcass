@@ -1,16 +1,35 @@
 <p>It can be accessed with <code>carcass.proto.register</code>. It is an object:</p>
 <pre><code class="lang-js">{
-    register: register
+    register: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> {</span>},
+    extend: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> {</span>}
 }
 </code></pre>
-<p>It can be merged to any object with <code>mixin()</code> or equivalent. It is used to read a dir and map the files to an object.</p>
-<p>For example</p>
+<p>It can be merged to any object with <code>mixin()</code> or equivalent.</p>
+<p>The <code>register()</code> function is used to read a dir and map the files to <code>this</code>.</p>
+<p>For example, say we have a files directory (same as what we have in the test):</p>
+<pre><code>[dirname]/files/
+-<span class="ruby"> lorem.js
+</span>-<span class="ruby"> ipsum/
+</span>    -<span class="ruby"> package.json
+</span>    -<span class="ruby"> ipsum.js
+</span>-<span class="ruby"> dolor/
+</span>    -<span class="ruby"> index.js</span>
+</code></pre><p>We can map the file structure to an object:</p>
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> obj = carcass.mixable();
 obj.mixin(carcass.proto.register);
-obj.register(<span class="hljs-string">'dirname/of/the_dir'</span>, <span class="hljs-string">'the_dir'</span>);
-<span class="hljs-comment">// now you have</span>
-obj.the_dir.basename_of_a_file === whatever_the_file_exports
-obj.the_dir.another_file === that_file_exports
-<span class="hljs-comment">// plus everything in the sub-directories</span>
-obj.the_dir.sub_dir.xxx
+obj.register(<span class="hljs-string">'[dirname]'</span>, <span class="hljs-string">'files'</span>);
+<span class="hljs-comment">// Now we have:</span>
+obj.files.lorem === <span class="hljs-built_in">require</span>(<span class="hljs-string">'path/to/lorem'</span>)
+obj.files.ipsum === <span class="hljs-built_in">require</span>(<span class="hljs-string">'path/to/ipsum'</span>)
+obj.files.dolor === <span class="hljs-built_in">require</span>(<span class="hljs-string">'path/to/dolor'</span>)
+</code></pre>
+<p>The <code>extend()</code> function is just an helper, used to copy things from another object to <code>this</code>.</p>
+<p>For example, when we have an object as above, we can merge part of it to another one:</p>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> another = carcass.mixable();
+another.mixin(carcass.proto.register);
+another.extend(obj, <span class="hljs-string">'files'</span>);
+<span class="hljs-comment">// Now we have:</span>
+another.files.lorem === <span class="hljs-built_in">require</span>(<span class="hljs-string">'path/to/lorem'</span>)
+another.files.ipsum === <span class="hljs-built_in">require</span>(<span class="hljs-string">'path/to/ipsum'</span>)
+another.files.dolor === <span class="hljs-built_in">require</span>(<span class="hljs-string">'path/to/dolor'</span>)
 </code></pre>
