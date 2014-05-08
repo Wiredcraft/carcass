@@ -53,6 +53,17 @@ body{
                         font-size: 0.9rem;
                         text-align: left;
                         margin: 1em 0;
+                        &.external{
+                            margin-left: -0.6em;
+                            &:before {
+                                background-image: url('./images/external.png');
+                                content: '';
+                                height: 12px;
+                                width: 15px;
+                                display: inline-block;
+                                margin-right: 0.3em;
+                            }
+                        }
                     }
                 }
             }
@@ -95,7 +106,7 @@ body{
             }
         }
         p {
-            word-break: break-all;
+            word-break: break-word;
         }
         a{
             color: #3b8bba;

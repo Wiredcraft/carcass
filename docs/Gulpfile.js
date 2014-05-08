@@ -17,7 +17,7 @@ var highlight = require('highlight.js');
 var path = require('path');
 var root = path.resolve(__dirname);
 
-var docs = require('./docs');
+var docs = require('./src/docs.json');
 
 function buildIndex(files, metalsmith, done) {
     var metadata = metalsmith.metadata();

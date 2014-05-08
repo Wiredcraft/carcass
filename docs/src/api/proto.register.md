@@ -2,7 +2,7 @@
 weight: 20
 id: proto-register
 title: proto.register
-template: api.jade
+template: doc.jade
 ---
 
 It can be accessed with `carcass.proto.register`. It is an object:

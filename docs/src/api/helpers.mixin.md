@@ -2,7 +2,7 @@
 weight: 10
 id: helpers-mixin
 title: helpers.mixin
-template: api.jade
+template: doc.jade
 ---
 
 "Mixin" is the major way we do code sharing. It simply merges the attributes from a given object to `this`. Because it uses `this` it needs to be attached to an object first. For example

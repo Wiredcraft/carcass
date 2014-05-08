@@ -1,0 +1,12 @@
+{
+    "api": {
+        "title": "API list",
+        "pattern": "api/*.md",
+        "sortBy": "weight"
+    },
+    "links": {
+        "title": "Links",
+        "pattern": "links/*.md",
+        "sortBy": "weight"
+    }
+}

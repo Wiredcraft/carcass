@@ -2,7 +2,7 @@
 weight: 1
 id: carcass-mixable
 title: carcass.mixable()
-template: api.jade
+template: doc.jade
 ---
 
 `carcass.mixable()` is used to make any given object "mixable", by simply attaching a [mixin()](#helpers.mixin) to it. For example

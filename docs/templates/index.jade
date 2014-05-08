@@ -15,7 +15,10 @@ html(lang='en')
                     ul.nav
                         for doc in coll
                             li
-                                a(href='##{doc.id}')= doc.title
+                                if doc.external
+                                    a.external(href='#{doc.external}', target='_blank')= doc.title
+                                else
+                                    a(href='##{doc.id}')= doc.title
         section#main
             section.hero
                 h1
@@ -26,7 +29,8 @@ html(lang='en')
                 section.details
                     a(id='#{key}', href='##{key}')
                     for doc in coll
-                        h2(id='#{doc.id}')
-                            = doc.title
-                            a(href='##{doc.id}')
-                        != doc.contents
+                        if !doc.external
+                            h2(id='#{doc.id}')
+                                = doc.title
+                                a(href='##{doc.id}')
+                            != doc.contents

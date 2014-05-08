@@ -2,7 +2,7 @@
 weight: 0
 id: lib
 title: 3rd-party libraries
-template: api.jade
+template: doc.jade
 ---
 
 * __carcass.highland__: [Highland](https://github.com/caolan/highland), a high-level streams library.
