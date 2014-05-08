@@ -25,9 +25,9 @@
   "homepage": "https://github.com/Wiredcraft/carcass",
   "dependencies": {
     "debug": "*",
-    "es5-ext": "~0.10.1",
+    "es5-ext": "~0.10.4",
     "es6-shim": "~0.10.1",
-    "highland": "~1.22.0",
+    "highland": "~1.24.0",
     "highland-array": "~0.1.0",
     "postal": "~0.8.11",
     "uid2": "*"
@@ -41,7 +41,8 @@
     "gulp-mocha": "latest",
     "gulp-util": "latest",
     "jshint-stylish": "latest",
-    "should": "latest"
+    "should": "latest",
+    "through2": "1.x"
   },
   "scripts": {}
 }
