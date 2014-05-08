@@ -1,4 +1,10 @@
 
+0.11.1 / 2014-05-08
+==================
+
+ * Added highland.pipeThrough(); easier to pipe around.
+ * Improved accessor; possible to have only a function as the options.
+
 0.11.0 / 2014-04-23
 ==================
 
