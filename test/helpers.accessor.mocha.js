@@ -59,6 +59,24 @@ describe('Carcass / helpers / accessor:', function() {
         });
     });
 
+    describe('Or a default value in another syntax:', function() {
+        var obj = {
+            lorem: accessor('_lorem', function() {
+                return false;
+            })
+        };
+
+        it('should have a default value', function() {
+            obj.lorem().should.equal(false);
+        });
+
+        it('can have a different value', function() {
+            obj.lorem(true).should.equal(obj);
+            obj.lorem().should.equal(true);
+            obj._lorem.should.equal(true);
+        });
+    });
+
     describe('Plus a pre hook:', function() {
         var obj = {
             lorem: accessor('_lorem', {

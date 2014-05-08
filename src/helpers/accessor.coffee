@@ -1,16 +1,18 @@
 validValue = require('es5-ext/object/valid-value')
+isFunction = require('es5-ext/function/is-function')
 
 ###*
  * Builds an accessor.
  *
  * @param {String} key
- * @param {Object} options
+ * @param {Function|Object} hooks, either the getDefault() hook or a set of
+ *   hooks
  *
- * @option options {Function} getDefault: can be used to provide a default
- *   value when there's no value set already.
- * @option options {Function} pre: can be used to do whatever before the value
+ * @option hooks {Function} getDefault: can be used to provide a default value
+ *   when there's no value set already.
+ * @option hooks {Function} pre: can be used to do whatever before the value
  *   is set. Note that if it presents, the return value will be used.
- * @option options {Function} post: can be used to do whatever after the value
+ * @option hooks {Function} post: can be used to do whatever after the value
  *   is set.
  *
  * @return {Function} an accessor
@@ -18,6 +20,8 @@ validValue = require('es5-ext/object/valid-value')
 module.exports = accessor = (key, options = {}) ->
 
     validValue(key)
+
+    options = { getDefault: options } if isFunction(options)
 
     ###*
      * A simple accessor.
