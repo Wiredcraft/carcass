@@ -1,1 +1,1 @@
-module.exports = require('postal')()
+module.exports = require('postal')

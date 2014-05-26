@@ -26,10 +26,10 @@
   "dependencies": {
     "debug": "*",
     "es5-ext": "~0.10.4",
-    "es6-shim": "~0.10.1",
-    "highland": "~1.24.0",
+    "es6-shim": "~0.11.0",
+    "highland": "~1.25.1",
     "highland-array": "~0.1.0",
-    "postal": "~0.8.11",
+    "postal": "~0.9.1",
     "uid2": "*"
   },
   "devDependencies": {

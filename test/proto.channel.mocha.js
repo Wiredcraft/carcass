@@ -65,7 +65,7 @@ describe('Carcass / proto / channel:', function() {
             sub.should.be.type('object');
             sub.should.have.property('channel', 'lorem');
             sub.should.have.property('topic', '*');
-            sub.should.have.property('callback', consumer);
+            sub.should.have.property('callback');
             sub.should.have.property('unsubscribe');
         });
 
