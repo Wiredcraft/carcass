@@ -1,4 +1,10 @@
 
+0.11.3 / 2014-05-30
+==================
+
+ * Updated to postal 0.10.
+ * Updated highland to 1.25.4; flatMap() is not that useful now.
+
 0.11.2 / 2014-05-26
 ==================
 
