@@ -27,7 +27,7 @@
     "debug": "*",
     "es5-ext": "~0.10.4",
     "es6-shim": "~0.11.0",
-    "highland": "~1.25.1",
+    "highland": "~1.25.4",
     "highland-array": "~0.1.0",
     "postal": "~0.9.1",
     "uid2": "*"

@@ -8,7 +8,7 @@ isFunction = require('es5-ext/function/is-function')
 
 ###*
  * Builds a processor, which can be used to process a series of tasks, with the
- *   highland `flatMap()` function.
+ *   highland `map()` function.
  *
  * @param {Object} context the `this` value when the tasks are invoked; can be
  *   null; can be overridden by the individual tasks.
@@ -25,7 +25,7 @@ module.exports = (context) ->
     ###
     return (tasks) ->
         self = context ? @
-        return _(tasks).flatMap((task) ->
+        return _(tasks).map((task) ->
             # debug('mapping', task)
             # Can be a string, in which case it is invoked with no arguments.
             if isString(task)
@@ -52,4 +52,4 @@ module.exports = (context) ->
                 return _invoke(task.context ? self)
             # Otherwise ignore.
             return
-        ).compact()
+        ).flatten().compact()
