@@ -1,4 +1,9 @@
 
+0.11.4 / 2014-06-05
+==================
+
+ * Updated packages. Now use precise versions for dependencies.
+
 0.11.3 / 2014-05-30
 ==================
 
