@@ -24,12 +24,12 @@
   },
   "homepage": "https://github.com/Wiredcraft/carcass",
   "dependencies": {
-    "debug": "*",
-    "es5-ext": "~0.10.4",
-    "es6-shim": "~0.11.0",
-    "highland": "~1.25.4",
-    "highland-array": "~0.1.0",
-    "postal": "~0.10.0",
+    "debug": "1.x",
+    "es5-ext": "0.10.4",
+    "es6-shim": "0.12.0",
+    "highland": "1.25.4",
+    "highland-array": "0.1.0",
+    "postal": "0.10.0",
     "uid2": "*"
   },
   "devDependencies": {
