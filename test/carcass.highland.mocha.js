@@ -1,4 +1,4 @@
-// var debug = require('debug')('carcass:test');
+var debug = require('debug')('carcass:test');
 
 var should = require('should');
 var highland = require('../lib/highland');
@@ -124,6 +124,7 @@ describe('Carcass / highland:', function() {
             stream.should.be.type('object');
             stream.should.have.property('pull').with.type('function');
             stream.pull(function(err, res) {
+                debug('err', err);
                 should.exist(err);
                 should.not.exist(res);
                 done();
@@ -135,6 +136,7 @@ describe('Carcass / highland:', function() {
             stream.should.be.type('object');
             stream.should.have.property('pull').with.type('function');
             stream.pull(function(err, res) {
+                debug('err', err);
                 should.exist(err);
                 should.not.exist(res);
                 done();
@@ -146,6 +148,7 @@ describe('Carcass / highland:', function() {
             stream.should.be.type('object');
             stream.should.have.property('pull').with.type('function');
             stream.on('error', function(err) {
+                debug('err', err);
                 should.exist(err);
                 done();
             }).toArray(function() {});
