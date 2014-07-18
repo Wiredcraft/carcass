@@ -24,6 +24,7 @@
   },
   "homepage": "https://github.com/Wiredcraft/carcass",
   "dependencies": {
+    "build-http-error": "0.1.0",
     "debug": "1.x",
     "es5-ext": "0.10.4",
     "es6-shim": "0.13.0",

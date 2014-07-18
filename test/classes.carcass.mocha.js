@@ -39,6 +39,7 @@ describe('Classes / Carcass:', function() {
             lorem.should.have.property('mixable').with.type('function');
             lorem.should.have.property('highland').with.type('function');
             lorem.should.have.property('postal').with.type('object');
+            lorem.should.have.property('httpError').with.type('function');
         });
 
         it('should export some classes', function() {

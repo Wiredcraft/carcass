@@ -44,6 +44,13 @@ module.exports = class Carcass
     ###
     postal: require('../postal')
 
+    ###*
+     * A tool that builds an HTTP error with something.
+     *
+     * @see `npm info build-http-error`
+    ###
+    httpError: require('build-http-error')
+
 ###*
  * Mixins.
 ###
