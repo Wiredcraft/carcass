@@ -1,4 +1,10 @@
 
+0.11.5 / 2014-07-18
+==================
+
+ * Integrated build-http-error.
+ * Added coffeelint.json and gulp lint.
+
 0.11.4 / 2014-06-05
 ==================
 
