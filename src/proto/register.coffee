@@ -74,7 +74,8 @@ walk = (leaf, dir, name) ->
         # But do not override.
         return if not isObject(leaf[name])
         # Walk recursively.
-        walk(leaf[name], subPath, filename) for filename in files
+        files.map (filename) ->
+            walk(leaf[name], subPath, filename)
     # TODO: what else?
 
 ###*
