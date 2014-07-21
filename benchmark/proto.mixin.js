@@ -67,7 +67,7 @@ describe('Proto / mixin:', function() {
             };
             obj.mixin(lorem).mixin(ipsum);
         });
-        suite.on('start', function(event) {
+        suite.on('start', function() {
             debug('started');
         }).on('cycle', function(event) {
             debug(String(event.target));

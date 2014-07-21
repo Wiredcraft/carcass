@@ -27,7 +27,7 @@
     "build-http-error": "0.1.0",
     "debug": "1.x",
     "es5-ext": "0.10.4",
-    "es6-shim": "0.13.0",
+    "es6-shim": "0.14.0",
     "highland": "1.26.3",
     "highland-array": "0.2.0",
     "postal": "0.10.1",

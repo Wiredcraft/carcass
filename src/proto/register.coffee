@@ -76,6 +76,7 @@ walk = (leaf, dir, name) ->
         # Walk recursively.
         walk(leaf[name], subPath, filename) for filename in files
     # TODO: what else?
+    return
 
 ###*
  * Defines a getter, which is simply a require(). Returns nothing.
@@ -94,4 +95,4 @@ _reg = (leaf, name, filepath) ->
                 debug('loading %s.', filepath)
             return require(filepath)
     })
-    return true
+    return

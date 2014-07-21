@@ -47,7 +47,7 @@ describe('Proto / loader:', function() {
         suite.add('Loader returns an object using prototype', function() {
             return LoaderC('lorem');
         });
-        suite.on('start', function(event) {
+        suite.on('start', function() {
             debug('started');
         }).on('cycle', function(event) {
             debug(String(event.target));
@@ -71,7 +71,7 @@ describe('Proto / loader:', function() {
         suite.add('Loader returns an object using prototype', function() {
             c.reload();
         });
-        suite.on('start', function(event) {
+        suite.on('start', function() {
             debug('started');
         }).on('cycle', function(event) {
             debug(String(event.target));
