@@ -25,12 +25,12 @@
   "homepage": "https://github.com/Wiredcraft/carcass",
   "dependencies": {
     "build-http-error": "0.1.0",
-    "debug": "1.x",
+    "debug": "2.x",
     "es5-ext": "0.10.4",
-    "es6-shim": "0.14.0",
-    "highland": "1.26.3",
+    "es6-shim": "0.20.2",
+    "highland": "2.0.0",
     "highland-array": "0.2.0",
-    "postal": "0.10.1",
+    "postal": "0.10.3",
     "uid2": "*"
   },
   "devDependencies": {
