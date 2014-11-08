@@ -1,6 +1,6 @@
 {
     "arrow_spacing": {
-        "level": "ignore"
+        "level": "warn"
     },
     "camel_case_classes": {
         "level": "error"
@@ -16,7 +16,7 @@
         }
     },
     "cyclomatic_complexity": {
-        "value": 10,
+        "value": 22,
         "level": "warn"
     },
     "duplicate_key": {
@@ -34,7 +34,7 @@
         "value": "unix"
     },
     "max_line_length": {
-        "value": 100,
+        "value": 120,
         "level": "warn",
         "limitComments": true
     },
@@ -96,6 +96,10 @@
     },
     "non_empty_constructor_needs_parens": {
         "level": "warn"
+    },
+    "prefer_english_operator": {
+        "level": "ignore",
+        "doubleNotLevel": "ignore"
     },
     "space_operators": {
         "level": "warn"
