@@ -1,4 +1,13 @@
 
+0.12.0 / 2014-11-08
+==================
+
+  * Slightly changed coffee lint file to be more close to Github's.
+  * Fixed license.
+  * Updated modules.
+  * Added gulp-coverage.
+  * Changed a few functions to explicitly return nothing.
+
 0.11.5 / 2014-07-18
 ==================
 

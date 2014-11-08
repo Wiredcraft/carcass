@@ -17,17 +17,17 @@ __Caution__: Everything will be reviewed before 1.0 release. That means nothing 
 Output of `git summary`. See [Git Extras](https://github.com/visionmedia/git-extras).
 
 ```
-project  : carcass (0.11.1)
-repo age : 1 year, 5 months
-active   : 142 days
-commits  : 322
-files    : 96
+project  : carcass (0.12.0)
+repo age : 1 year, 11 months
+active   : 149 days
+commits  : 339
+files    : 104
 authors  :
-  299  Makara Wang             92.9%
-    9  Zhou Honglin            2.8%
-    8  xeodou                  2.5%
-    4  frankdou                1.2%
-    2  Vincent Viallet         0.6%
+  316  Makara Wang      93.2%
+    9  Zhou Honglin     2.7%
+    8  xeodou           2.4%
+    4  frankdou         1.2%
+    2  Vincent Viallet  0.6%
 ```
 
 ## License
