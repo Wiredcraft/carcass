@@ -38,6 +38,7 @@
     "gulp": "latest",
     "gulp-coffee": "latest",
     "gulp-coffeelint": "latest",
+    "gulp-coverage": "latest",
     "gulp-jshint": "latest",
     "gulp-mocha": "latest",
     "gulp-util": "latest",

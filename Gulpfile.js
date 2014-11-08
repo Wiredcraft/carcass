@@ -8,6 +8,7 @@ var coffee = require('gulp-coffee');
 var coffeelint = require('gulp-coffeelint');
 var jshint = require('gulp-jshint');
 var mocha = require('gulp-mocha');
+var coverage = require('gulp-coverage');
 
 // Files.
 var src = 'src/**/*.coffee';
@@ -39,8 +40,15 @@ gulp.task('jshint', function() {
 // Run tests.
 gulp.task('mocha', ['coffee'], function() {
     return gulp.src(tests)
+        .pipe(coverage.instrument({
+            pattern: ['lib/**/*.js'],
+            debugDirectory: 'test/debug'
+        }))
         .pipe(mocha({
             reporter: 'spec'
+        }))
+        .pipe(coverage.report({
+            outFile: 'test/coverage.html'
         }));
 });
 
